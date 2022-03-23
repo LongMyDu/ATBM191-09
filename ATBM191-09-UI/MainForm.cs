@@ -95,9 +95,14 @@ namespace ATBM191_09_UI
             // Mở form TableControl, nếu chưa tồn tại hoặc đã bị tắt thì tạo form mới
             if (tableControlForm == null || tableControlForm.IsDisposed == true)
             {
-                tableControlForm = new TableControl();
+                tableControlForm = new TableControl(con);
             }
             tableControlForm.Show();
+        }
+
+        private void header_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

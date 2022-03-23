@@ -37,8 +37,8 @@
             this.main_panel = new System.Windows.Forms.Panel();
             this.main_datagridview = new System.Windows.Forms.DataGridView();
             this.header_panel = new System.Windows.Forms.Panel();
-            this.header_label = new System.Windows.Forms.Label();
             this.new_button = new System.Windows.Forms.Button();
+            this.header_label = new System.Windows.Forms.Label();
             this.Nav_panel.SuspendLayout();
             this.main_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).BeginInit();
@@ -54,10 +54,11 @@
             this.Nav_panel.Controls.Add(this.button3);
             this.Nav_panel.Controls.Add(this.button4);
             this.Nav_panel.Controls.Add(this.table_button);
+            this.Nav_panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.Nav_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.Nav_panel.Location = new System.Drawing.Point(0, 0);
             this.Nav_panel.Name = "Nav_panel";
-            this.Nav_panel.Size = new System.Drawing.Size(207, 448);
+            this.Nav_panel.Size = new System.Drawing.Size(207, 450);
             this.Nav_panel.TabIndex = 2;
             this.Nav_panel.WrapContents = false;
             // 
@@ -102,7 +103,6 @@
             // button3
             // 
             this.button3.AutoSize = true;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
@@ -160,41 +160,41 @@
             // main_panel
             // 
             this.main_panel.AutoSize = true;
+            this.main_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.main_panel.Controls.Add(this.header_panel);
             this.main_panel.Controls.Add(this.main_datagridview);
-            this.main_panel.Location = new System.Drawing.Point(206, 85);
+            this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(594, 366);
+            this.main_panel.Size = new System.Drawing.Size(800, 450);
             this.main_panel.TabIndex = 3;
             // 
             // main_datagridview
             // 
+            this.main_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_datagridview.Location = new System.Drawing.Point(10, 4);
+            this.main_datagridview.Location = new System.Drawing.Point(206, 83);
             this.main_datagridview.Name = "main_datagridview";
-            this.main_datagridview.Size = new System.Drawing.Size(572, 359);
+            this.main_datagridview.Size = new System.Drawing.Size(597, 371);
             this.main_datagridview.TabIndex = 0;
             // 
             // header_panel
             // 
-            this.header_panel.AutoSize = true;
-            this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.header_panel.BackColor = System.Drawing.Color.White;
             this.header_panel.Controls.Add(this.new_button);
             this.header_panel.Controls.Add(this.header_label);
             this.header_panel.Location = new System.Drawing.Point(206, 0);
             this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(594, 85);
+            this.header_panel.Size = new System.Drawing.Size(594, 83);
             this.header_panel.TabIndex = 2;
-            // 
-            // header_label
-            // 
-            this.header_label.AutoSize = true;
-            this.header_label.Location = new System.Drawing.Point(7, 9);
-            this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(35, 13);
-            this.header_label.TabIndex = 0;
-            this.header_label.Text = "label1";
+            this.header_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.header_panel_Paint);
             // 
             // new_button
             // 
@@ -206,12 +206,20 @@
             this.new_button.UseVisualStyleBackColor = true;
             this.new_button.Click += new System.EventHandler(this.new_button_Click);
             // 
+            // header_label
+            // 
+            this.header_label.AutoSize = true;
+            this.header_label.Location = new System.Drawing.Point(7, 9);
+            this.header_label.Name = "header_label";
+            this.header_label.Size = new System.Drawing.Size(35, 13);
+            this.header_label.TabIndex = 0;
+            this.header_label.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.header_panel);
             this.Controls.Add(this.Nav_panel);
             this.Controls.Add(this.main_panel);
             this.Name = "MainForm";

@@ -17,20 +17,55 @@ namespace ATBM191_09_UI
         {
             public String username;            
             public String password;
+            public List<String> grantedRoles = new List<string>();
+            public List<String> adminRoles = new List<string>();
+
         }
 
         UserProperties userProperties;
         public UserControl()
         {
             InitializeComponent();
-            userProperties = new UserProperties();
             LoadRoles();
         }
 
-        private void getInput()
+        private bool getInput()
         {
+            userProperties = new UserProperties();
+
             userProperties.username = username_textbox.Text.ToUpper();
             userProperties.password = password_textbox.Text;
+
+            if (userProperties.username == "" || userProperties.password == "")
+            {
+                return false;
+            }
+
+            foreach (DataGridViewRow row in role_datagridview.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Granted"].Value) == true)
+                {
+                    MessageBox.Show(row.Cells["ROLE"].Value.ToString());
+                    userProperties.grantedRoles.Add(row.Cells["ROLE"].Value.ToString());
+                }
+                if (Convert.ToBoolean(row.Cells["Admin"].Value) == true)
+                {
+                    userProperties.adminRoles.Add(row.Cells["ROLE"].Value.ToString());
+                }
+            }
+            return true;
+        }
+
+        private void addCheckboxColumn(DataGridView gridView, String columnName)
+        {
+            DataGridViewCheckBoxColumn checkboxColumn = new DataGridViewCheckBoxColumn();
+            checkboxColumn.Name = columnName;
+
+            int columnIndex = gridView.ColumnCount;
+            if (gridView.Columns[columnName] == null)
+            {
+                gridView.Columns.Insert(columnIndex, checkboxColumn);
+            }
         }
 
         private void LoadRoles()
@@ -42,9 +77,12 @@ namespace ATBM191_09_UI
             if (dataSet != null)
             {
                 role_datagridview.DataSource = dataSet.Tables[0].DefaultView;
-
+                // Thêm granted checkbox
+                addCheckboxColumn(role_datagridview, "Granted");
+                addCheckboxColumn(role_datagridview, "Admin");
             }
         }
+        
 
         private bool CreateUser()
         {
@@ -61,8 +99,8 @@ namespace ATBM191_09_UI
 
         private void create_button_Click(object sender, EventArgs e)
         {
-            getInput();
-            CreateUser();
+            if (getInput())
+                CreateUser();
         }
     }
 }

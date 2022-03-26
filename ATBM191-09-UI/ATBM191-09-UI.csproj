@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +66,12 @@
     </Compile>
     <Compile Include="TableControl.Designer.cs">
       <DependentUpon>TableControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl.Designer.cs">
+      <DependentUpon>UserControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -80,6 +87,9 @@
     </Compile>
     <EmbeddedResource Include="TableControl.resx">
       <DependentUpon>TableControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl.resx">
+      <DependentUpon>UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.DataAccess.Client;
+using ATBM191_09_UI.DAO;
 
 namespace ATBM191_09_UI
 {
-    
-
     public partial class TableControl : Form
     {
-        public class TableProperties
+        public class ColProperty
         {
             public String name;
             public Boolean PK;
@@ -23,27 +22,25 @@ namespace ATBM191_09_UI
             public String dataType;
             public String colSize;
         }
-        List<TableProperties> colsProperties;
+        List<ColProperty> colsProperties;
         String tableName;
-        OracleConnection con;
 
-        public TableControl(OracleConnection con)
+        public TableControl()
         {
             InitializeComponent();
-            this.con = con;
         }
 
-        private void getData()
+        private void getInput()
         {
             tableName = table_name_textbox.Text;
 
-            colsProperties = new List<TableProperties>();
+            colsProperties = new List<ColProperty>();
             foreach (DataGridViewRow dr in dataGridView1.Rows)
             {
                 if (dr.Cells["ColName"].Value != null)
                 { 
 
-                TableProperties item = new TableProperties();
+                ColProperty item = new ColProperty();
                 
                 item.name = dr.Cells["ColName"].Value.ToString();
                 item.dataType = dr.Cells["DataType"].Value.ToString().ToUpper();
@@ -65,7 +62,6 @@ namespace ATBM191_09_UI
 
         private bool CreateTable()
         {
-           
             String oracleCmd = $"CREATE TABLE {tableName.ToUpper()} (";
             for (int i = 0; i<colsProperties.Count; i++)
             {
@@ -110,26 +106,20 @@ namespace ATBM191_09_UI
             }
             oracleCmd += "))";
             MessageBox.Show(oracleCmd, "debug");
-            Clipboard.SetText(oracleCmd);
-
-            OracleCommand getTableMetadataCmd = new OracleCommand(oracleCmd, con);
-            try
+            
+            object count = DataProvider.Instance.ExecuteScalar(oracleCmd);                
+            if (count == null)
             {
-                object count = getTableMetadataCmd.ExecuteScalar();                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Tạo bảng không thành công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
             MessageBox.Show("Tạo bảng thành công", "Thành công", MessageBoxButtons.OK);
             return true;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            getData();
+            getInput();
             CreateTable();
         }
     }

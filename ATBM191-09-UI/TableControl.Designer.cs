@@ -43,7 +43,7 @@
             // table_name_label
             // 
             this.table_name_label.AutoSize = true;
-            this.table_name_label.Location = new System.Drawing.Point(13, 13);
+            this.table_name_label.Location = new System.Drawing.Point(13, 22);
             this.table_name_label.Name = "table_name_label";
             this.table_name_label.Size = new System.Drawing.Size(66, 13);
             this.table_name_label.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // table_name_textbox
             // 
-            this.table_name_textbox.Location = new System.Drawing.Point(86, 5);
+            this.table_name_textbox.Location = new System.Drawing.Point(85, 19);
             this.table_name_textbox.Name = "table_name_textbox";
             this.table_name_textbox.Size = new System.Drawing.Size(307, 20);
             this.table_name_textbox.TabIndex = 1;
@@ -68,7 +68,7 @@
             this.NotNull});
             this.dataGridView1.Location = new System.Drawing.Point(16, 53);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(546, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(772, 385);
             this.dataGridView1.TabIndex = 2;
             // 
             // PK
@@ -98,11 +98,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(592, 77);
+            this.button1.Location = new System.Drawing.Point(398, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

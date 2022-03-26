@@ -80,7 +80,6 @@
             this.button1.Text = "Administrator";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
-
             // 
             // button2
             // 
@@ -100,6 +99,7 @@
             this.button2.Text = "Users";
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.User_Button_Click);
             // 
             // button3
             // 
@@ -156,7 +156,7 @@
             this.table_button.Text = "Tables";
             this.table_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.table_button.UseVisualStyleBackColor = true;
-            this.table_button.Click += new System.EventHandler(this.table_button_Click);
+            this.table_button.Click += new System.EventHandler(this.Table_Button_Click);
             // 
             // main_panel
             // 
@@ -192,7 +192,7 @@
             this.new_button.TabIndex = 1;
             this.new_button.Text = "+ New";
             this.new_button.UseVisualStyleBackColor = true;
-            this.new_button.Click += new System.EventHandler(this.new_button_Click);
+            this.new_button.Click += new System.EventHandler(this.New_button_Click);
             // 
             // header_label
             // 

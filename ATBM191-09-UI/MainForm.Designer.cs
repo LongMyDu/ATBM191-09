@@ -35,14 +35,14 @@
             this.button4 = new System.Windows.Forms.Button();
             this.table_button = new System.Windows.Forms.Button();
             this.main_panel = new System.Windows.Forms.Panel();
-            this.main_datagridview = new System.Windows.Forms.DataGridView();
             this.header_panel = new System.Windows.Forms.Panel();
             this.new_button = new System.Windows.Forms.Button();
             this.header_label = new System.Windows.Forms.Label();
+            this.main_datagridview = new System.Windows.Forms.DataGridView();
             this.Nav_panel.SuspendLayout();
             this.main_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).BeginInit();
             this.header_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).BeginInit();
             this.SuspendLayout();
             // 
             // Nav_panel
@@ -80,6 +80,7 @@
             this.button1.Text = "Administrator";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
+
             // 
             // button2
             // 
@@ -170,18 +171,6 @@
             this.main_panel.Size = new System.Drawing.Size(800, 450);
             this.main_panel.TabIndex = 3;
             // 
-            // main_datagridview
-            // 
-            this.main_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_datagridview.Location = new System.Drawing.Point(206, 83);
-            this.main_datagridview.Name = "main_datagridview";
-            this.main_datagridview.Size = new System.Drawing.Size(597, 371);
-            this.main_datagridview.TabIndex = 0;
-            // 
             // header_panel
             // 
             this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -194,7 +183,6 @@
             this.header_panel.Name = "header_panel";
             this.header_panel.Size = new System.Drawing.Size(594, 83);
             this.header_panel.TabIndex = 2;
-            this.header_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.header_panel_Paint);
             // 
             // new_button
             // 
@@ -215,6 +203,18 @@
             this.header_label.TabIndex = 0;
             this.header_label.Text = "label1";
             // 
+            // main_datagridview
+            // 
+            this.main_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.main_datagridview.Location = new System.Drawing.Point(206, 83);
+            this.main_datagridview.Name = "main_datagridview";
+            this.main_datagridview.Size = new System.Drawing.Size(597, 371);
+            this.main_datagridview.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,9 +227,9 @@
             this.Nav_panel.ResumeLayout(false);
             this.Nav_panel.PerformLayout();
             this.main_panel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).EndInit();
             this.header_panel.ResumeLayout(false);
             this.header_panel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

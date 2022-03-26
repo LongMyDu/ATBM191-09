@@ -13,16 +13,18 @@ namespace ATBM191_09_UI
 {
     public partial class MainForm : Form
     {
-        string ConString = "Data Source=XEPDB1;User Id=QLCSYTE_ADMIN;Password=qlcsyteadmin;";
+        string ConString = "Data Source=XEPDB1;User Id=QLCSYTE_ADMIN;Password=qlcsyteadin;";
         OracleConnection con;
         TableControl tableControlForm = null;
+        int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Views, 3: Tables
 
         public MainForm()
         {
             InitializeComponent();
             if (!ConnectOracle())
             {
-                return;
+                MessageBox.Show("Không thể kết nối tới Oracle DB.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
         }
 
@@ -37,7 +39,7 @@ namespace ATBM191_09_UI
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
                 return false;
             }
         }
@@ -86,11 +88,30 @@ namespace ATBM191_09_UI
 
         private void table_button_Click(object sender, EventArgs e)
         {
+            currentOption = 3;
             header_label.Text = "Danh sách table của hệ thống";
             LoadTables();
         }
-
+        
         private void new_button_Click(object sender, EventArgs e)
+        {
+            switch (currentOption)
+            { 
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    create_table();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void create_table()
         {
             // Mở form TableControl, nếu chưa tồn tại hoặc đã bị tắt thì tạo form mới
             if (tableControlForm == null || tableControlForm.IsDisposed == true)
@@ -98,11 +119,6 @@ namespace ATBM191_09_UI
                 tableControlForm = new TableControl(con);
             }
             tableControlForm.Show();
-        }
-
-        private void header_panel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

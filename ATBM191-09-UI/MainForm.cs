@@ -16,16 +16,11 @@ namespace ATBM191_09_UI
     {        
         TableControl tableControlForm = null;
         UserControl userControlForm = null;
-        int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Views, 3: Tables
+        int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Tables, 3: Views
 
         public MainForm()
         {
-            InitializeComponent();
-            //if (!ConnectOracle())
-            //{
-            //    MessageBox.Show("Không thể kết nối tới Oracle DB.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    this.Close();
-            //}
+            InitializeComponent();           
         }
 
         private void Display_MainDataGridView(DataSet dataSet)
@@ -57,7 +52,7 @@ namespace ATBM191_09_UI
 
         private void Table_Button_Click(object sender, EventArgs e)
         {            
-            currentOption = 3;  // Set chức năng hiện tại là Tables
+            currentOption = 2;  // Set chức năng hiện tại là Tables
             header_label.Text = "Danh sách table của hệ thống";
             LoadTables();
         }
@@ -72,9 +67,9 @@ namespace ATBM191_09_UI
                 case 1:
                     break;
                 case 2:
+                    CreateTable();
                     break;
                 case 3:
-                    CreateTable();
                     break;
                 default:
                     break;
@@ -104,11 +99,10 @@ namespace ATBM191_09_UI
                 viewDetailButtonColumn.Text = "Chi tiết";
                 viewDetailButtonColumn.UseColumnTextForButtonValue = true;
                 main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
-
-                int columnIndex = main_datagridview.ColumnCount;
+              
                 if (main_datagridview.Columns["viewDetailButton"] == null)
                 {
-                    main_datagridview.Columns.Insert(columnIndex, viewDetailButtonColumn);
+                    main_datagridview.Columns.Add(viewDetailButtonColumn);
                 }
             }
         }

@@ -35,14 +35,14 @@
             this.password_textbox = new System.Windows.Forms.TextBox();
             this.password_label = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.roles_tab = new System.Windows.Forms.TabPage();
+            this.tables_tab = new System.Windows.Forms.TabPage();
+            this.table_datagridview = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.role_datagridview)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.roles_tab.SuspendLayout();
+            this.tables_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.table_datagridview)).BeginInit();
             this.SuspendLayout();
             // 
             // create_button
@@ -73,6 +73,7 @@
             // 
             // role_datagridview
             // 
+            this.role_datagridview.AllowUserToAddRows = false;
             this.role_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.role_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.role_datagridview.Location = new System.Drawing.Point(6, 6);
@@ -98,43 +99,43 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.roles_tab);
+            this.tabControl1.Controls.Add(this.tables_tab);
             this.tabControl1.Location = new System.Drawing.Point(15, 94);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(773, 344);
             this.tabControl1.TabIndex = 10;
             // 
-            // tabPage1
+            // roles_tab
             // 
-            this.tabPage1.Controls.Add(this.role_datagridview);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(765, 318);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.roles_tab.Controls.Add(this.role_datagridview);
+            this.roles_tab.Location = new System.Drawing.Point(4, 22);
+            this.roles_tab.Name = "roles_tab";
+            this.roles_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.roles_tab.Size = new System.Drawing.Size(765, 318);
+            this.roles_tab.TabIndex = 0;
+            this.roles_tab.Text = "Roles";
+            this.roles_tab.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tables_tab
             // 
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(765, 318);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tables_tab.Controls.Add(this.table_datagridview);
+            this.tables_tab.Location = new System.Drawing.Point(4, 22);
+            this.tables_tab.Name = "tables_tab";
+            this.tables_tab.Padding = new System.Windows.Forms.Padding(3);
+            this.tables_tab.Size = new System.Drawing.Size(765, 318);
+            this.tables_tab.TabIndex = 1;
+            this.tables_tab.Text = "Tables & Views";
+            this.tables_tab.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // table_datagridview
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(7, 7);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(752, 305);
-            this.dataGridView2.TabIndex = 0;
+            this.table_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table_datagridview.Location = new System.Drawing.Point(7, 7);
+            this.table_datagridview.Name = "table_datagridview";
+            this.table_datagridview.Size = new System.Drawing.Size(752, 305);
+            this.table_datagridview.TabIndex = 0;
             // 
             // UserControl
             // 
@@ -151,9 +152,9 @@
             this.Text = "UserControl";
             ((System.ComponentModel.ISupportInitialize)(this.role_datagridview)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.roles_tab.ResumeLayout(false);
+            this.tables_tab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.table_datagridview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,8 +169,8 @@
         private System.Windows.Forms.TextBox password_textbox;
         private System.Windows.Forms.Label password_label;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.TabPage roles_tab;
+        private System.Windows.Forms.TabPage tables_tab;
+        private System.Windows.Forms.DataGridView table_datagridview;
     }
 }

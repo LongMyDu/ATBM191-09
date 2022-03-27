@@ -37,8 +37,8 @@ namespace ATBM191_09_UI
             colsProperties = new List<ColProperty>();
             foreach (DataGridViewRow dr in dataGridView1.Rows)
             {
-                if (dr.Cells["ColName"].Value != null)
-                { 
+                if (dr.IsNewRow)
+                    continue;
 
                 ColProperty item = new ColProperty();
                 
@@ -55,7 +55,6 @@ namespace ATBM191_09_UI
                 colsProperties.Add(item);
                 
                 //MessageBox.Show(item.name + item.dataType + item.colSize + item.notNull + item.PK, "debug");
-                }
             }
 
         }

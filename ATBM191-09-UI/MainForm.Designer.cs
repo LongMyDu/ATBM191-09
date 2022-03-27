@@ -28,141 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Nav_panel = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.table_button = new System.Windows.Forms.Button();
             this.main_panel = new System.Windows.Forms.Panel();
             this.header_panel = new System.Windows.Forms.Panel();
             this.new_button = new System.Windows.Forms.Button();
             this.header_label = new System.Windows.Forms.Label();
             this.main_datagridview = new System.Windows.Forms.DataGridView();
-            this.Nav_panel.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.user_button = new System.Windows.Forms.Button();
+            this.role_button = new System.Windows.Forms.Button();
+            this.table_button = new System.Windows.Forms.Button();
+            this.view_button = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.main_panel.SuspendLayout();
             this.header_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Nav_panel
-            // 
-            this.Nav_panel.AutoSize = true;
-            this.Nav_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(150)))), ((int)(((byte)(170)))));
-            this.Nav_panel.Controls.Add(this.button1);
-            this.Nav_panel.Controls.Add(this.button2);
-            this.Nav_panel.Controls.Add(this.button3);
-            this.Nav_panel.Controls.Add(this.button4);
-            this.Nav_panel.Controls.Add(this.table_button);
-            this.Nav_panel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Nav_panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.Nav_panel.Location = new System.Drawing.Point(0, 0);
-            this.Nav_panel.Name = "Nav_panel";
-            this.Nav_panel.Size = new System.Drawing.Size(207, 450);
-            this.Nav_panel.TabIndex = 2;
-            this.Nav_panel.WrapContents = false;
-            // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 7);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 7, 7, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Administrator";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.AutoSize = true;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 55);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 7, 7, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Users";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.User_Button_Click);
-            // 
-            // button3
-            // 
-            this.button3.AutoSize = true;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 103);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 7, 7, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 38);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Roles";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.AutoSize = true;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(3, 151);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 7, 7, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 38);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Views";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // table_button
-            // 
-            this.table_button.AutoSize = true;
-            this.table_button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.table_button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(53)))), ((int)(((byte)(65)))));
-            this.table_button.FlatAppearance.BorderSize = 0;
-            this.table_button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.table_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.table_button.Font = new System.Drawing.Font("Constantia", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table_button.ForeColor = System.Drawing.Color.White;
-            this.table_button.Location = new System.Drawing.Point(3, 199);
-            this.table_button.Margin = new System.Windows.Forms.Padding(3, 7, 7, 3);
-            this.table_button.Name = "table_button";
-            this.table_button.Size = new System.Drawing.Size(197, 38);
-            this.table_button.TabIndex = 2;
-            this.table_button.Text = "Tables";
-            this.table_button.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.table_button.UseVisualStyleBackColor = true;
-            this.table_button.Click += new System.EventHandler(this.Table_Button_Click);
             // 
             // main_panel
             // 
             this.main_panel.AutoSize = true;
             this.main_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.main_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(255)))));
+            this.main_panel.Controls.Add(this.panel1);
             this.main_panel.Controls.Add(this.header_panel);
             this.main_panel.Controls.Add(this.main_datagridview);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -176,17 +66,17 @@
             this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.header_panel.BackColor = System.Drawing.Color.White;
+            this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
             this.header_panel.Controls.Add(this.new_button);
             this.header_panel.Controls.Add(this.header_label);
-            this.header_panel.Location = new System.Drawing.Point(206, 0);
+            this.header_panel.Location = new System.Drawing.Point(199, 0);
             this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(594, 83);
+            this.header_panel.Size = new System.Drawing.Size(601, 80);
             this.header_panel.TabIndex = 2;
             // 
             // new_button
             // 
-            this.new_button.Location = new System.Drawing.Point(507, 56);
+            this.new_button.Location = new System.Drawing.Point(514, 51);
             this.new_button.Name = "new_button";
             this.new_button.Size = new System.Drawing.Size(75, 23);
             this.new_button.TabIndex = 1;
@@ -197,57 +87,162 @@
             // header_label
             // 
             this.header_label.AutoSize = true;
-            this.header_label.Location = new System.Drawing.Point(7, 9);
+            this.header_label.Font = new System.Drawing.Font("Open Sans Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header_label.ForeColor = System.Drawing.Color.White;
+            this.header_label.Location = new System.Drawing.Point(16, 28);
             this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(35, 13);
+            this.header_label.Size = new System.Drawing.Size(76, 28);
             this.header_label.TabIndex = 0;
-            this.header_label.Text = "label1";
+            this.header_label.Text = "HOME";
             // 
             // main_datagridview
             // 
+            this.main_datagridview.AllowUserToAddRows = false;
+            this.main_datagridview.AllowUserToDeleteRows = false;
             this.main_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_datagridview.Location = new System.Drawing.Point(206, 83);
+            this.main_datagridview.Location = new System.Drawing.Point(199, 80);
             this.main_datagridview.Name = "main_datagridview";
-            this.main_datagridview.Size = new System.Drawing.Size(597, 371);
+            this.main_datagridview.Size = new System.Drawing.Size(604, 374);
             this.main_datagridview.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.panel1.Controls.Add(this.view_button);
+            this.panel1.Controls.Add(this.table_button);
+            this.panel1.Controls.Add(this.role_button);
+            this.panel1.Controls.Add(this.user_button);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 450);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(58)))));
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 80);
+            this.panel2.TabIndex = 0;
+            // 
+            // user_button
+            // 
+            this.user_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.user_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.user_button.FlatAppearance.BorderSize = 0;
+            this.user_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.user_button.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.user_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.user_button.Location = new System.Drawing.Point(0, 80);
+            this.user_button.Name = "user_button";
+            this.user_button.Size = new System.Drawing.Size(200, 60);
+            this.user_button.TabIndex = 1;
+            this.user_button.Text = "Users";
+            this.user_button.UseVisualStyleBackColor = true;
+            this.user_button.Click += new System.EventHandler(this.User_Button_Click);
+            // 
+            // role_button
+            // 
+            this.role_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.role_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.role_button.FlatAppearance.BorderSize = 0;
+            this.role_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.role_button.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.role_button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.role_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.role_button.Location = new System.Drawing.Point(0, 140);
+            this.role_button.Name = "role_button";
+            this.role_button.Size = new System.Drawing.Size(200, 60);
+            this.role_button.TabIndex = 2;
+            this.role_button.Text = "Roles";
+            this.role_button.UseVisualStyleBackColor = true;
+            // 
+            // table_button
+            // 
+            this.table_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.table_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.table_button.FlatAppearance.BorderSize = 0;
+            this.table_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.table_button.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.table_button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.table_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.table_button.Location = new System.Drawing.Point(0, 200);
+            this.table_button.Name = "table_button";
+            this.table_button.Size = new System.Drawing.Size(200, 60);
+            this.table_button.TabIndex = 3;
+            this.table_button.Text = "Tables";
+            this.table_button.UseVisualStyleBackColor = true;
+            this.table_button.Click += new System.EventHandler(this.Table_Button_Click);
+            // 
+            // view_button
+            // 
+            this.view_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.view_button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.view_button.FlatAppearance.BorderSize = 0;
+            this.view_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.view_button.Font = new System.Drawing.Font("Open Sans Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.view_button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.view_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.view_button.Location = new System.Drawing.Point(0, 260);
+            this.view_button.Name = "view_button";
+            this.view_button.Size = new System.Drawing.Size(200, 60);
+            this.view_button.TabIndex = 4;
+            this.view_button.Text = "Views";
+            this.view_button.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Open Sans Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(3, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Administrator";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Nav_panel);
             this.Controls.Add(this.main_panel);
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.Nav_panel.ResumeLayout(false);
-            this.Nav_panel.PerformLayout();
             this.main_panel.ResumeLayout(false);
             this.header_panel.ResumeLayout(false);
             this.header_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel Nav_panel;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.Panel header_panel;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button table_button;
         private System.Windows.Forms.DataGridView main_datagridview;
         private System.Windows.Forms.Label header_label;
         private System.Windows.Forms.Button new_button;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button user_button;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button view_button;
+        private System.Windows.Forms.Button table_button;
+        private System.Windows.Forms.Button role_button;
+        private System.Windows.Forms.Label label1;
     }
 }
 

@@ -127,7 +127,7 @@ namespace ATBM191_09_UI
             {
                 table_datagridview.Rows.AddCopy(0);     //Tạo một dòng mới trong bảng
 
-                // Đổ data từ  userDetailsDataSet vào trong table grid view
+                // Đổ data từ userDetailsDataSet vào trong table grid view
                 DataRow objectPrivRow = userDetailsDataSet.Tables[0].Rows[i];
                 DataGridViewRow gridViewRow = table_datagridview.Rows[i];
                 gridViewRow.Cells["Tables"].Value = objectPrivRow["TABLE_NAME"].ToString();
@@ -138,26 +138,56 @@ namespace ATBM191_09_UI
                 gridViewRow.Cells["Tables"].ReadOnly = true;
                 gridViewRow.Cells["Privileges"].ReadOnly = true;
                 gridViewRow.Cells["Grantable"].ReadOnly = true;
-
             }
-
-            //Display_DataGridView(userDetailsDataSet, table_datagridview);
         }
 
         private void LoadSysPrivs()
         {
             privs_datagridview.Columns.Clear();
 
-            //Lấy danh sách system privileges
+            //Lấy danh sách system privileges 
             DataSet dataSet = DataProvider.Instance.ExecuteQuery(
-                "select name from system_privilege_map order by name");
+                @"select sp.name, upr.admin_option, upr.grantee 
+                    from system_privilege_map sp 
+                        left join dba_sys_privs upr 
+                        on (sp.name = upr.privilege and upr.grantee = '" + userProperties.username + "')" +
+                    "order by sp.name");
+
+            // Thêm các column
+            DataGridViewTextBoxColumn privNameColumn = new DataGridViewTextBoxColumn();
+            privNameColumn.HeaderText = "SYSTEM PRVILEGE";
+            privNameColumn.Name = "SysPrivs";
+            privs_datagridview.Columns.Add(privNameColumn);
+
+            addCheckboxColumn(privs_datagridview, "Granted");
+            addCheckboxColumn(privs_datagridview, "Admin");
+
+            privs_datagridview.Rows.Add();
+
             if (dataSet != null)
             {
-                privs_datagridview.DataSource = dataSet.Tables[0].DefaultView;
-                // Thêm granted checkbox
-                addCheckboxColumn(privs_datagridview, "Granted");
-                addCheckboxColumn(privs_datagridview, "Admin");
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    privs_datagridview.Rows.AddCopy(0);     //Tạo một dòng mới trong bảng
+
+                    // Đổ data từ userDetailsDataSet vào trong table grid view
+                    DataRow sysPrivRow = dataSet.Tables[0].Rows[i];
+                    DataGridViewRow gridViewRow = privs_datagridview.Rows[i];
+
+                    gridViewRow.Cells["SysPrivs"].Value = sysPrivRow["name"].ToString();
+                    gridViewRow.Cells["Granted"].Value = (sysPrivRow["grantee"] != null);
+                    gridViewRow.Cells["Admin"].Value = (sysPrivRow["admin_option"].ToString() == "YES");
+
+                    //Set readonly
+                    gridViewRow.Cells["SysPrivs"].ReadOnly = true;
+                    gridViewRow.Cells["Granted"].ReadOnly = true;
+                    gridViewRow.Cells["Admin"].ReadOnly = true;
+                }
+                    
+                
             }
+
+
         }
 
        

@@ -17,40 +17,72 @@ CREATE TABLE HSBAN_DV (
     KETQUA NVARCHAR2(200)
 );
 
-SELECT TABLE_NAME FROM user_tables; 
+create view vw_hsban as select * from hsban;
+create view vw_hsban_dv as select * from hsban_dv;
 
-SELECT to_char(DBMS_METADATA.get_ddl('TABLE', 'HSBAN', 'QLCSYTE_ADMIN')) FROM DUAL;
 
-select decode( t.table_name
-              , lag(t.table_name, 1) over(order by t.table_name)
-              , null
-             , t.table_name ) as table_name -- <- just to eliminate 
-      , t.column_name                       -- repeated tab_name    
-      , t.data_type
-      , cc.constraint_name
-      , uc.constraint_type
-   from user_tab_columns t
-        left join user_cons_columns cc
-          on (cc.table_name = t.table_name and
-              cc.column_name = t.column_name)
-        left join user_constraints uc
-          on (t.table_name = uc.table_name and
-              uc.constraint_name = cc.constraint_name );
- where t.table_name in ('HSBAN');
+create table nhanvien(manv number, hoten varchar2(50));
+
+insert into nhanvien values (1, 'My Du');
+insert into nhanvien values (2, 'Khanh Duy');
+insert into nhanvien values (3, 'Minh');
+insert into nhanvien values (4, 'Nhi');
+
+select * from nhanvien;
+
+
+SELECT
+*
+FROM
+ NHANVIEN   ;
  
-select decode( t.table_name
-                        , lag(t.table_name, 1) over(order by t.table_name)
-                        , null
-                        , t.table_name) as table_name
-                        , t.column_name
-                        , t.data_type
-                        , cc.constraint_name
-                        , uc.constraint_type
-                        from user_tab_columns t
-                            left join user_cons_columns cc
-                                on(cc.table_name = t.table_name and
-                                    cc.column_name = t.column_name)
-                            left join user_constraints uc
-                                on(t.table_name = uc.table_name and
-                                    uc.constraint_name = cc.constraint_name)
-                        where t.table_name in ('HSBAN'); 
+ commit;
+ 
+ 
+ SELECT * FROM USER_VIEWS
+
+select * from user_views;
+
+select column_id, 
+       owner as schema_name,
+       table_name, 
+       column_name, 
+       data_type, 
+       data_length, 
+       data_precision, 
+       data_scale, 
+       nullable
+from sys.all_tab_columns
+where owner = (select user from dual)
+order by table_name;
+
+select decode( col.table_name
+, lag(col.table_name, 1) over(order by col.table_name)
+, null
+, col.table_name ) view_name,
+col.column_name, 
+col.data_type, 
+col.data_length, 
+col.data_precision, 
+col.data_scale, 
+col.nullable
+from sys.all_tab_columns col
+inner join sys.all_views v on col.owner = (select user from dual)
+and col.table_name = v.view_name
+order by col.table_name;
+
+select decode( col.table_name
+, lag(col.table_name, 1) over(order by col.table_name)
+, null
+, col.table_name ) view_name,
+col.column_name, 
+col.data_type, 
+col.data_length, 
+col.data_precision, 
+col.data_scale, 
+col.nullable
+from sys.all_tab_columns col
+inner join sys.all_tables v on col.owner = (select user from dual)
+and col.table_name = v.table_name
+order by col.table_name;
+select * from sys.all_tables sat where sat.owner = (select user from dual);

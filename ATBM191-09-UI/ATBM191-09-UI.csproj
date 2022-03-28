@@ -36,9 +36,9 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=2.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
-    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -73,6 +73,12 @@
     <Compile Include="UserControl.Designer.cs">
       <DependentUpon>UserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControl.Designer.cs">
+      <DependentUpon>ViewControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl.resx">
       <DependentUpon>UserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControl.resx">
+      <DependentUpon>ViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

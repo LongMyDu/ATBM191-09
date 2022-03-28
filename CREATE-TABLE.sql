@@ -94,3 +94,5 @@ grant create any table to role_giaovu;
 from role_sys_privs rsp
 join dba_roles  dr on rsp.role = dr.role
 order by rsp.role;
+
+select granted_role, admin_option, default_role from USER_ROLE_PRIVS where USERNAME='QLCSYTE_ADMIN';

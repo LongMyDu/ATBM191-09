@@ -16,7 +16,7 @@ namespace ATBM191_09_UI
     {        
         TableControl tableControlForm = null;
         ViewControl viewControlForm = null;
-        UserControl userControlForm = null;
+        CreateUserControl createUserControlForm = null;
         int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Tables, 3: Views
 
         public MainForm()
@@ -84,7 +84,8 @@ namespace ATBM191_09_UI
                 e.ColumnIndex == main_datagridview.Columns["viewDetailButton"].Index && e.RowIndex >= 0)
             {
                 String username = main_datagridview.Rows[e.RowIndex].Cells["USERNAME"].Value.ToString();
-                LoadUserDetails(username);
+                (new EditUserControl(username)).Show();
+                //LoadUserDetails(username);
             }
         }
 
@@ -187,11 +188,11 @@ namespace ATBM191_09_UI
         private void CreateUser()
         {
             // Mở form UserControl, nếu chưa tồn tại hoặc đã bị tắt thì tạo form mới
-            if (userControlForm == null || userControlForm.IsDisposed == true)
+            if (createUserControlForm == null || createUserControlForm.IsDisposed == true)
             {
-                userControlForm = new UserControl();
+                createUserControlForm = new CreateUserControl();
             }
-            userControlForm.Show();
+            createUserControlForm.Show();
         }
 
         private void view_button_Click(object sender, EventArgs e)

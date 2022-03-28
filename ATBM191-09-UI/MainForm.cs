@@ -229,5 +229,25 @@ namespace ATBM191_09_UI
             }
             viewControlForm.Show();
         }
+
+        private void role_button_Click(object sender, EventArgs e)
+        {
+            currentOption = 1;  // Set chức năng hiện tại là Roles
+            header_label.Text = "Danh sách role của hệ thống";
+            LoadRoles();
+        }
+
+        private void LoadRoles()
+        {
+            DataSet rolesDataSet = DataProvider.Instance.ExecuteQuery(
+            @"select 
+            role,
+            privilege,
+            admin_option,
+            common,
+            inherited
+            from role_sys_privs order by role");
+            Display_MainDataGridView(rolesDataSet);
+        }
     }
 }

@@ -57,7 +57,7 @@
             this.main_panel.Controls.Add(this.main_datagridview);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.Location = new System.Drawing.Point(0, 0);
-            this.main_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_panel.Margin = new System.Windows.Forms.Padding(4);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(1067, 554);
             this.main_panel.TabIndex = 3;
@@ -72,7 +72,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 554);
             this.panel1.TabIndex = 3;
@@ -87,7 +87,7 @@
             this.view_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.view_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.view_button.Location = new System.Drawing.Point(0, 320);
-            this.view_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.view_button.Margin = new System.Windows.Forms.Padding(4);
             this.view_button.Name = "view_button";
             this.view_button.Size = new System.Drawing.Size(267, 74);
             this.view_button.TabIndex = 4;
@@ -105,7 +105,7 @@
             this.table_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.table_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.table_button.Location = new System.Drawing.Point(0, 246);
-            this.table_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.table_button.Margin = new System.Windows.Forms.Padding(4);
             this.table_button.Name = "table_button";
             this.table_button.Size = new System.Drawing.Size(267, 74);
             this.table_button.TabIndex = 3;
@@ -123,12 +123,13 @@
             this.role_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.role_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.role_button.Location = new System.Drawing.Point(0, 172);
-            this.role_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.role_button.Margin = new System.Windows.Forms.Padding(4);
             this.role_button.Name = "role_button";
             this.role_button.Size = new System.Drawing.Size(267, 74);
             this.role_button.TabIndex = 2;
             this.role_button.Text = "Roles";
             this.role_button.UseVisualStyleBackColor = true;
+            this.role_button.Click += new System.EventHandler(this.role_button_Click);
             // 
             // user_button
             // 
@@ -140,7 +141,7 @@
             this.user_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.user_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.user_button.Location = new System.Drawing.Point(0, 98);
-            this.user_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.user_button.Margin = new System.Windows.Forms.Padding(4);
             this.user_button.Name = "user_button";
             this.user_button.Size = new System.Drawing.Size(267, 74);
             this.user_button.TabIndex = 1;
@@ -154,7 +155,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(267, 98);
             this.panel2.TabIndex = 0;
@@ -180,7 +181,7 @@
             this.header_panel.Controls.Add(this.new_button);
             this.header_panel.Controls.Add(this.header_label);
             this.header_panel.Location = new System.Drawing.Point(265, 0);
-            this.header_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.header_panel.Margin = new System.Windows.Forms.Padding(4);
             this.header_panel.Name = "header_panel";
             this.header_panel.Size = new System.Drawing.Size(801, 98);
             this.header_panel.TabIndex = 2;
@@ -189,7 +190,7 @@
             // 
             this.new_button.AutoEllipsis = true;
             this.new_button.Location = new System.Drawing.Point(689, 62);
-            this.new_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.new_button.Margin = new System.Windows.Forms.Padding(4);
             this.new_button.Name = "new_button";
             this.new_button.Size = new System.Drawing.Size(100, 28);
             this.new_button.TabIndex = 1;
@@ -219,7 +220,7 @@
             this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.main_datagridview.Location = new System.Drawing.Point(265, 98);
-            this.main_datagridview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.main_datagridview.Margin = new System.Windows.Forms.Padding(4);
             this.main_datagridview.Name = "main_datagridview";
             this.main_datagridview.RowHeadersWidth = 51;
             this.main_datagridview.Size = new System.Drawing.Size(805, 460);
@@ -231,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.main_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.main_panel.ResumeLayout(false);

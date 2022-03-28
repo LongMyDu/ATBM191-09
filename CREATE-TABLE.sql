@@ -86,3 +86,11 @@ inner join sys.all_tables v on col.owner = (select user from dual)
 and col.table_name = v.table_name
 order by col.table_name;
 select * from sys.all_tables sat where sat.owner = (select user from dual);
+
+select decode(role, lag(role, 1) over(order by role), null, role) role, privilege, admin_option, common, inherited from role_sys_privs order by role;
+select * from dba_roles;
+grant create any table to role_giaovu;
+ select *
+from role_sys_privs rsp
+join dba_roles  dr on rsp.role = dr.role
+order by rsp.role;

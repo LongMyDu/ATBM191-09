@@ -15,6 +15,7 @@ namespace ATBM191_09_UI
     public partial class MainForm : Form
     {        
         TableControl tableControlForm = null;
+        ViewControl viewControlForm = null;
         UserControl userControlForm = null;
         int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Tables, 3: Views
 
@@ -70,6 +71,7 @@ namespace ATBM191_09_UI
                     CreateTable();
                     break;
                 case 3:
+                    CreateView();
                     break;
                 default:
                     break;
@@ -79,7 +81,7 @@ namespace ATBM191_09_UI
         private void User_Details_Click(object sender, DataGridViewCellEventArgs e)
         {
             if (main_datagridview.Columns["viewDetailButton"] != null && 
-                e.ColumnIndex == main_datagridview.Columns["viewDetailButton"].Index)
+                e.ColumnIndex == main_datagridview.Columns["viewDetailButton"].Index && e.RowIndex >= 0)
             {
                 String username = main_datagridview.Rows[e.RowIndex].Cells["USERNAME"].Value.ToString();
                 LoadUserDetails(username);
@@ -96,6 +98,7 @@ namespace ATBM191_09_UI
                 // Thêm nút xem chi tiết vào cột cuối cùng
                 DataGridViewButtonColumn viewDetailButtonColumn = new DataGridViewButtonColumn();
                 viewDetailButtonColumn.Name = "viewDetailButton";
+                viewDetailButtonColumn.HeaderText = "";
                 viewDetailButtonColumn.Text = "Chi tiết";
                 viewDetailButtonColumn.UseColumnTextForButtonValue = true;
                 main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
@@ -117,22 +120,20 @@ namespace ATBM191_09_UI
         private void LoadTables()
         {
             DataSet tablesDataSet = DataProvider.Instance.ExecuteQuery(
-                @"select 
-                decode( t.table_name
-                        , lag(t.table_name, 1) over(order by t.table_name)
-                        , null
-                        , t.table_name ) as table_name 
-                , t.column_name
-                , t.data_type
-                , cc.constraint_name
-                , uc.constraint_type
-                from user_tab_columns t
-                    left join user_cons_columns cc
-                        on(cc.table_name = t.table_name and
-                            cc.column_name = t.column_name)
-                    left join user_constraints uc
-                        on(t.table_name = uc.table_name and
-                            uc.constraint_name = cc.constraint_name)");
+                @"select decode( col.table_name
+                , lag(col.table_name, 1) over(order by col.table_name)
+                , null
+                , col.table_name ) view_name,
+                col.column_name, 
+                col.data_type, 
+                col.data_length, 
+                col.data_precision, 
+                col.data_scale, 
+                col.nullable
+                from sys.all_tab_columns col
+                inner join sys.all_tables sat on col.owner = (select user from dual)
+                and col.table_name = sat.table_name
+                order by col.table_name");
             Display_MainDataGridView(tablesDataSet);                
         }
 
@@ -154,6 +155,42 @@ namespace ATBM191_09_UI
                 userControlForm = new UserControl();
             }
             userControlForm.Show();
+        }
+
+        private void view_button_Click(object sender, EventArgs e)
+        {
+            currentOption = 3;  // Set chức năng hiện tại là Views
+            header_label.Text = "Danh sách view của hệ thống";
+            LoadViews();
+        }
+        private void LoadViews()
+        {
+            DataSet viewsDataSet = DataProvider.Instance.ExecuteQuery(
+                @"select decode( col.table_name
+                , lag(col.table_name, 1) over(order by col.table_name)
+                , null
+                , col.table_name ) view_name,
+                col.column_name, 
+                col.data_type, 
+                col.data_length, 
+                col.data_precision, 
+                col.data_scale, 
+                col.nullable
+                from sys.all_tab_columns col
+                inner join sys.all_views v on col.owner = (select user from dual)
+                and col.table_name = v.view_name
+                order by col.table_name");
+            Display_MainDataGridView(viewsDataSet);
+        }
+
+        private void CreateView()
+        {
+            // Mở form TableControl, nếu chưa tồn tại hoặc đã bị tắt thì tạo form mới
+            if (viewControlForm == null || viewControlForm.IsDisposed == true)
+            {
+                viewControlForm = new ViewControl();
+            }
+            viewControlForm.Show();
         }
     }
 }

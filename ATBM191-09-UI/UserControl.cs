@@ -26,6 +26,7 @@ namespace ATBM191_09_UI
             userProperties.username = username;
             LoadRoles();
             LoadTables();
+            LoadSysPrivs();
         }
 
         private bool getInput()
@@ -101,9 +102,25 @@ namespace ATBM191_09_UI
             addCheckboxColumn(table_datagridview, "Grantable");
         }
 
+        private void LoadSysPrivs()
+        {
+            privs_datagridview.Columns.Clear();
+
+            //Lấy danh sách system privileges
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery(
+                "select name from system_privilege_map order by name");
+            if (dataSet != null)
+            {
+                privs_datagridview.DataSource = dataSet.Tables[0].DefaultView;
+                // Thêm granted checkbox
+                addCheckboxColumn(privs_datagridview, "Granted");
+                addCheckboxColumn(privs_datagridview, "Admin");
+            }           
+        }
+
         private bool CreateUser()
         {
-            String oracleCmd = $"create user {userProperties.username} identified by {userProperties.password}";
+            String oracleCmd = $"create user \"{userProperties.username}\" identified by {userProperties.password}";
             object count = DataProvider.Instance.ExecuteScalar(oracleCmd);
             if (count == null)
             {
@@ -125,7 +142,7 @@ namespace ATBM191_09_UI
                 {
                     oracleCmd += " WITH ADMIN OPTION";
                 }
-                MessageBox.Show(oracleCmd);
+                //MessageBox.Show(oracleCmd);
                 count = DataProvider.Instance.ExecuteScalar(oracleCmd);
                 if (count == null)
                 {
@@ -145,7 +162,7 @@ namespace ATBM191_09_UI
                 {
                     oracleCmd += " WITH GRANT OPTION";
                 }
-                MessageBox.Show(oracleCmd);
+                //MessageBox.Show(oracleCmd);
                 count = DataProvider.Instance.ExecuteScalar(oracleCmd);
                 if (count == null)
                 {
@@ -153,6 +170,27 @@ namespace ATBM191_09_UI
                 }
             }
 
+            //Grant sys privilege cho user
+            foreach (DataGridViewRow row in privs_datagridview.Rows)
+            {
+                if (Convert.ToBoolean(row.Cells["Granted"].Value) == false
+                    && Convert.ToBoolean(row.Cells["Admin"].Value) == false)
+                {
+                    continue;
+                }
+                String priv = row.Cells["name"].Value.ToString();
+                oracleCmd = $"Grant {priv} to {userProperties.username}";
+                if (Convert.ToBoolean(row.Cells["Admin"].Value) == true)
+                {
+                    oracleCmd += " WITH ADMIN OPTION";
+                }
+                //MessageBox.Show(oracleCmd);
+                count = DataProvider.Instance.ExecuteScalar(oracleCmd);
+                if (count == null)
+                {
+                    MessageBox.Show($"Không thể grant {priv} cho user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             MessageBox.Show("Tạo user thành công", "Thành công", MessageBoxButtons.OK);
             return true;
         }

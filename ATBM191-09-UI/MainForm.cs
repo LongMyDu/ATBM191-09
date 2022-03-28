@@ -104,6 +104,43 @@ namespace ATBM191_09_UI
                 {
                     main_datagridview.Columns.Add(viewDetailButtonColumn);
                 }
+
+                // Thêm nút xóa user cột cuối cùng
+                DataGridViewButtonColumn deleteUserButtonCol = new DataGridViewButtonColumn();
+                deleteUserButtonCol.Name = "Delete";
+                deleteUserButtonCol.HeaderText = "";
+                deleteUserButtonCol.Text = "Xóa";
+                deleteUserButtonCol.UseColumnTextForButtonValue = true;
+                main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
+
+                if (main_datagridview.Columns["Delete"] == null)
+                {
+                    main_datagridview.Columns.Add(deleteUserButtonCol);
+                }
+            }
+        }
+
+        private void Delete_User_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (main_datagridview.Columns["Delete"] != null &&
+                e.ColumnIndex == main_datagridview.Columns["Delete"].Index)
+            {
+                String username = main_datagridview.Rows[e.RowIndex].Cells["USERNAME"].Value.ToString();
+                if (MessageBox.Show("Xác nhận xóa user?", "Xác nhận",
+                                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning,
+                                        MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
+                {
+                    String query = $"DROP USER {username} CASCADE";
+                    Object result = DataProvider.Instance.ExecuteScalar(query);
+                    if (result != null)
+                    {
+                        MessageBox.Show("Xóa user thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
 

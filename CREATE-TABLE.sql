@@ -95,4 +95,15 @@ from role_sys_privs rsp
 join dba_roles  dr on rsp.role = dr.role
 order by rsp.role;
 
-select granted_role, admin_option, default_role from USER_ROLE_PRIVS where USERNAME='QLCSYTE_ADMIN';
+select * from dba_role_privs;
+
+select granted_role, 'YES' is_granted from dba_role_privs where grantee='GIAOVU1';
+(select granted_role, 'YES' is_granted, admin_option from dba_role_privs where grantee='GIAOVU1') union (select role as granted_role, 'NO' is_granted, 'NO' admin_option from dba_roles where role not in (select granted_role from dba_role_privs where grantee='GIAOVU1'));
+
+
+select ar.role, gr.admin_option, gr.grantee
+from dba_roles ar LEFT JOIN dba_role_privs gr on (ar.role = gr.granted_role and gr.grantee='GIAOVU1')
+order by ar.role;
+
+
+PTBHUE

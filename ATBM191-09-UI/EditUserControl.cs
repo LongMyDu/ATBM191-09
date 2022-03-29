@@ -69,19 +69,58 @@ namespace ATBM191_09_UI
             }
         }
 
+        private void addTextboxColumn(DataGridView gridView, String columnName)
+        {
+            DataGridViewTextBoxColumn textboxColumn = new DataGridViewTextBoxColumn();
+            textboxColumn.Name = columnName;
+
+            if (gridView.Columns[columnName] == null)
+            {
+                gridView.Columns.Add(textboxColumn);
+            }
+        }
+
+        private void Role_Grant_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if(e.ColumnIndex == role_datagridview.Columns["Granted"].Index) {
+
+                }
+                else if (e.ColumnIndex == role_datagridview.Columns["Admin"].Index) { 
+
+                }
+
+                String username = role_datagridview.Rows[e.RowIndex].Cells["USERNAME"].Value.ToString();
+                (new EditUserControl(username)).Show();
+                //LoadUserDetails(username);
+            }
+        }
+
         private void LoadRoles()
         {
 
             DataSet dataSet = DataProvider.Instance.ExecuteQuery(
-                $"select \"ROLE\" from dba_roles");
+                @"select ar.role, gr.admin_option, gr.grantee
+                   from dba_roles ar LEFT JOIN dba_role_privs gr on(ar.role = gr.granted_role and gr.grantee = '" + userProperties.username + "')" +
+                   "order by ar.role");
 
             role_datagridview.Columns.Clear();
             if (dataSet != null)
             {
-                role_datagridview.DataSource = dataSet.Tables[0].DefaultView;
-                // Thêm granted checkbox
+                addTextboxColumn(role_datagridview, "Role");
                 addCheckboxColumn(role_datagridview, "Granted");
                 addCheckboxColumn(role_datagridview, "Admin");
+
+                for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
+                {
+                    role_datagridview.Rows.Add();
+                    DataRow objectPrivRow = dataSet.Tables[0].Rows[i];
+                    DataGridViewRow gridViewRow = role_datagridview.Rows[i];
+                    gridViewRow.Cells["Role"].Value = objectPrivRow["role"].ToString();
+                    gridViewRow.Cells["Granted"].Value = (objectPrivRow["grantee"].ToString() != "");
+                    gridViewRow.Cells["Admin"].Value = (objectPrivRow["admin_option"].ToString() == "YES");
+                }
             }
         }
 

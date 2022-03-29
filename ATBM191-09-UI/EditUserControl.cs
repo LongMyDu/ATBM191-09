@@ -17,23 +17,12 @@ namespace ATBM191_09_UI
         {
             public String username;
             public String password;
+
+            //List<KeyValuePair <string, int>> sys_privs_granted_before = new List<bool>();
+            
         }
 
         UserProperties userProperties = new UserProperties();
-
-        private void Display_DataGridView(DataSet dataSet, DataGridView gridView)
-        {
-            if (dataSet != null)
-            {
-                // Reset data grid view
-                gridView.Columns.Clear();
-                gridView.DataSource = dataSet.Tables[0].DefaultView;                
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy kết quả!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         public EditUserControl(String username)
         {
@@ -162,34 +151,24 @@ namespace ATBM191_09_UI
             addCheckboxColumn(privs_datagridview, "Granted");
             addCheckboxColumn(privs_datagridview, "Admin");
 
-            privs_datagridview.Rows.Add();
-
             if (dataSet != null)
             {
                 for (int i = 0; i < dataSet.Tables[0].Rows.Count; i++)
                 {
-                    privs_datagridview.Rows.AddCopy(0);     //Tạo một dòng mới trong bảng
+                    privs_datagridview.Rows.Add();     //Tạo một dòng mới trong bảng
 
                     // Đổ data từ userDetailsDataSet vào trong table grid view
                     DataRow sysPrivRow = dataSet.Tables[0].Rows[i];
                     DataGridViewRow gridViewRow = privs_datagridview.Rows[i];
 
                     gridViewRow.Cells["SysPrivs"].Value = sysPrivRow["name"].ToString();
-                    gridViewRow.Cells["Granted"].Value = (sysPrivRow["grantee"] != null);
+                    gridViewRow.Cells["Granted"].Value = (sysPrivRow["grantee"].ToString() != "");
                     gridViewRow.Cells["Admin"].Value = (sysPrivRow["admin_option"].ToString() == "YES");
 
                     //Set readonly
                     gridViewRow.Cells["SysPrivs"].ReadOnly = true;
-                    gridViewRow.Cells["Granted"].ReadOnly = true;
-                    gridViewRow.Cells["Admin"].ReadOnly = true;
-                }
-                    
-                
+                }                                    
             }
-
-
         }
-
-       
     }
 }

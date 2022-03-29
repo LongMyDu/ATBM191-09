@@ -18,7 +18,8 @@ namespace ATBM191_09_UI
             public String username;
             public String password;
 
-            //List<KeyValuePair <string, int>> sys_privs_granted_before = new List<bool>();
+            public List<List<bool>> sys_privs_granted_before = new List<List<bool>>(); // each tuple first ele is granted, second is admin
+            public List<List<bool>> sys_privs_granted_after = new List<List<bool>>(); // each tuple first ele is granted, second is admin
             
         }
 
@@ -34,6 +35,8 @@ namespace ATBM191_09_UI
             LoadRoles();
             LoadTables();
             LoadSysPrivs();
+
+            privs_datagridview.CellContentClick += Sys_Privs_Granted_Click;
         }
 
         private bool getInput()
@@ -55,6 +58,39 @@ namespace ATBM191_09_UI
             if (gridView.Columns[columnName] == null)
             {
                 gridView.Columns.Add(checkboxColumn);
+            }
+        }
+
+        private void Sys_Privs_Granted_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {                
+                if (e.ColumnIndex == privs_datagridview.Columns["Granted"].Index)
+                {
+                    //Nếu tick bỏ grant thì bỏ luôn admin
+                    if (userProperties.sys_privs_granted_after[e.RowIndex][0] == true)
+                    {
+                        privs_datagridview.Rows[e.RowIndex].Cells["Admin"].Value =
+                            userProperties.sys_privs_granted_after[e.RowIndex][1] = false;
+                    }
+                    userProperties.sys_privs_granted_after[e.RowIndex][0] =
+                    !userProperties.sys_privs_granted_after[e.RowIndex][0];
+                }
+
+                if (e.ColumnIndex == privs_datagridview.Columns["Admin"].Index)
+                {
+                    //Nếu tick admin thì tick luôn grant
+                    if (userProperties.sys_privs_granted_after[e.RowIndex][1] == false)
+                    {
+                        privs_datagridview.Rows[e.RowIndex].Cells["Granted"].Value =
+                            userProperties.sys_privs_granted_after[e.RowIndex][0] = true;
+                    }
+
+                    userProperties.sys_privs_granted_after[e.RowIndex][1] =
+                    !userProperties.sys_privs_granted_after[e.RowIndex][1];
+                }
+
+                MessageBox.Show(userProperties.sys_privs_granted_after[e.RowIndex][0].ToString() + userProperties.sys_privs_granted_after[e.RowIndex][1].ToString());
             }
         }
 
@@ -157,18 +193,106 @@ namespace ATBM191_09_UI
                 {
                     privs_datagridview.Rows.Add();     //Tạo một dòng mới trong bảng
 
-                    // Đổ data từ userDetailsDataSet vào trong table grid view
+                    // Lấy dòng trong gridview và dataset
                     DataRow sysPrivRow = dataSet.Tables[0].Rows[i];
                     DataGridViewRow gridViewRow = privs_datagridview.Rows[i];
+                    bool privGranted = sysPrivRow["grantee"].ToString() != "";
+                    bool privAdmin = sysPrivRow["admin_option"].ToString() == "YES";
 
+                    // Đổ data từ vào trong grid view
                     gridViewRow.Cells["SysPrivs"].Value = sysPrivRow["name"].ToString();
-                    gridViewRow.Cells["Granted"].Value = (sysPrivRow["grantee"].ToString() != "");
-                    gridViewRow.Cells["Admin"].Value = (sysPrivRow["admin_option"].ToString() == "YES");
+                    gridViewRow.Cells["Granted"].Value = privGranted;
+                    gridViewRow.Cells["Admin"].Value = privAdmin;
 
-                    //Set readonly
+                    //Set up các quyền sys trong mảng before và after
+                    userProperties.sys_privs_granted_before.Add(new List<bool>() { privGranted, privAdmin });
+                    userProperties.sys_privs_granted_after.Add(new List<bool>() { privGranted, privAdmin });
+                    
+                    //Set readonly tên các privilege
                     gridViewRow.Cells["SysPrivs"].ReadOnly = true;
                 }                                    
             }
         }
+
+        private void SaveSysPrivs()
+        {
+            bool grant_before, admin_before, grant_after, admin_after;
+            String priv;
+
+            String failedGrant = "";
+            String failedRevoke = "";
+            for (int i = 0; i<userProperties.sys_privs_granted_before.Count; i++)
+            {
+                priv = privs_datagridview.Rows[i].Cells["SysPrivs"].Value.ToString();
+
+                grant_before = userProperties.sys_privs_granted_before[i][0];
+                admin_before = userProperties.sys_privs_granted_before[i][1];
+                grant_after = userProperties.sys_privs_granted_after[i][0];
+                admin_after = userProperties.sys_privs_granted_after[i][1];
+
+                if (!grant_before && !admin_before && grant_after && !admin_after)
+                {
+                    // Grant
+                    object result = DataProvider.Instance.ExecuteScalar($"GRANT {priv} TO {userProperties.username}");
+                    if (result == null)
+                        failedGrant += priv + ", ";
+                }
+                if (!admin_before && admin_after)
+                {
+                    //Grant admin
+                    object result = DataProvider.Instance.ExecuteScalar($"GRANT {priv} TO {userProperties.username} WITH ADMIN OPTION");
+                    if (result == null)
+                        failedGrant += priv + ", ";
+                }
+                if (grant_before && !grant_after)
+                {
+                    //Revoke
+                    object result = DataProvider.Instance.ExecuteScalar($"REVOKE {priv} FROM {userProperties.username}");
+                    if (result == null)
+                        failedRevoke += priv + ", ";
+                }
+                if (grant_before && admin_before && grant_after && !admin_after)
+                {
+                    //Revoke
+                    object result = DataProvider.Instance.ExecuteScalar($"REVOKE {priv} FROM {userProperties.username}");
+                    if (result == null)
+                        failedRevoke += priv + ", ";
+                    else
+                    {
+                        //Grant
+                        result = DataProvider.Instance.ExecuteScalar($"GRANT {priv} TO {userProperties.username}");
+                        if (result == null)
+                            failedGrant += priv + ", ";
+                    }                    
+                }
+            }
+
+            if (failedGrant != "")
+                MessageBox.Show("Không thể grant các quyền " + failedGrant.TrimEnd(' ', ',') + " cho user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            if (failedRevoke != "")
+                MessageBox.Show("Không thể revoke các quyền " + failedGrant.TrimEnd(' ', ',') + " cho user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            MessageBox.Show("Grant quyền thành công");
+        }
+
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            SaveSysPrivs();
+        }
     }
 }
+
+//GB: grant_before
+//AB: admin_before
+//GA: grant_after
+//AA: admin_after
+//GB    AB  GA  AA
+//F     F   T   F   Grant
+//F     F   T   T   Grant admin
+
+//T     F   F   F   Revoke
+//T     F   T   T   Grant admin
+
+//T     T   F   F   Revoke
+//T     T   T   F   Revoke, grant

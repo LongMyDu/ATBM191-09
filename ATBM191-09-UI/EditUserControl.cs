@@ -19,7 +19,9 @@ namespace ATBM191_09_UI
             public String password;
 
             //List<KeyValuePair <string, int>> sys_privs_granted_before = new List<bool>();
-            
+
+            public List<List<bool>> role_granted_before = new List<List<bool>>();
+            public List<List<bool>> role_granted_after = new List<List<bool>>();
         }
 
         UserProperties userProperties = new UserProperties();
@@ -34,6 +36,9 @@ namespace ATBM191_09_UI
             LoadRoles();
             LoadTables();
             LoadSysPrivs();
+
+
+            role_datagridview.CellContentClick += Role_Grant_Click;
         }
 
         private bool getInput()
@@ -74,15 +79,16 @@ namespace ATBM191_09_UI
             if (e.RowIndex >= 0)
             {
                 if(e.ColumnIndex == role_datagridview.Columns["Granted"].Index) {
-
+                    if (userProperties.role_granted_after[e.RowIndex][0])
+                        role_datagridview.Rows[e.RowIndex].Cells["Admin"].Value = userProperties.role_granted_after[e.RowIndex][1] = false;
+                    userProperties.role_granted_after[e.RowIndex][0] = !userProperties.role_granted_after[e.RowIndex][0];
                 }
-                else if (e.ColumnIndex == role_datagridview.Columns["Admin"].Index) { 
-
+                if (e.ColumnIndex == role_datagridview.Columns["Admin"].Index) {
+                    if (!userProperties.role_granted_after[e.RowIndex][1])
+                        role_datagridview.Rows[e.RowIndex].Cells["Granted"].Value = userProperties.role_granted_after[e.RowIndex][0] = true;
+                    userProperties.role_granted_after[e.RowIndex][1] = !userProperties.role_granted_after[e.RowIndex][1];
                 }
-
-                String username = role_datagridview.Rows[e.RowIndex].Cells["USERNAME"].Value.ToString();
-                (new EditUserControl(username)).Show();
-                //LoadUserDetails(username);
+                MessageBox.Show(userProperties.role_granted_after[e.RowIndex][0].ToString() + " " + userProperties.role_granted_after[e.RowIndex][1].ToString());
             }
         }
 
@@ -109,7 +115,84 @@ namespace ATBM191_09_UI
                     gridViewRow.Cells["Role"].Value = objectPrivRow["role"].ToString();
                     gridViewRow.Cells["Granted"].Value = (objectPrivRow["grantee"].ToString() != "");
                     gridViewRow.Cells["Admin"].Value = (objectPrivRow["admin_option"].ToString() == "YES");
+
+                    bool granted = (objectPrivRow["grantee"].ToString() != "");
+                    bool admin = (objectPrivRow["admin_option"].ToString() == "YES");
+                    userProperties.role_granted_before.Add(new List<bool>() { granted, admin });
+                    userProperties.role_granted_after.Add(new List<bool>() { granted, admin });
                 }
+            }
+        }
+
+        private void SaveRoles()
+        {
+            bool grant_before;
+            bool admin_before;
+            bool grant_after;
+            bool admin_after;
+            String failedGrant = "";
+            String failedRevoke = "";
+            String role;
+            for (int i = 0; i < userProperties.role_granted_before.Count; ++i)
+            {
+                grant_before = userProperties.role_granted_before[i][0];
+                admin_before = userProperties.role_granted_before[i][1];
+                grant_after = userProperties.role_granted_after[i][0];
+                admin_after = userProperties.role_granted_after[i][1];
+                role = role_datagridview.Rows[i].Cells["Role"].Value.ToString();
+                if (!grant_before && !admin_before && grant_after && !admin_after)
+                {
+                    // grant
+                    if(DataProvider.Instance.ExecuteScalar($"GRANT {role} TO {userProperties.username}") == null)
+                    {
+                        failedGrant += role + ", ";
+                    }
+                }
+                if(!admin_before && admin_after)
+                {
+                    // grant admin
+                    if (DataProvider.Instance.ExecuteScalar($"GRANT {role} TO {userProperties.username} WITH ADMIN OPTION") == null)
+                    {
+                        failedGrant += role + ", ";
+                    }
+                }
+                if(grant_before & !grant_after)
+                {
+                    // revoke
+                    if (DataProvider.Instance.ExecuteScalar($"REVOKE {role} FROM {userProperties.username}") == null)
+                    {
+                        failedRevoke += role + ", ";
+                    }
+                }
+                if(grant_before && admin_before && grant_after && !admin_after)
+                {
+                    // revoke
+                    if(DataProvider.Instance.ExecuteScalar($"REVOKE {role} FROM {userProperties.username}") == null)
+                    {
+                        failedRevoke += role + ", ";
+                    }
+                    // grant
+                    else if (DataProvider.Instance.ExecuteScalar($"GRANT {role} TO {userProperties.username}") == null)
+                    {
+                        failedGrant += role + ", ";
+                    }
+                    // grant
+                }
+            }
+            String failStr = "";
+            if(failedGrant != "")
+            {
+                failStr += @"Không thể GRANT các role:
+" + failedGrant;
+            }
+            if(failedRevoke != "")
+            {
+                failStr += @"Không thể REVOKE các role:
+" + failedRevoke;
+            }
+            if(failStr != "")
+            {
+                MessageBox.Show(failStr);
             }
         }
 
@@ -208,6 +291,12 @@ namespace ATBM191_09_UI
                     gridViewRow.Cells["SysPrivs"].ReadOnly = true;
                 }                                    
             }
+        }
+
+        private void save_button_Click(object sender, EventArgs e)
+        {
+            SaveRoles();
+            this.Close();
         }
     }
 }

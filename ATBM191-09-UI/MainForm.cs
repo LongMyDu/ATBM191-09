@@ -21,7 +21,10 @@ namespace ATBM191_09_UI
 
         public MainForm()
         {
-            InitializeComponent();           
+            InitializeComponent();
+
+            main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
+            main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
         }
 
         private void Display_MainDataGridView(DataSet dataSet)
@@ -102,7 +105,7 @@ namespace ATBM191_09_UI
                 viewDetailButtonColumn.HeaderText = "";
                 viewDetailButtonColumn.Text = "Chi tiết";
                 viewDetailButtonColumn.UseColumnTextForButtonValue = true;
-                main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
+                
               
                 if (main_datagridview.Columns["viewDetailButton"] == null)
                 {
@@ -115,7 +118,7 @@ namespace ATBM191_09_UI
                 deleteUserButtonCol.HeaderText = "";
                 deleteUserButtonCol.Text = "Xóa";
                 deleteUserButtonCol.UseColumnTextForButtonValue = true;
-                main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
+                
 
                 if (main_datagridview.Columns["Delete"] == null)
                 {

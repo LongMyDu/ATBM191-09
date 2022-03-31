@@ -21,8 +21,9 @@ namespace ATBM191_09_UI
             public List<List<bool>> role_granted_before = new List<List<bool>>();
             public List<List<bool>> role_granted_after = new List<List<bool>>();
             public List<List<bool>> sys_privs_granted_before = new List<List<bool>>(); // each tuple first ele is granted, second is admin
-            public List<List<bool>> sys_privs_granted_after = new List<List<bool>>(); // each tuple first ele is granted, second is admin
-            
+            public List<List<bool>> sys_privs_granted_after = new List<List<bool>>(); // each tuple first ele is granted, second is admin            
+
+            public DataSet object_privs_before;
         }
 
         UserProperties userProperties = new UserProperties();
@@ -92,6 +93,7 @@ namespace ATBM191_09_UI
                 MessageBox.Show(userProperties.role_granted_after[e.RowIndex][0].ToString() + " " + userProperties.role_granted_after[e.RowIndex][1].ToString());
             }
         }
+
         private void Sys_Privs_Granted_Click(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -263,7 +265,10 @@ namespace ATBM191_09_UI
             // Lấy thông tin về object privilege của user
             DataSet userDetailsDataSet = DataProvider.Instance.ExecuteQuery(
                 $"select GRANTEE AS \"USER\", TABLE_NAME, \"PRIVILEGE\", GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE ='{userProperties.username}'");
-            
+
+            // Lưu lại trạng thái before của các object privilege
+            userProperties.object_privs_before = userDetailsDataSet.Copy();
+
             // Gán những thông tin này vô datagridview 
             for (int i = 0; i < userDetailsDataSet.Tables[0].Rows.Count; i++)
             {
@@ -283,6 +288,74 @@ namespace ATBM191_09_UI
             }
         }
 
+        private void SaveTables()
+        {
+            String failRevokeStr = "";
+            String failGrantStr = "";
+            for (int i = 0; i < userProperties.object_privs_before.Tables[0].Rows.Count; i++)
+            {
+                DataRow objectPrivRow = userProperties.object_privs_before.Tables[0].Rows[i];
+                string object_name = objectPrivRow["TABLE_NAME"].ToString();
+                string object_priv = objectPrivRow["PRIVILEGE"].ToString();
+                bool object_grantable = (objectPrivRow["GRANTABLE"].ToString() == "YES");
+
+                int existIdx = -1;
+                for (int j = 0; j < table_datagridview.RowCount; j++)
+                {
+                    
+                    DataGridViewRow row = table_datagridview.Rows[j];
+                    if (row.IsNewRow)
+                        continue;
+
+                    if (object_name == row.Cells["Tables"].Value.ToString()
+                    && object_priv == row.Cells["Privileges"].Value.ToString()
+                    && object_grantable == Convert.ToBoolean(row.Cells["Grantable"].Value))
+                    {
+                        existIdx = j;
+                        break;
+                    }
+                }
+
+                if (existIdx != -1)
+                {
+                    table_datagridview.Rows.RemoveAt(existIdx);
+                } else
+                {
+                    MessageBox.Show($"REVOKE {object_priv} ON {object_name} FROM {userProperties.username}");
+                    if (DataProvider.instance.ExecuteScalar($"REVOKE {object_priv} ON {object_name} FROM {userProperties.username}") == null)
+                    {
+                        failRevokeStr += object_priv + ", ";
+                    }
+                }
+            }
+            String grantOptionStr;
+            for (int i = 0; i < table_datagridview.Rows.Count; ++i)
+            {
+                DataGridViewRow row = table_datagridview.Rows[i];
+                if (row.IsNewRow)
+                    continue;
+
+                grantOptionStr = Convert.ToBoolean(row.Cells["Grantable"].Value) == true ? "WITH GRANT OPTION" : "";
+                MessageBox.Show($"GRANT {row.Cells["Privileges"].Value.ToString()} ON {row.Cells["Tables"].Value.ToString()} TO {userProperties.username} {grantOptionStr}");
+                if (DataProvider.instance.ExecuteScalar($"GRANT {table_datagridview.Rows[i].Cells["Privileges"].Value.ToString()} ON {table_datagridview.Rows[i].Cells["Tables"].Value.ToString()} TO {userProperties.username} {grantOptionStr}") == null)
+                {
+                    failGrantStr += table_datagridview.Rows[i].Cells["Privileges"].Value.ToString() + ", ";
+                }
+            }
+            String failStr = "";
+            if (failRevokeStr != "")
+            {
+                failStr += "Không thể revoke:\n" + failRevokeStr;
+            }
+            if (failGrantStr != "")
+            {
+                failStr += "Không thẻ grant:\n" + failGrantStr;
+            }
+            if (failStr != "")
+            {
+                MessageBox.Show(failStr);
+            }
+        }
         private void LoadSysPrivs()
         {
             privs_datagridview.Columns.Clear();
@@ -330,12 +403,16 @@ namespace ATBM191_09_UI
                 }                                    
             }
         }
+
         private void save_button_Click(object sender, EventArgs e)
         {
             SaveRoles();
             SaveSysPrivs();
+            SaveTables();
+            SavePassword();
             this.Close();
         }
+
         private void SaveSysPrivs()
         {
             bool grant_before, admin_before, grant_after, admin_after;
@@ -394,6 +471,20 @@ namespace ATBM191_09_UI
 
             if (failedRevoke != "")
                 MessageBox.Show("Không thể revoke các quyền " + failedGrant.TrimEnd(' ', ',') + " cho user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void SavePassword()
+        {
+            if (password_textbox.Text != "")
+            {
+                userProperties.password = password_textbox.Text;
+
+                object result = DataProvider.Instance.ExecuteScalar($"ALTER USER {userProperties.username} IDENTIFIED BY {userProperties.password}");
+                if (result == null)
+                {
+                    MessageBox.Show("Không thể thay đổi mật khẩu của user!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

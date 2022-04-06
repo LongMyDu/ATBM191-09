@@ -32,6 +32,8 @@
             this.roles_tab = new System.Windows.Forms.TabPage();
             this.role_datagridview = new System.Windows.Forms.DataGridView();
             this.tables_tab = new System.Windows.Forms.TabPage();
+            this.cols_datagridview = new System.Windows.Forms.DataGridView();
+            this.nocol_datagridview = new System.Windows.Forms.DataGridView();
             this.table_datagridview = new System.Windows.Forms.DataGridView();
             this.privs_tab = new System.Windows.Forms.TabPage();
             this.privs_datagridview = new System.Windows.Forms.DataGridView();
@@ -40,10 +42,17 @@
             this.password_textbox = new System.Windows.Forms.TextBox();
             this.password_label = new System.Windows.Forms.Label();
             this.save_button = new System.Windows.Forms.Button();
+            this.PrivilegeNoCol = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Grantable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ViewDetailButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PrivilegeCol = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.GrantableCol = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabcontrols.SuspendLayout();
             this.roles_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.role_datagridview)).BeginInit();
             this.tables_tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cols_datagridview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nocol_datagridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table_datagridview)).BeginInit();
             this.privs_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.privs_datagridview)).BeginInit();
@@ -65,7 +74,7 @@
             this.roles_tab.Controls.Add(this.role_datagridview);
             this.roles_tab.Location = new System.Drawing.Point(4, 22);
             this.roles_tab.Name = "roles_tab";
-            this.roles_tab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.roles_tab.Padding = new System.Windows.Forms.Padding(3);
             this.roles_tab.Size = new System.Drawing.Size(765, 318);
             this.roles_tab.TabIndex = 0;
             this.roles_tab.Text = "Roles";
@@ -85,23 +94,51 @@
             // 
             // tables_tab
             // 
+            this.tables_tab.Controls.Add(this.cols_datagridview);
+            this.tables_tab.Controls.Add(this.nocol_datagridview);
             this.tables_tab.Controls.Add(this.table_datagridview);
             this.tables_tab.Location = new System.Drawing.Point(4, 22);
             this.tables_tab.Name = "tables_tab";
-            this.tables_tab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tables_tab.Padding = new System.Windows.Forms.Padding(3);
             this.tables_tab.Size = new System.Drawing.Size(765, 318);
             this.tables_tab.TabIndex = 1;
             this.tables_tab.Text = "Tables & Views";
             this.tables_tab.UseVisualStyleBackColor = true;
             // 
+            // cols_datagridview
+            // 
+            this.cols_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.cols_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.cols_datagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PrivilegeCol,
+            this.GrantableCol});
+            this.cols_datagridview.Location = new System.Drawing.Point(383, 157);
+            this.cols_datagridview.Name = "cols_datagridview";
+            this.cols_datagridview.Size = new System.Drawing.Size(376, 150);
+            this.cols_datagridview.TabIndex = 10;
+            // 
+            // nocol_datagridview
+            // 
+            this.nocol_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.nocol_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.nocol_datagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PrivilegeNoCol,
+            this.Grantable});
+            this.nocol_datagridview.Location = new System.Drawing.Point(382, 7);
+            this.nocol_datagridview.Name = "nocol_datagridview";
+            this.nocol_datagridview.Size = new System.Drawing.Size(377, 143);
+            this.nocol_datagridview.TabIndex = 9;
+            // 
             // table_datagridview
             // 
             this.table_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.table_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table_datagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ViewDetailButton});
             this.table_datagridview.Location = new System.Drawing.Point(7, 7);
             this.table_datagridview.Name = "table_datagridview";
             this.table_datagridview.RowHeadersWidth = 51;
-            this.table_datagridview.Size = new System.Drawing.Size(752, 305);
+            this.table_datagridview.Size = new System.Drawing.Size(369, 305);
             this.table_datagridview.TabIndex = 0;
             // 
             // privs_tab
@@ -109,7 +146,7 @@
             this.privs_tab.Controls.Add(this.privs_datagridview);
             this.privs_tab.Location = new System.Drawing.Point(4, 22);
             this.privs_tab.Name = "privs_tab";
-            this.privs_tab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.privs_tab.Padding = new System.Windows.Forms.Padding(3);
             this.privs_tab.Size = new System.Drawing.Size(765, 318);
             this.privs_tab.TabIndex = 2;
             this.privs_tab.Text = "System Privileges";
@@ -169,6 +206,46 @@
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
+            // PrivilegeNoCol
+            // 
+            this.PrivilegeNoCol.HeaderText = "Privilege";
+            this.PrivilegeNoCol.Items.AddRange(new object[] {
+            "SELECT",
+            "INSERT",
+            "UPDATE",
+            "DELETE"});
+            this.PrivilegeNoCol.Name = "PrivilegeNoCol";
+            // 
+            // Grantable
+            // 
+            this.Grantable.HeaderText = "Grantable";
+            this.Grantable.Name = "Grantable";
+            // 
+            // ViewDetailButton
+            // 
+            this.ViewDetailButton.FillWeight = 50F;
+            this.ViewDetailButton.HeaderText = "";
+            this.ViewDetailButton.Name = "ViewDetailButton";
+            this.ViewDetailButton.Text = "Chi tiết";
+            this.ViewDetailButton.UseColumnTextForButtonValue = true;
+            // 
+            // PrivilegeCol
+            // 
+            this.PrivilegeCol.FillWeight = 50F;
+            this.PrivilegeCol.HeaderText = "Privilege";
+            this.PrivilegeCol.Items.AddRange(new object[] {
+            "SELECT",
+            "INSERT",
+            "UPDATE",
+            "DELETE"});
+            this.PrivilegeCol.Name = "PrivilegeCol";
+            // 
+            // GrantableCol
+            // 
+            this.GrantableCol.FillWeight = 30F;
+            this.GrantableCol.HeaderText = "Grantable";
+            this.GrantableCol.Name = "GrantableCol";
+            // 
             // EditUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +263,8 @@
             this.roles_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.role_datagridview)).EndInit();
             this.tables_tab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cols_datagridview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nocol_datagridview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table_datagridview)).EndInit();
             this.privs_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.privs_datagridview)).EndInit();
@@ -208,5 +287,12 @@
         private System.Windows.Forms.TextBox password_textbox;
         private System.Windows.Forms.Label password_label;
         private System.Windows.Forms.Button save_button;
+        private System.Windows.Forms.DataGridView nocol_datagridview;
+        private System.Windows.Forms.DataGridView cols_datagridview;
+        private System.Windows.Forms.DataGridViewComboBoxColumn PrivilegeNoCol;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Grantable;
+        private System.Windows.Forms.DataGridViewButtonColumn ViewDetailButton;
+        private System.Windows.Forms.DataGridViewComboBoxColumn PrivilegeCol;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn GrantableCol;
     }
 }

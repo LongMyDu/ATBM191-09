@@ -1,21 +1,111 @@
-create table HSBAN (
-    MAHSBAN NUMBER NOT NULL,
-    MABN NUMBER NOT NULL,
+/*
+ĐỒ ÁN MÔN HỌC AN TOÀN BẢO MẬT DỮ LIỆU TRONG HỆ THỐNG THÔNG TIN
+FILE TẠO DATABASE 
+NHÓM 9
+
+MSSV        HỌ TÊN          
+19127366    Long Mỹ Du
+19127377    Nguyễn Huỳnh Khánh Duy
+19127476    Trần Thị Huế Minh
+*/
+
+-- Xóa tất cả bảng
+--DROP TABLE HSBA CASCADE CONSTRAINTS;
+--DROP TABLE HSBA_DV CASCADE CONSTRAINTS;
+--DROP TABLE BENHNHAN CASCADE CONSTRAINTS;
+--DROP TABLE CSYT CASCADE CONSTRAINTS;
+--DROP TABLE NHANVIEN CASCADE CONSTRAINTS;
+
+/
+-- Tạo bảng
+CREATE TABLE HSBA (
+    MAHSBA CHAR(8),
+    MABN CHAR(8),
     NGAY DATE,
     CHANDOAN NVARCHAR2(100),
-    MABS NUMBER,
-    MAKHOA NUMBER,
-    MACSYT NUMBER,
-    KETLUAN NVARCHAR2(200)
+    MABS CHAR(6),
+    MAKHOA CHAR(6),
+    MACSYT CHAR(6),
+    KETLUAN NVARCHAR2(200),
+	CONSTRAINT HSBA_PK PRIMARY KEY ( MAHSBA )
 );
 
-CREATE TABLE HSBAN_DV (
-    MAHSBAN NUMBER NOT NULL,
-    MADV NUMBER,
+CREATE TABLE HSBA_DV (
+    MAHSBA CHAR(8),
+    MADV CHAR(6),
     NGAY DATE,
-    MAKTV NUMBER,
-    KETQUA NVARCHAR2(200)
+    MAKTV CHAR(6),
+    KETQUA NVARCHAR2(200),
+	CONSTRAINT HSBA_DV_PK PRIMARY KEY ( MAHSBA, MADV, NGAY )
 );
+
+
+CREATE TABLE BENHNHAN (
+	MABN CHAR(8),
+	MACSYT CHAR(6),
+	TENBN NVARCHAR2(50),
+	CMND CHAR(12),
+	NGAYSINH DATE,
+	SONHA VARCHAR2(20),
+	TENDUONG NVARCHAR2(100),
+	QUANHUYEN NVARCHAR2(50),
+	TINHTP NVARCHAR2(50),
+	TIENSUBENH NVARCHAR2(200),
+	TIENSUBENHGD NVARCHAR2(200),
+	DIUNGTHUOC NVARCHAR2(200),
+	CONSTRAINT BENHNHAN_PK PRIMARY KEY ( MABN )
+
+);
+
+CREATE TABLE CSYT(
+	MACSYT CHAR(6),
+	TENCSYT NVARCHAR2(200),
+	DCCSYT NVARCHAR2(200),
+	SDTCSYT CHAR(10),
+	CONSTRAINT CSYT_PK PRIMARY KEY ( MACSYT )
+);
+
+CREATE TABLE NHANVIEN(
+	MANV CHAR(6),
+	HOTEN NVARCHAR2(50),
+	PHAI NVARCHAR2(5),
+	NGAYSINH DATE,
+	CMND CHAR(12),
+	QUEQUAN NVARCHAR2(50),
+	SODT CHAR(10),
+	CSYT CHAR(6),
+	VAITRO NVARCHAR2(20),
+	CHUYENKHOA CHAR(6),
+	CONSTRAINT NHANVIEN_PK PRIMARY KEY ( MANV )
+);
+/
+
+-- Tạo các Foreign key constraints và check constraints
+ALTER TABLE HSBA
+ADD CONSTRAINT HSBA_BENHNHAN_FK FOREIGN KEY ( MABN )
+        REFERENCES BENHNHAN ( MABN );
+ALTER TABLE HSBA
+ADD CONSTRAINT HSBA_NHANVIEN_FK FOREIGN KEY ( MABS )
+        REFERENCES NHANVIEN ( MANV );
+ALTER TABLE HSBA
+ADD CONSTRAINT HSBA_CSYT_FK FOREIGN KEY ( MACSYT )
+        REFERENCES CSYT ( MACSYT);
+
+ALTER TABLE HSBA_DV
+ADD CONSTRAINT HSBA_DV_HSBA_FK FOREIGN KEY ( MAHSBA )
+        REFERENCES HSBA ( MAHSBA );
+
+ALTER TABLE BENHNHAN
+ADD CONSTRAINT BENHNHAN_CSYT_FK FOREIGN KEY ( MACSYT )
+        REFERENCES CSYT ( MACSYT);
+
+ALTER TABLE NHANVIEN
+ADD CONSTRAINT NHANVIEN_CSYT_FK FOREIGN KEY ( CSYT )
+        REFERENCES CSYT ( MACSYT);
+ALTER TABLE NHANVIEN
+ADD CONSTRAINT NHANVIEN_VAITRO_FK 
+	CHECK (VAITRO IN (N'Thanh tra', N'Cơ sở y tế', N'Y sĩ/bác sĩ', N'Nghiên cứu'));
+
 
 create view vw_hsban as select * from hsban;
 create view vw_hsban_dv as select * from hsban_dv;
@@ -95,7 +185,7 @@ from role_sys_privs rsp
 join dba_roles  dr on rsp.role = dr.role
 order by rsp.role;
 
-select * from dba_role_privs;
+select * from User_col_privs where grantee='AAAAAA';
 
 select granted_role, 'YES' is_granted from dba_role_privs where grantee='GIAOVU1';
 (select granted_role, 'YES' is_granted, admin_option from dba_role_privs where grantee='GIAOVU1') union (select role as granted_role, 'NO' is_granted, 'NO' admin_option from dba_roles where role not in (select granted_role from dba_role_privs where grantee='GIAOVU1'));
@@ -106,4 +196,16 @@ from dba_roles ar LEFT JOIN dba_role_privs gr on (ar.role = gr.granted_role and 
 order by ar.role;
 
 
-PTBHUE
+select distinct table_name from user_tab_columns;
+
+select GRANTEE AS "USER", TABLE_NAME, "PRIVILEGE", GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE ='AAAAAA';
+select GRANTEE AS "USER", TABLE_NAME, COLUMN_NAME, "PRIVILEGE", GRANTABLE, GRANTOR from User_col_privs where GRANTEE = 'AAAAAA';
+
+
+grant select, insert, update, delete on benhnhan to AAAAAA;
+revoke update on benhnhan from AAAAAA;
+
+grant update(macsyt, tiensubenh, tiensubenhgd) on benhnhan to AAAAAA;
+
+
+select GRANTEE AS \"USER\", TABLE_NAME, \"PRIVILEGE\", GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE ='{userProperties.username}'

@@ -40,6 +40,7 @@ namespace ATBM191_09_UI
             LoadSysPrivs();
             role_datagridview.CellContentClick += Role_Grant_Click;
             privs_datagridview.CellContentClick += Sys_Privs_Granted_Click;
+            table_datagridview.CellContentClick += Details_Button_Click;
         }
 
         private bool getInput()
@@ -229,6 +230,17 @@ namespace ATBM191_09_UI
             }
         }
 
+        private void Details_Button_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (table_datagridview.Columns["ViewDetailButton"] != null &&
+                e.ColumnIndex == table_datagridview.Columns["ViewDetailButton"].Index && e.RowIndex >= 0)
+            {
+                String table_name = table_datagridview.Rows[e.RowIndex].Cells["Tables"].Value.ToString();
+                LoadNoColPrivs(table_name);
+                LoadColPrivs(table_name);
+            }
+        }
+
         private void LoadTables()
         {            
             //Lấy danh sách tables và views
@@ -248,43 +260,95 @@ namespace ATBM191_09_UI
                     tables.Add(row[0].ToString());
                 }
                 tablesCombobox.DataSource = tables;
-                table_datagridview.Columns.Add(tablesCombobox);
+                table_datagridview.Columns.Insert(0, tablesCombobox);
+            }
+
+            // Lấy danh sách các bảng mà user có quyền
+            DataSet userDetailsDataSet = DataProvider.Instance.ExecuteQuery(
+                $"select distinct TABLE_NAME from dba_tab_privs where GRANTEE ='{userProperties.username}'"
+            + $"UNION select distinct TABLE_NAME from User_col_privs where GRANTEE = '{userProperties.username}'");
+
+            //// Lưu lại trạng thái before của các object privilege
+            //userProperties.object_privs_before = userDetailsDataSet.Copy();
+
+            if (userDetailsDataSet != null)
+            {
+                // Gán những thông tin này vô datagridview 
+                for (int i = 0; i < userDetailsDataSet.Tables[0].Rows.Count; i++)
+                {
+                    table_datagridview.Rows.Add();          //Tạo một dòng mới trong bảng
+                    table_datagridview.Rows[i].Cells["Tables"].Value
+                        = userDetailsDataSet.Tables[0].Rows[i]["TABLE_NAME"].ToString();
+                }
             }
             
-            // Thêm combobox các privileges
-            DataGridViewComboBoxColumn privilegesCombobox = new DataGridViewComboBoxColumn();
-            List<String> privileges = new List<String>() { "SELECT", "INSERT", "UPDATE", "DELETE" };
-            privilegesCombobox.DataSource = privileges;
-            privilegesCombobox.Name = "Privileges";
-            privilegesCombobox.HeaderText = "Privileges";
-            table_datagridview.Columns.Add(privilegesCombobox);
+        }
 
-            // Thêm check box Grantable
-            addCheckboxColumn(table_datagridview, "Grantable");
+        private void LoadNoColPrivs(String tablename)
+        {
+            nocol_datagridview.Rows.Clear();
 
             // Lấy thông tin về object privilege của user
-            DataSet userDetailsDataSet = DataProvider.Instance.ExecuteQuery(
-                $"select GRANTEE AS \"USER\", TABLE_NAME, \"PRIVILEGE\", GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE ='{userProperties.username}'");
-
-            // Lưu lại trạng thái before của các object privilege
-            userProperties.object_privs_before = userDetailsDataSet.Copy();
-
-            // Gán những thông tin này vô datagridview 
-            for (int i = 0; i < userDetailsDataSet.Tables[0].Rows.Count; i++)
+            DataSet noColPrivs = DataProvider.Instance.ExecuteQuery(
+                $"select \"PRIVILEGE\", GRANTABLE from dba_tab_privs where GRANTEE ='{userProperties.username}' AND TABLE_NAME='{tablename}'");
+            for (int i = 0; i < noColPrivs.Tables[0].Rows.Count; i++)
             {
-                table_datagridview.Rows.AddCopy(0);     //Tạo một dòng mới trong bảng
+                nocol_datagridview.Rows.Add();
+                DataRow noColPrivsRow = noColPrivs.Tables[0].Rows[i];
+                DataGridViewRow gridViewRow = nocol_datagridview.Rows[i];
 
-                // Đổ data từ userDetailsDataSet vào trong table grid view
-                DataRow objectPrivRow = userDetailsDataSet.Tables[0].Rows[i];
-                DataGridViewRow gridViewRow = table_datagridview.Rows[i];
-                gridViewRow.Cells["Tables"].Value = objectPrivRow["TABLE_NAME"].ToString();
-                gridViewRow.Cells["Privileges"].Value = objectPrivRow["PRIVILEGE"].ToString();
-                gridViewRow.Cells["Grantable"].Value = (objectPrivRow["GRANTABLE"].ToString() == "YES");
-
-                //Set readonly
-                gridViewRow.Cells["Tables"].ReadOnly = true;
-                gridViewRow.Cells["Privileges"].ReadOnly = true;
+                gridViewRow.Cells["PrivilegeNoCol"].Value = noColPrivsRow["PRIVILEGE"].ToString();
+                gridViewRow.Cells["Grantable"].Value = (noColPrivsRow["GRANTABLE"].ToString() == "YES");
+                gridViewRow.Cells["PrivilegeNoCol"].ReadOnly = true;
                 gridViewRow.Cells["Grantable"].ReadOnly = true;
+            }
+        }
+
+        private void LoadColPrivs(String tablename)
+        {
+            cols_datagridview.Rows.Clear();
+
+            // Lấy danh sách cột của bảng
+            DataSet cols_DataSet = DataProvider.Instance.ExecuteQuery(
+                $"select col.COLUMN_NAME from sys.all_tab_columns col where table_name = '{tablename}'");
+
+            if (cols_DataSet != null)
+            {
+                if (cols_datagridview.Columns["ColName"] != null)
+                    cols_datagridview.Columns.Remove("ColName");
+
+                // Thêm cột combox là các cột
+                DataGridViewComboBoxColumn colsCombobox = new DataGridViewComboBoxColumn();
+                colsCombobox.HeaderText = "Column Name";
+                colsCombobox.Name = "ColName";
+
+                //Chuyển dataset thành list<string>
+                List<String> columns = new List<string>();
+                foreach (DataRow row in cols_DataSet.Tables[0].Rows)
+                {
+                    columns.Add(row[0].ToString());
+                }
+                colsCombobox.DataSource = columns;
+                cols_datagridview.Columns.Insert(0, colsCombobox);
+
+                // Lấy quyền trên cột của bảng
+                DataSet colPrivs_DataSet = DataProvider.Instance.ExecuteQuery(
+                    $"select COLUMN_NAME, PRIVILEGE from User_col_privs where table_name = '{tablename}' and grantee = '{userProperties.username}'");
+
+                //Hiển thị các quyền trên cột trên datagrid view 
+                if (colPrivs_DataSet != null)
+                {
+                    for (int j = 0; j < colPrivs_DataSet.Tables[0].Rows.Count; j++)
+                    {
+                        cols_datagridview.Rows.Add();     //Tạo một dòng mới trong bảng
+                        DataGridViewRow gridViewRow = cols_datagridview.Rows[j];
+                        DataRow priv_row = colPrivs_DataSet.Tables[0].Rows[j];
+
+                        gridViewRow.Cells["ColName"].Value = priv_row["COLUMN_NAME"];
+                        gridViewRow.Cells["PrivilegeCol"].Value = priv_row["PRIVILEGE"];
+
+                    }
+                }
             }
         }
 
@@ -349,7 +413,7 @@ namespace ATBM191_09_UI
             }
             if (failGrantStr != "")
             {
-                failStr += "Không thẻ grant:\n" + failGrantStr;
+                failStr += "Không thể grant:\n" + failGrantStr;
             }
             if (failStr != "")
             {

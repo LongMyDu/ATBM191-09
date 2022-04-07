@@ -18,6 +18,8 @@ namespace ATBM191_09_UI
             public String username;
             public String tablename;
             public List<String> columns = new List<String>();
+            //public bool grant_before 
+
 
             public List<List<bool>> table_level_before = new List<List<bool>>(4);
 
@@ -244,11 +246,15 @@ namespace ATBM191_09_UI
         {
             bool grant, grantable;
             String colName, exeString, failedGrant = "";
-            
+
             // Revoke quyền trên toàn bảng
             object result = DataProvider.Instance.ExecuteScalar
-                        ($"REVOKE {priv} ON {tablePrivs.tablename} FROM {tablePrivs.username}");
-            
+            //($"REVOKE {priv} ON {tablePrivs.tablename} FROM {tablePrivs.username}");
+
+            ($"BEGIN EXECUTE IMMEDIATE 'REVOKE {priv} ON {tablePrivs.tablename} FROM {tablePrivs.username}'; " +
+            @" exception when others then if sqlcode != -1927 then raise; end if; end;");
+
+
             // Duyệt qua các cột để grant lại quyền
             for (int i = 0; i < tablePrivs.columns.Count; i++)
             {

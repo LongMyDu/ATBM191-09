@@ -59,8 +59,6 @@ namespace ATBM191_09_UI
             if (getInput())
             {
                 CreateUser();
-
-
                 this.Close();
             }
         }

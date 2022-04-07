@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.tabcontrols = new System.Windows.Forms.TabControl();
+            this.user_tab = new System.Windows.Forms.TabPage();
+            this.username_label = new System.Windows.Forms.Label();
+            this.password_textbox = new System.Windows.Forms.TextBox();
+            this.password_label = new System.Windows.Forms.Label();
+            this.username_textbox = new System.Windows.Forms.TextBox();
             this.roles_tab = new System.Windows.Forms.TabPage();
             this.role_datagridview = new System.Windows.Forms.DataGridView();
             this.tables_tab = new System.Windows.Forms.TabPage();
@@ -36,20 +41,15 @@
             this.ViewDetailButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.privs_tab = new System.Windows.Forms.TabPage();
             this.privs_datagridview = new System.Windows.Forms.DataGridView();
-            this.username_textbox = new System.Windows.Forms.TextBox();
-            this.username_label = new System.Windows.Forms.Label();
-            this.password_textbox = new System.Windows.Forms.TextBox();
-            this.password_label = new System.Windows.Forms.Label();
             this.save_button = new System.Windows.Forms.Button();
-            this.user_tab = new System.Windows.Forms.TabPage();
             this.tabcontrols.SuspendLayout();
+            this.user_tab.SuspendLayout();
             this.roles_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.role_datagridview)).BeginInit();
             this.tables_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.table_datagridview)).BeginInit();
             this.privs_tab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.privs_datagridview)).BeginInit();
-            this.user_tab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabcontrols
@@ -63,6 +63,51 @@
             this.tabcontrols.SelectedIndex = 0;
             this.tabcontrols.Size = new System.Drawing.Size(472, 412);
             this.tabcontrols.TabIndex = 11;
+            // 
+            // user_tab
+            // 
+            this.user_tab.Controls.Add(this.username_label);
+            this.user_tab.Controls.Add(this.password_textbox);
+            this.user_tab.Controls.Add(this.password_label);
+            this.user_tab.Controls.Add(this.username_textbox);
+            this.user_tab.Location = new System.Drawing.Point(4, 22);
+            this.user_tab.Name = "user_tab";
+            this.user_tab.Size = new System.Drawing.Size(464, 386);
+            this.user_tab.TabIndex = 3;
+            this.user_tab.Text = "User ";
+            this.user_tab.UseVisualStyleBackColor = true;
+            // 
+            // username_label
+            // 
+            this.username_label.AutoSize = true;
+            this.username_label.Location = new System.Drawing.Point(11, 22);
+            this.username_label.Name = "username_label";
+            this.username_label.Size = new System.Drawing.Size(61, 13);
+            this.username_label.TabIndex = 12;
+            this.username_label.Text = "Username: ";
+            // 
+            // password_textbox
+            // 
+            this.password_textbox.Location = new System.Drawing.Point(73, 57);
+            this.password_textbox.Name = "password_textbox";
+            this.password_textbox.Size = new System.Drawing.Size(195, 20);
+            this.password_textbox.TabIndex = 15;
+            // 
+            // password_label
+            // 
+            this.password_label.AutoSize = true;
+            this.password_label.Location = new System.Drawing.Point(11, 60);
+            this.password_label.Name = "password_label";
+            this.password_label.Size = new System.Drawing.Size(56, 13);
+            this.password_label.TabIndex = 14;
+            this.password_label.Text = "Password:";
+            // 
+            // username_textbox
+            // 
+            this.username_textbox.Location = new System.Drawing.Point(73, 19);
+            this.username_textbox.Name = "username_textbox";
+            this.username_textbox.Size = new System.Drawing.Size(195, 20);
+            this.username_textbox.TabIndex = 13;
             // 
             // roles_tab
             // 
@@ -147,38 +192,6 @@
             this.privs_datagridview.Size = new System.Drawing.Size(451, 373);
             this.privs_datagridview.TabIndex = 0;
             // 
-            // username_textbox
-            // 
-            this.username_textbox.Location = new System.Drawing.Point(73, 19);
-            this.username_textbox.Name = "username_textbox";
-            this.username_textbox.Size = new System.Drawing.Size(195, 20);
-            this.username_textbox.TabIndex = 13;
-            // 
-            // username_label
-            // 
-            this.username_label.AutoSize = true;
-            this.username_label.Location = new System.Drawing.Point(11, 22);
-            this.username_label.Name = "username_label";
-            this.username_label.Size = new System.Drawing.Size(61, 13);
-            this.username_label.TabIndex = 12;
-            this.username_label.Text = "Username: ";
-            // 
-            // password_textbox
-            // 
-            this.password_textbox.Location = new System.Drawing.Point(73, 57);
-            this.password_textbox.Name = "password_textbox";
-            this.password_textbox.Size = new System.Drawing.Size(195, 20);
-            this.password_textbox.TabIndex = 15;
-            // 
-            // password_label
-            // 
-            this.password_label.AutoSize = true;
-            this.password_label.Location = new System.Drawing.Point(11, 60);
-            this.password_label.Name = "password_label";
-            this.password_label.Size = new System.Drawing.Size(56, 13);
-            this.password_label.TabIndex = 14;
-            this.password_label.Text = "Password:";
-            // 
             // save_button
             // 
             this.save_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -190,19 +203,6 @@
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
-            // user_tab
-            // 
-            this.user_tab.Controls.Add(this.username_label);
-            this.user_tab.Controls.Add(this.password_textbox);
-            this.user_tab.Controls.Add(this.password_label);
-            this.user_tab.Controls.Add(this.username_textbox);
-            this.user_tab.Location = new System.Drawing.Point(4, 22);
-            this.user_tab.Name = "user_tab";
-            this.user_tab.Size = new System.Drawing.Size(486, 440);
-            this.user_tab.TabIndex = 3;
-            this.user_tab.Text = "User ";
-            this.user_tab.UseVisualStyleBackColor = true;
-            // 
             // EditUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,16 +211,17 @@
             this.Controls.Add(this.save_button);
             this.Controls.Add(this.tabcontrols);
             this.Name = "EditUserControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditUserControl";
             this.tabcontrols.ResumeLayout(false);
+            this.user_tab.ResumeLayout(false);
+            this.user_tab.PerformLayout();
             this.roles_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.role_datagridview)).EndInit();
             this.tables_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.table_datagridview)).EndInit();
             this.privs_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.privs_datagridview)).EndInit();
-            this.user_tab.ResumeLayout(false);
-            this.user_tab.PerformLayout();
             this.ResumeLayout(false);
 
         }

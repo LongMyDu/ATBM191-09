@@ -43,51 +43,57 @@ namespace ATBM191_09_UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 13);
+            this.label1.Location = new System.Drawing.Point(20, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 17);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên:";
             // 
             // vwNameTxt
             // 
-            this.vwNameTxt.Location = new System.Drawing.Point(69, 10);
+            this.vwNameTxt.Location = new System.Drawing.Point(52, 8);
+            this.vwNameTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.vwNameTxt.Name = "vwNameTxt";
-            this.vwNameTxt.Size = new System.Drawing.Size(216, 22);
+            this.vwNameTxt.Size = new System.Drawing.Size(163, 20);
             this.vwNameTxt.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 54);
+            this.label2.Location = new System.Drawing.Point(22, 44);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 17);
+            this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Truy vấn SQL";
             // 
             // queryRTxt
             // 
-            this.queryRTxt.Location = new System.Drawing.Point(29, 94);
+            this.queryRTxt.Location = new System.Drawing.Point(22, 76);
+            this.queryRTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.queryRTxt.Name = "queryRTxt";
-            this.queryRTxt.Size = new System.Drawing.Size(736, 137);
+            this.queryRTxt.Size = new System.Drawing.Size(553, 112);
             this.queryRTxt.TabIndex = 3;
             this.queryRTxt.Text = "";
             // 
             // resDataGVw
             // 
             this.resDataGVw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resDataGVw.Location = new System.Drawing.Point(29, 272);
+            this.resDataGVw.Location = new System.Drawing.Point(22, 221);
+            this.resDataGVw.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.resDataGVw.Name = "resDataGVw";
             this.resDataGVw.RowHeadersWidth = 51;
             this.resDataGVw.RowTemplate.Height = 24;
-            this.resDataGVw.Size = new System.Drawing.Size(736, 104);
+            this.resDataGVw.Size = new System.Drawing.Size(552, 84);
             this.resDataGVw.TabIndex = 4;
             // 
             // vwCreateBtn
             // 
-            this.vwCreateBtn.Location = new System.Drawing.Point(586, 400);
+            this.vwCreateBtn.Location = new System.Drawing.Point(440, 325);
+            this.vwCreateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.vwCreateBtn.Name = "vwCreateBtn";
-            this.vwCreateBtn.Size = new System.Drawing.Size(75, 38);
+            this.vwCreateBtn.Size = new System.Drawing.Size(56, 31);
             this.vwCreateBtn.TabIndex = 6;
             this.vwCreateBtn.Text = "Tạo";
             this.vwCreateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -96,9 +102,10 @@ namespace ATBM191_09_UI
             // 
             // cancelVwCreateBtn
             // 
-            this.cancelVwCreateBtn.Location = new System.Drawing.Point(681, 400);
+            this.cancelVwCreateBtn.Location = new System.Drawing.Point(511, 325);
+            this.cancelVwCreateBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancelVwCreateBtn.Name = "cancelVwCreateBtn";
-            this.cancelVwCreateBtn.Size = new System.Drawing.Size(75, 38);
+            this.cancelVwCreateBtn.Size = new System.Drawing.Size(56, 31);
             this.cancelVwCreateBtn.TabIndex = 7;
             this.cancelVwCreateBtn.Text = "Hủy";
             this.cancelVwCreateBtn.UseVisualStyleBackColor = true;
@@ -106,9 +113,10 @@ namespace ATBM191_09_UI
             // 
             // showResBtn
             // 
-            this.showResBtn.Location = new System.Drawing.Point(29, 238);
+            this.showResBtn.Location = new System.Drawing.Point(22, 193);
+            this.showResBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.showResBtn.Name = "showResBtn";
-            this.showResBtn.Size = new System.Drawing.Size(105, 28);
+            this.showResBtn.Size = new System.Drawing.Size(79, 23);
             this.showResBtn.TabIndex = 8;
             this.showResBtn.Text = "Xem kết quả";
             this.showResBtn.UseVisualStyleBackColor = true;
@@ -116,9 +124,9 @@ namespace ATBM191_09_UI
             // 
             // ViewControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.showResBtn);
             this.Controls.Add(this.cancelVwCreateBtn);
             this.Controls.Add(this.vwCreateBtn);
@@ -127,7 +135,9 @@ namespace ATBM191_09_UI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.vwNameTxt);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo View";
             ((System.ComponentModel.ISupportInitialize)(this.resDataGVw)).EndInit();
             this.ResumeLayout(false);

@@ -25,6 +25,7 @@ namespace ATBM191_09_UI
 
             main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
+  
         }
 
         private void Display_MainDataGridView(DataSet dataSet)
@@ -47,15 +48,28 @@ namespace ATBM191_09_UI
             }
         }
 
+        private void Highlight_Nav_Button(Button button)
+        {
+            table_button.BackColor = Color.FromArgb(51, 51, 75);
+            view_button.BackColor = Color.FromArgb(51, 51, 75);
+            user_button.BackColor = Color.FromArgb(51, 51, 75);
+            role_button.BackColor = Color.FromArgb(51, 51, 75);
+
+            button.BackColor = Color.FromArgb(61, 61, 90);
+        }
+
+
         private void User_Button_Click(object sender, EventArgs e)
         {
+            Highlight_Nav_Button((Button)sender);
             currentOption = 0;  // Set chức năng hiện tại là Users
             header_label.Text = "Danh sách user của hệ thống";
             LoadUsers();
         }
 
         private void Table_Button_Click(object sender, EventArgs e)
-        {            
+        {
+            Highlight_Nav_Button((Button)sender);
             currentOption = 2;  // Set chức năng hiện tại là Tables
             header_label.Text = "Danh sách table của hệ thống";
             LoadTables();
@@ -201,6 +215,7 @@ namespace ATBM191_09_UI
 
         private void view_button_Click(object sender, EventArgs e)
         {
+            Highlight_Nav_Button((Button)sender);
             currentOption = 3;  // Set chức năng hiện tại là Views
             header_label.Text = "Danh sách view của hệ thống";
             LoadViews();
@@ -237,6 +252,7 @@ namespace ATBM191_09_UI
 
         private void role_button_Click(object sender, EventArgs e)
         {
+            Highlight_Nav_Button((Button)sender);
             currentOption = 1;  // Set chức năng hiện tại là Roles
             header_label.Text = "Danh sách role của hệ thống";
             LoadRoles();

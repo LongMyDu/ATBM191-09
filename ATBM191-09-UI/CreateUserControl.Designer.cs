@@ -88,6 +88,7 @@
             this.Controls.Add(this.username_textbox);
             this.Controls.Add(this.username_label);
             this.Name = "CreateUserControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create User";
             this.ResumeLayout(false);
             this.PerformLayout();

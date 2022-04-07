@@ -31,22 +31,22 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.TableLevel = new System.Windows.Forms.TabPage();
             this.tablelevel_datagridview = new System.Windows.Forms.DataGridView();
+            this.PrivilegeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Granted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Grantable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnLevel = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.update_tab = new System.Windows.Forms.TabPage();
             this.update_datagridview = new System.Windows.Forms.DataGridView();
+            this.Update_PrivilegeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update_Granted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Update_Grantable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.insert_tab = new System.Windows.Forms.TabPage();
             this.insert_datagridview = new System.Windows.Forms.DataGridView();
             this.Insert_PrivilegeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Insert_Granted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Insert_Grantable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.save_button = new System.Windows.Forms.Button();
-            this.Update_PrivilegeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update_Granted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Update_Grantable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PrivilegeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Granted = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Grantable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.TableLevel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablelevel_datagridview)).BeginInit();
@@ -100,6 +100,26 @@
             this.tablelevel_datagridview.Size = new System.Drawing.Size(444, 352);
             this.tablelevel_datagridview.TabIndex = 10;
             // 
+            // PrivilegeName
+            // 
+            this.PrivilegeName.HeaderText = "Privilege";
+            this.PrivilegeName.Name = "PrivilegeName";
+            this.PrivilegeName.ReadOnly = true;
+            this.PrivilegeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PrivilegeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Granted
+            // 
+            this.Granted.FillWeight = 80F;
+            this.Granted.HeaderText = "Granted";
+            this.Granted.Name = "Granted";
+            // 
+            // Grantable
+            // 
+            this.Grantable.FillWeight = 80F;
+            this.Grantable.HeaderText = "Grantable";
+            this.Grantable.Name = "Grantable";
+            // 
             // ColumnLevel
             // 
             this.ColumnLevel.Controls.Add(this.tabControl2);
@@ -152,6 +172,26 @@
             this.update_datagridview.Name = "update_datagridview";
             this.update_datagridview.Size = new System.Drawing.Size(423, 313);
             this.update_datagridview.TabIndex = 11;
+            // 
+            // Update_PrivilegeName
+            // 
+            this.Update_PrivilegeName.HeaderText = "Privilege";
+            this.Update_PrivilegeName.Name = "Update_PrivilegeName";
+            this.Update_PrivilegeName.ReadOnly = true;
+            this.Update_PrivilegeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Update_PrivilegeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Update_Granted
+            // 
+            this.Update_Granted.FillWeight = 80F;
+            this.Update_Granted.HeaderText = "Granted";
+            this.Update_Granted.Name = "Update_Granted";
+            // 
+            // Update_Grantable
+            // 
+            this.Update_Grantable.FillWeight = 80F;
+            this.Update_Grantable.HeaderText = "Grantable";
+            this.Update_Grantable.Name = "Update_Grantable";
             // 
             // insert_tab
             // 
@@ -212,46 +252,6 @@
             this.save_button.UseVisualStyleBackColor = true;
             this.save_button.Click += new System.EventHandler(this.save_button_Click);
             // 
-            // Update_PrivilegeName
-            // 
-            this.Update_PrivilegeName.HeaderText = "Privilege";
-            this.Update_PrivilegeName.Name = "Update_PrivilegeName";
-            this.Update_PrivilegeName.ReadOnly = true;
-            this.Update_PrivilegeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Update_PrivilegeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Update_Granted
-            // 
-            this.Update_Granted.FillWeight = 80F;
-            this.Update_Granted.HeaderText = "Granted";
-            this.Update_Granted.Name = "Update_Granted";
-            // 
-            // Update_Grantable
-            // 
-            this.Update_Grantable.FillWeight = 80F;
-            this.Update_Grantable.HeaderText = "Grantable";
-            this.Update_Grantable.Name = "Update_Grantable";
-            // 
-            // PrivilegeName
-            // 
-            this.PrivilegeName.HeaderText = "Privilege";
-            this.PrivilegeName.Name = "PrivilegeName";
-            this.PrivilegeName.ReadOnly = true;
-            this.PrivilegeName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PrivilegeName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Granted
-            // 
-            this.Granted.FillWeight = 80F;
-            this.Granted.HeaderText = "Granted";
-            this.Granted.Name = "Granted";
-            // 
-            // Grantable
-            // 
-            this.Grantable.FillWeight = 80F;
-            this.Grantable.HeaderText = "Grantable";
-            this.Grantable.Name = "Grantable";
-            // 
             // ObjectPrivs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +260,7 @@
             this.Controls.Add(this.save_button);
             this.Controls.Add(this.tabControl1);
             this.Name = "ObjectPrivs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ObjectPrivs";
             this.tabControl1.ResumeLayout(false);
             this.TableLevel.ResumeLayout(false);

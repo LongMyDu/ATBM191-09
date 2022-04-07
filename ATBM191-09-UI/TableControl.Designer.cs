@@ -116,6 +116,7 @@
             this.Controls.Add(this.table_name_textbox);
             this.Controls.Add(this.table_name_label);
             this.Name = "TableControl";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TableControl";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

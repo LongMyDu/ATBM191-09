@@ -208,4 +208,11 @@ revoke update on benhnhan from AAAAAA;
 grant update(macsyt, tiensubenh, tiensubenhgd) on benhnhan to AAAAAA;
 
 
-select GRANTEE AS \"USER\", TABLE_NAME, \"PRIVILEGE\", GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE ='{userProperties.username}'
+select GRANTEE AS \"USER\", TABLE_NAME, \"PRIVILEGE\", GRANTABLE, GRANTOR from dba_tab_privs where GRANTEE ='{userProperties.username}';
+
+select COLUMN_NAME, "PRIVILEGE", GRANTABLE from User_col_privs 
+where table_name = 'BENHNHAN' and grantee = 'AAAAAA' and PRIVILEGE='UPDATE';
+
+
+
+

@@ -186,6 +186,7 @@ namespace ATBM191_09_UI
                 tableControlForm = new TableControl();
             }
             tableControlForm.Show();
+
         }
 
         private void CreateUser()

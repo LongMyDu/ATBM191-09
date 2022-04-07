@@ -91,7 +91,7 @@ namespace ATBM191_09_UI
                         role_datagridview.Rows[e.RowIndex].Cells["Granted"].Value = userProperties.role_granted_after[e.RowIndex][0] = true;
                     userProperties.role_granted_after[e.RowIndex][1] = !userProperties.role_granted_after[e.RowIndex][1];
                 }
-                MessageBox.Show(userProperties.role_granted_after[e.RowIndex][0].ToString() + " " + userProperties.role_granted_after[e.RowIndex][1].ToString());
+                //MessageBox.Show(userProperties.role_granted_after[e.RowIndex][0].ToString() + " " + userProperties.role_granted_after[e.RowIndex][1].ToString());
             }
         }
 
@@ -124,7 +124,7 @@ namespace ATBM191_09_UI
                     !userProperties.sys_privs_granted_after[e.RowIndex][1];
                 }
 
-                MessageBox.Show(userProperties.sys_privs_granted_after[e.RowIndex][0].ToString() + userProperties.sys_privs_granted_after[e.RowIndex][1].ToString());
+                //MessageBox.Show(userProperties.sys_privs_granted_after[e.RowIndex][0].ToString() + userProperties.sys_privs_granted_after[e.RowIndex][1].ToString());
             }
         }
 
@@ -236,8 +236,7 @@ namespace ATBM191_09_UI
                 e.ColumnIndex == table_datagridview.Columns["ViewDetailButton"].Index && e.RowIndex >= 0)
             {
                 String table_name = table_datagridview.Rows[e.RowIndex].Cells["Tables"].Value.ToString();
-                LoadNoColPrivs(table_name);
-                LoadColPrivs(table_name);
+                (new ObjectPrivs(userProperties.username, table_name)).Show();
             }
         }
 
@@ -281,145 +280,8 @@ namespace ATBM191_09_UI
                         = userDetailsDataSet.Tables[0].Rows[i]["TABLE_NAME"].ToString();
                 }
             }
-            
         }
 
-        private void LoadNoColPrivs(String tablename)
-        {
-            nocol_datagridview.Rows.Clear();
-
-            // Lấy thông tin về object privilege của user
-            DataSet noColPrivs = DataProvider.Instance.ExecuteQuery(
-                $"select \"PRIVILEGE\", GRANTABLE from dba_tab_privs where GRANTEE ='{userProperties.username}' AND TABLE_NAME='{tablename}'");
-            for (int i = 0; i < noColPrivs.Tables[0].Rows.Count; i++)
-            {
-                nocol_datagridview.Rows.Add();
-                DataRow noColPrivsRow = noColPrivs.Tables[0].Rows[i];
-                DataGridViewRow gridViewRow = nocol_datagridview.Rows[i];
-
-                gridViewRow.Cells["PrivilegeNoCol"].Value = noColPrivsRow["PRIVILEGE"].ToString();
-                gridViewRow.Cells["Grantable"].Value = (noColPrivsRow["GRANTABLE"].ToString() == "YES");
-                gridViewRow.Cells["PrivilegeNoCol"].ReadOnly = true;
-                gridViewRow.Cells["Grantable"].ReadOnly = true;
-            }
-        }
-
-        private void LoadColPrivs(String tablename)
-        {
-            cols_datagridview.Rows.Clear();
-
-            // Lấy danh sách cột của bảng
-            DataSet cols_DataSet = DataProvider.Instance.ExecuteQuery(
-                $"select col.COLUMN_NAME from sys.all_tab_columns col where table_name = '{tablename}'");
-
-            if (cols_DataSet != null)
-            {
-                if (cols_datagridview.Columns["ColName"] != null)
-                    cols_datagridview.Columns.Remove("ColName");
-
-                // Thêm cột combox là các cột
-                DataGridViewComboBoxColumn colsCombobox = new DataGridViewComboBoxColumn();
-                colsCombobox.HeaderText = "Column Name";
-                colsCombobox.Name = "ColName";
-
-                //Chuyển dataset thành list<string>
-                List<String> columns = new List<string>();
-                foreach (DataRow row in cols_DataSet.Tables[0].Rows)
-                {
-                    columns.Add(row[0].ToString());
-                }
-                colsCombobox.DataSource = columns;
-                cols_datagridview.Columns.Insert(0, colsCombobox);
-
-                // Lấy quyền trên cột của bảng
-                DataSet colPrivs_DataSet = DataProvider.Instance.ExecuteQuery(
-                    $"select COLUMN_NAME, PRIVILEGE from User_col_privs where table_name = '{tablename}' and grantee = '{userProperties.username}'");
-
-                //Hiển thị các quyền trên cột trên datagrid view 
-                if (colPrivs_DataSet != null)
-                {
-                    for (int j = 0; j < colPrivs_DataSet.Tables[0].Rows.Count; j++)
-                    {
-                        cols_datagridview.Rows.Add();     //Tạo một dòng mới trong bảng
-                        DataGridViewRow gridViewRow = cols_datagridview.Rows[j];
-                        DataRow priv_row = colPrivs_DataSet.Tables[0].Rows[j];
-
-                        gridViewRow.Cells["ColName"].Value = priv_row["COLUMN_NAME"];
-                        gridViewRow.Cells["PrivilegeCol"].Value = priv_row["PRIVILEGE"];
-
-                    }
-                }
-            }
-        }
-
-        private void SaveTables()
-        {
-            String failRevokeStr = "";
-            String failGrantStr = "";
-            for (int i = 0; i < userProperties.object_privs_before.Tables[0].Rows.Count; i++)
-            {
-                DataRow objectPrivRow = userProperties.object_privs_before.Tables[0].Rows[i];
-                string object_name = objectPrivRow["TABLE_NAME"].ToString();
-                string object_priv = objectPrivRow["PRIVILEGE"].ToString();
-                bool object_grantable = (objectPrivRow["GRANTABLE"].ToString() == "YES");
-
-                int existIdx = -1;
-                for (int j = 0; j < table_datagridview.RowCount; j++)
-                {
-                    
-                    DataGridViewRow row = table_datagridview.Rows[j];
-                    if (row.IsNewRow)
-                        continue;
-
-                    if (object_name == row.Cells["Tables"].Value.ToString()
-                    && object_priv == row.Cells["Privileges"].Value.ToString()
-                    && object_grantable == Convert.ToBoolean(row.Cells["Grantable"].Value))
-                    {
-                        existIdx = j;
-                        break;
-                    }
-                }
-
-                if (existIdx != -1)
-                {
-                    table_datagridview.Rows.RemoveAt(existIdx);
-                } else
-                {
-                    MessageBox.Show($"REVOKE {object_priv} ON {object_name} FROM {userProperties.username}");
-                    if (DataProvider.instance.ExecuteScalar($"REVOKE {object_priv} ON {object_name} FROM {userProperties.username}") == null)
-                    {
-                        failRevokeStr += object_priv + ", ";
-                    }
-                }
-            }
-            String grantOptionStr;
-            for (int i = 0; i < table_datagridview.Rows.Count; ++i)
-            {
-                DataGridViewRow row = table_datagridview.Rows[i];
-                if (row.IsNewRow)
-                    continue;
-
-                grantOptionStr = Convert.ToBoolean(row.Cells["Grantable"].Value) == true ? "WITH GRANT OPTION" : "";
-                MessageBox.Show($"GRANT {row.Cells["Privileges"].Value.ToString()} ON {row.Cells["Tables"].Value.ToString()} TO {userProperties.username} {grantOptionStr}");
-                if (DataProvider.instance.ExecuteScalar($"GRANT {table_datagridview.Rows[i].Cells["Privileges"].Value.ToString()} ON {table_datagridview.Rows[i].Cells["Tables"].Value.ToString()} TO {userProperties.username} {grantOptionStr}") == null)
-                {
-                    failGrantStr += table_datagridview.Rows[i].Cells["Privileges"].Value.ToString() + ", ";
-                }
-            }
-            String failStr = "";
-            if (failRevokeStr != "")
-            {
-                failStr += "Không thể revoke:\n" + failRevokeStr;
-            }
-            if (failGrantStr != "")
-            {
-                failStr += "Không thể grant:\n" + failGrantStr;
-            }
-            if (failStr != "")
-            {
-                MessageBox.Show(failStr);
-            }
-        }
         private void LoadSysPrivs()
         {
             privs_datagridview.Columns.Clear();
@@ -472,7 +334,7 @@ namespace ATBM191_09_UI
         {
             SaveRoles();
             SaveSysPrivs();
-            SaveTables();
+            //SaveTables();
             SavePassword();
             this.Close();
         }

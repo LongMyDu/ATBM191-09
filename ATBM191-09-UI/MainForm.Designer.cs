@@ -90,7 +90,7 @@
             this.view_button.TabIndex = 4;
             this.view_button.Text = "Views";
             this.view_button.UseVisualStyleBackColor = true;
-            this.view_button.Click += new System.EventHandler(this.view_button_Click);
+            this.view_button.Click += new System.EventHandler(this.View_Button_Click);
             // 
             // table_button
             // 
@@ -226,7 +226,7 @@
             this.Controls.Add(this.main_panel);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Quản lý cơ sở y tế";
             this.main_panel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

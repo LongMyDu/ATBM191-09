@@ -156,6 +156,7 @@ namespace ATBM191_09_UI
                     if (result != null)
                     {
                         MessageBox.Show("Xóa user thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadUsers();
                     }
                     else
                     {
@@ -185,9 +186,7 @@ namespace ATBM191_09_UI
                 col.data_precision, 
                 col.data_scale, 
                 col.nullable
-                from sys.all_tab_columns col
-                inner join sys.all_tables sat on col.owner = (select user from dual)
-                and col.table_name = sat.table_name
+                from user_tab_columns col
                 order by col.table_name");
             Display_MainDataGridView(tablesDataSet);                
         }
@@ -200,7 +199,7 @@ namespace ATBM191_09_UI
                 tableControlForm = new TableControl();
             }
             tableControlForm.Show();
-
+            LoadTables(); //Reload lại danh sách tables
         }
 
         private void CreateUser()
@@ -213,13 +212,14 @@ namespace ATBM191_09_UI
             createUserControlForm.Show();
         }
 
-        private void view_button_Click(object sender, EventArgs e)
+        private void View_Button_Click(object sender, EventArgs e)
         {
             Highlight_Nav_Button((Button)sender);
             currentOption = 3;  // Set chức năng hiện tại là Views
             header_label.Text = "Danh sách view của hệ thống";
             LoadViews();
         }
+
         private void LoadViews()
         {
             DataSet viewsDataSet = DataProvider.Instance.ExecuteQuery(

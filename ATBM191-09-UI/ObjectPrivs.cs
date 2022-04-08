@@ -31,7 +31,7 @@ namespace ATBM191_09_UI
         public ObjectPrivs(String username, String tablename)
         {
             InitializeComponent();
-            this.Name = tablename;
+            this.Text = "Chi tiết quyền trên bảng " + tablename;
 
             tablePrivs.username = username;
             tablePrivs.tablename = tablename;
@@ -193,7 +193,7 @@ namespace ATBM191_09_UI
 
             // Lấy danh sách cột của bảng
             DataSet cols_DataSet = DataProvider.Instance.ExecuteQuery(
-                $"select col.COLUMN_NAME from sys.all_tab_columns col where table_name = '{tablePrivs.tablename}'");
+                $"select col.COLUMN_NAME from user_tab_columns col where table_name = '{tablePrivs.tablename}'");
 
             if (cols_DataSet != null)
             {

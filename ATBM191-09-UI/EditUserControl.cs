@@ -31,6 +31,7 @@ namespace ATBM191_09_UI
         public EditUserControl(String username)
         {
             InitializeComponent();
+            this.Text = "Chi tiết user " + username;
             userProperties.username = username;
             username_textbox.Text = username;        
             username_textbox.ReadOnly = true;
@@ -278,6 +279,8 @@ namespace ATBM191_09_UI
                     table_datagridview.Rows.Add();          //Tạo một dòng mới trong bảng
                     table_datagridview.Rows[i].Cells["Tables"].Value
                         = userDetailsDataSet.Tables[0].Rows[i]["TABLE_NAME"].ToString();
+
+                    table_datagridview.Rows[i].ReadOnly = true;
                 }
             }
         }

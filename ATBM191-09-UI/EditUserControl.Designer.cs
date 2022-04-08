@@ -148,6 +148,7 @@
             // 
             // table_datagridview
             // 
+            this.table_datagridview.AllowUserToDeleteRows = false;
             this.table_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.table_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.table_datagridview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

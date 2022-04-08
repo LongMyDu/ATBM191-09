@@ -17,6 +17,7 @@ namespace ATBM191_09_UI
         TableControl tableControlForm = null;
         ViewControl viewControlForm = null;
         CreateUserControl createUserControlForm = null;
+        CreateRoleControl createRoleControlForm = null;
         int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Tables, 3: Views
 
         public MainForm()
@@ -25,7 +26,7 @@ namespace ATBM191_09_UI
 
             main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
-  
+            main_datagridview.CellClick += Delete_Role_Click;
         }
 
         private void Display_MainDataGridView(DataSet dataSet)
@@ -83,6 +84,7 @@ namespace ATBM191_09_UI
                     CreateUser();
                     break;
                 case 1:
+                    CreateRole();
                     break;
                 case 2:
                     CreateTable();
@@ -261,14 +263,62 @@ namespace ATBM191_09_UI
         private void LoadRoles()
         {
             DataSet rolesDataSet = DataProvider.Instance.ExecuteQuery(
-            @"select 
-            role,
-            privilege,
-            admin_option,
-            common,
-            inherited
-            from role_sys_privs order by role");
-            Display_MainDataGridView(rolesDataSet);
+            @" Select * from dba_roles");
+            if (rolesDataSet != null)
+            {
+                Display_MainDataGridView(rolesDataSet);
+                // Thêm nút xóa role cột cuối cùng
+                DataGridViewButtonColumn deleteRoleButtonCol = new DataGridViewButtonColumn();
+                deleteRoleButtonCol.Name = "DeleteRole";
+                deleteRoleButtonCol.HeaderText = "";
+                deleteRoleButtonCol.Text = "Xóa";
+                deleteRoleButtonCol.UseColumnTextForButtonValue = true;
+
+
+                if (main_datagridview.Columns["DeleteRole"] == null)
+                {
+                    main_datagridview.Columns.Add(deleteRoleButtonCol);
+                }
+            }
+        }
+
+        private void Delete_Role_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (main_datagridview.Columns["DeleteRole"] != null &&
+                e.ColumnIndex == main_datagridview.Columns["DeleteRole"].Index)
+            {
+                String rolename = main_datagridview.Rows[e.RowIndex].Cells["ROLE"].Value.ToString();
+                if (MessageBox.Show("Xác nhận xóa role?", "Xác nhận",
+                                        MessageBoxButtons.OKCancel, MessageBoxIcon.Warning,
+                                        MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.OK)
+                {
+                    String query = $"DROP ROLE {rolename}";
+                    Object result = DataProvider.Instance.ExecuteScalar(query);
+                    if (result != null)
+                    {
+                        MessageBox.Show("Xóa role thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void CreateRole()
+        {
+            // Mở form TableControl, nếu chưa tồn tại hoặc đã bị tắt thì tạo form mới
+            if (createRoleControlForm == null || createRoleControlForm.IsDisposed == true)
+            {
+                createRoleControlForm = new CreateRoleControl();
+            }
+            createRoleControlForm.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

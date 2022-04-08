@@ -11,7 +11,8 @@ namespace ATBM191_09_UI.DAO
 {
     class DataProvider
     {
-        string ConString = "Data Source=XEPDB1;User Id=QLCSYTE_ADMIN;Password=qlcsyteadmin;";
+       public static string ConString = "Data Source=XEPDB1;User Id=username;Password=******;";
+
 
         public static DataProvider instance = null;
 

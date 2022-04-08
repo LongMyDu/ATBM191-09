@@ -52,12 +52,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateRoleControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateRoleControl.Designer.cs">
+      <DependentUpon>CreateRoleControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="EditRoleControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRoleControl.Designer.cs">
+      <DependentUpon>EditRoleControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUserControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditUserControl.Designer.cs">
       <DependentUpon>EditUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -85,14 +103,29 @@
     <Compile Include="CreateUserControl.Designer.cs">
       <DependentUpon>CreateUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControl.Designer.cs">
+      <DependentUpon>UserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControl.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewControl.Designer.cs">
       <DependentUpon>ViewControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CreateRoleControl.resx">
+      <DependentUpon>CreateRoleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRoleControl.resx">
+      <DependentUpon>EditRoleControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditUserControl.resx">
       <DependentUpon>EditUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -115,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateUserControl.resx">
       <DependentUpon>CreateUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl.resx">
+      <DependentUpon>UserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControl.resx">
       <DependentUpon>ViewControl.cs</DependentUpon>

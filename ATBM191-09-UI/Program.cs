@@ -16,9 +16,12 @@ namespace ATBM191_09_UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainForm mainForm = new MainForm();
-            if (!mainForm.IsDisposed)
-                Application.Run(mainForm);
+            //MainForm mainForm = new MainForm();
+            //if (!mainForm.IsDisposed)
+            //  Application.Run(mainForm);
+            Login log = new Login();
+            if (!log.IsDisposed)
+                Application.Run(log);
         }
     }
 }

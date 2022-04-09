@@ -30,7 +30,7 @@ namespace ATBM191_09_UI
             roleProperties.role_name = textRoleName.Text.ToUpper();
             roleProperties.password = textPassword.Text;
 
-            if (roleProperties.role_name == "" || roleProperties.password == "")
+            if (roleProperties.role_name == "" )
             {
                 MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Lưu ý");
                 return false;
@@ -41,7 +41,10 @@ namespace ATBM191_09_UI
 
         private bool CreateRole()
         {
-            String oracleCmd = $"create role \"{roleProperties.role_name}\" identified by {roleProperties.password}";
+            String oracleCmd = $"create role \"{roleProperties.role_name}\"";
+            if (roleProperties.password != "")
+                oracleCmd += $" identified by {roleProperties.password}";
+
             object count = DataProvider.Instance.ExecuteScalar(oracleCmd);
             if (count == null)
             {

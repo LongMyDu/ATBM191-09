@@ -25,7 +25,8 @@ namespace ATBM191_09_UI
 
             main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
-  
+
+            main_datagridview.CellClick += Role_Details_Click;
         }
 
         private void Display_MainDataGridView(DataSet dataSet)
@@ -262,13 +263,37 @@ namespace ATBM191_09_UI
         {
             DataSet rolesDataSet = DataProvider.Instance.ExecuteQuery(
             @"select 
-            role,
-            privilege,
-            admin_option,
-            common,
-            inherited
-            from role_sys_privs order by role");
-            Display_MainDataGridView(rolesDataSet);
+            role
+            from dba_roles order by role");
+
+            if (rolesDataSet != null)
+            {
+
+                Display_MainDataGridView(rolesDataSet);
+
+                // Thêm nút xem chi tiết vào cột cuối cùng
+                DataGridViewButtonColumn roleDetailButtonColumn = new DataGridViewButtonColumn();
+                roleDetailButtonColumn.Name = "roleDetailButton";
+                roleDetailButtonColumn.HeaderText = "";
+                roleDetailButtonColumn.Text = "Chi tiết";
+                roleDetailButtonColumn.UseColumnTextForButtonValue = true;
+
+
+                if (main_datagridview.Columns["roleDetailButton"] == null)
+                {
+                    main_datagridview.Columns.Add(roleDetailButtonColumn);
+                }
+            }
+        }
+
+        private void Role_Details_Click(object sender, DataGridViewCellEventArgs e)
+        {
+            if (main_datagridview.Columns["roleDetailButton"] != null &&
+                e.ColumnIndex == main_datagridview.Columns["roleDetailButton"].Index && e.RowIndex >= 0)
+            {
+                String rolename = main_datagridview.Rows[e.RowIndex].Cells["ROLE"].Value.ToString();
+                (new EditRoleControl(rolename)).Show();
+            }
         }
     }
 }

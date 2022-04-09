@@ -213,6 +213,4 @@ select GRANTEE AS \"USER\", TABLE_NAME, \"PRIVILEGE\", GRANTABLE, GRANTOR from d
 select COLUMN_NAME, "PRIVILEGE", GRANTABLE from User_col_privs 
 where table_name = 'BENHNHAN' and grantee = 'AAAAAA' and PRIVILEGE='UPDATE';
 
-
-
-
+grant select on VW_HSBAN to ROLE_GIAOVIEN with grant option;

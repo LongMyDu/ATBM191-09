@@ -27,11 +27,16 @@ namespace ATBM191_09_UI
         }
 
         TablePrivs tablePrivs = new TablePrivs();
+        public bool isRoleGrant;
 
-        public ObjectPrivs(String username, String tablename)
+        public ObjectPrivs(String username, String tablename, bool isRoleGrant = false)
         {
             InitializeComponent();
             this.Name = tablename;
+            this.isRoleGrant = isRoleGrant;
+            tablelevel_datagridview.Columns["Grantable"].Visible = !isRoleGrant;
+            update_datagridview.Columns["Update_Grantable"].Visible = !isRoleGrant;
+            insert_datagridview.Columns["Insert_Grantable"].Visible = !isRoleGrant;
 
             tablePrivs.username = username;
             tablePrivs.tablename = tablename;
@@ -269,7 +274,7 @@ namespace ATBM191_09_UI
                     continue;
 
                 exeString = $"GRANT {priv}({colName}) ON {tablePrivs.tablename} TO {tablePrivs.username}";
-                if (grantable)
+                if (grantable && !this.isRoleGrant)
                 {
                     //Grant admin
                     exeString += " WITH GRANT OPTION";

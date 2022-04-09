@@ -17,7 +17,7 @@ namespace ATBM191_09_UI
         {
             public String rolename;
             public String password;
-
+            
             public List<List<bool>> role_granted_before = new List<List<bool>>();
             public List<List<bool>> role_granted_after = new List<List<bool>>();
             public List<List<bool>> sys_privs_granted_before = new List<List<bool>>(); // each tuple first ele is granted, second is admin
@@ -259,7 +259,7 @@ namespace ATBM191_09_UI
                 foreach (DataRow row in dataSet.Tables[0].Rows)
                 {
                     tables.Add(row[0].ToString());
-                }
+        }
                 tablesCombobox.DataSource = tables;
                 table_datagridview.Columns.Insert(0, tablesCombobox);
             }
@@ -275,10 +275,10 @@ namespace ATBM191_09_UI
             String tableName;
             int cnt = 0;
             if (userDetailsDataSet != null)
-            {
+        {
                 // Gán những thông tin này vô datagridview 
                 for (int i = 0; i < userDetailsDataSet.Tables[0].Rows.Count; i++)
-                {
+            {
                     tableName = userDetailsDataSet.Tables[0].Rows[i]["TABLE_NAME"].ToString();
                     if (tables.IndexOf(tableName) != -1)
                     {
@@ -290,7 +290,7 @@ namespace ATBM191_09_UI
         }
 
         private void LoadSysPrivs()
-        {
+                {
             privs_datagridview.Columns.Clear();
 
             //Lấy danh sách system privileges 

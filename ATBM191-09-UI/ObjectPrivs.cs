@@ -32,6 +32,7 @@ namespace ATBM191_09_UI
         public ObjectPrivs(String username, String tablename, bool isRoleGrant = false)
         {
             InitializeComponent();
+            this.Text = "Chi tiết quyền trên bảng " + tablename;
             this.Name = tablename;
             this.isRoleGrant = isRoleGrant;
             tablelevel_datagridview.Columns["Grantable"].Visible = !isRoleGrant;
@@ -198,7 +199,7 @@ namespace ATBM191_09_UI
 
             // Lấy danh sách cột của bảng
             DataSet cols_DataSet = DataProvider.Instance.ExecuteQuery(
-                $"select col.COLUMN_NAME from sys.all_tab_columns col where table_name = '{tablePrivs.tablename}'");
+                $"select col.COLUMN_NAME from user_tab_columns col where table_name = '{tablePrivs.tablename}'");
 
             if (cols_DataSet != null)
             {

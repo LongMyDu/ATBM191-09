@@ -237,6 +237,7 @@ namespace ATBM191_09_UI
             this.privs_tab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.privs_datagridview)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

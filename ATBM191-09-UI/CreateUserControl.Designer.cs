@@ -40,7 +40,7 @@
             this.create_button.Location = new System.Drawing.Point(316, 91);
             this.create_button.Name = "create_button";
             this.create_button.Size = new System.Drawing.Size(75, 23);
-            this.create_button.TabIndex = 6;
+            this.create_button.TabIndex = 3;
             this.create_button.Text = "Create";
             this.create_button.UseVisualStyleBackColor = true;
             this.create_button.Click += new System.EventHandler(this.create_button_Click);
@@ -50,7 +50,7 @@
             this.username_textbox.Location = new System.Drawing.Point(84, 20);
             this.username_textbox.Name = "username_textbox";
             this.username_textbox.Size = new System.Drawing.Size(307, 20);
-            this.username_textbox.TabIndex = 5;
+            this.username_textbox.TabIndex = 1;
             // 
             // username_label
             // 
@@ -66,7 +66,7 @@
             this.password_textbox.Location = new System.Drawing.Point(84, 56);
             this.password_textbox.Name = "password_textbox";
             this.password_textbox.Size = new System.Drawing.Size(307, 20);
-            this.password_textbox.TabIndex = 9;
+            this.password_textbox.TabIndex = 2;
             // 
             // password_label
             // 
@@ -74,7 +74,7 @@
             this.password_label.Location = new System.Drawing.Point(12, 59);
             this.password_label.Name = "password_label";
             this.password_label.Size = new System.Drawing.Size(56, 13);
-            this.password_label.TabIndex = 8;
+            this.password_label.TabIndex = 5;
             this.password_label.Text = "Password:";
             // 
             // CreateUserControl
@@ -89,7 +89,7 @@
             this.Controls.Add(this.username_label);
             this.Name = "CreateUserControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create User";
+            this.Text = "Tạo user";
             this.ResumeLayout(false);
             this.PerformLayout();
 

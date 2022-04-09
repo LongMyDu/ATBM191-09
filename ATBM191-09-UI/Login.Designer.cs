@@ -41,9 +41,9 @@ namespace ATBM191_09_UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 73);
+            this.label1.Location = new System.Drawing.Point(58, 58);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.Size = new System.Drawing.Size(81, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "User name:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -51,33 +51,36 @@ namespace ATBM191_09_UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 121);
+            this.label2.Location = new System.Drawing.Point(58, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(153, 73);
+            this.textUsername.Location = new System.Drawing.Point(136, 58);
+            this.textUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(199, 26);
+            this.textUsername.Size = new System.Drawing.Size(177, 22);
             this.textUsername.TabIndex = 2;
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(153, 121);
+            this.textPassword.Location = new System.Drawing.Point(136, 97);
+            this.textPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(199, 26);
+            this.textPassword.Size = new System.Drawing.Size(177, 22);
             this.textPassword.TabIndex = 3;
             this.textPassword.UseSystemPasswordChar = true;
             this.textPassword.TextChanged += new System.EventHandler(this.textPassword_TextChanged);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(100, 188);
+            this.btnLogin.Location = new System.Drawing.Point(89, 150);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(115, 37);
+            this.btnLogin.Size = new System.Drawing.Size(102, 30);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -85,9 +88,10 @@ namespace ATBM191_09_UI
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(260, 189);
+            this.btnExit.Location = new System.Drawing.Point(231, 151);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(109, 36);
+            this.btnExit.Size = new System.Drawing.Size(97, 29);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -96,17 +100,17 @@ namespace ATBM191_09_UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(138, 29);
+            this.label3.Location = new System.Drawing.Point(123, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(184, 20);
+            this.label3.Size = new System.Drawing.Size(165, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Sign in with your account";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 255);
+            this.ClientSize = new System.Drawing.Size(399, 204);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
@@ -114,7 +118,9 @@ namespace ATBM191_09_UI
             this.Controls.Add(this.textUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);

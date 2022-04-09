@@ -52,10 +52,8 @@ namespace ATBM191_09_UI
                 try
                 {
                     OracleConnection con = new OracleConnection(DataProvider.ConString);
-                    { 
+                    {
                         con.Open();
-
-                        MessageBox.Show("Login is successfully");
                         MainForm mainFr = new MainForm();
                         mainFr.Show();
                         this.Hide();

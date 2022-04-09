@@ -17,6 +17,7 @@ namespace ATBM191_09_UI
         TableControl tableControlForm = null;
         ViewControl viewControlForm = null;
         CreateUserControl createUserControlForm = null;
+        CreateRoleControl createRoleControlForm = null;
         int currentOption = -1; //0: đang trong chức năng User, 1: chức năng Roles, 2: Tables, 3: Views
 
         public MainForm()
@@ -266,19 +267,6 @@ namespace ATBM191_09_UI
             if (rolesDataSet != null)
             {
                 Display_MainDataGridView(rolesDataSet);
-                // Thêm nút xóa role cột cuối cùng
-                DataGridViewButtonColumn deleteRoleButtonCol = new DataGridViewButtonColumn();
-                deleteRoleButtonCol.Name = "DeleteRole";
-                deleteRoleButtonCol.HeaderText = "";
-                deleteRoleButtonCol.Text = "Xóa";
-                deleteRoleButtonCol.UseColumnTextForButtonValue = true;
-
-
-                if (main_datagridview.Columns["DeleteRole"] == null)
-                {
-                    main_datagridview.Columns.Add(deleteRoleButtonCol);
-                }
-                
 
                 // Thêm nút xem chi tiết vào cột cuối cùng
                 DataGridViewButtonColumn roleDetailButtonColumn = new DataGridViewButtonColumn();
@@ -287,12 +275,22 @@ namespace ATBM191_09_UI
                 roleDetailButtonColumn.Text = "Chi tiết";
                 roleDetailButtonColumn.UseColumnTextForButtonValue = true;
 
-
                 if (main_datagridview.Columns["roleDetailButton"] == null)
                 {
                     main_datagridview.Columns.Add(roleDetailButtonColumn);
                 }
-                Display_MainDataGridView(rolesDataSet);
+
+                // Thêm nút xóa role cột cuối cùng
+                DataGridViewButtonColumn deleteRoleButtonCol = new DataGridViewButtonColumn();
+                deleteRoleButtonCol.Name = "DeleteRole";
+                deleteRoleButtonCol.HeaderText = "";
+                deleteRoleButtonCol.Text = "Xóa";
+                deleteRoleButtonCol.UseColumnTextForButtonValue = true;
+
+                if (main_datagridview.Columns["DeleteRole"] == null)
+                {
+                    main_datagridview.Columns.Add(deleteRoleButtonCol);
+                }
             }
         }
 

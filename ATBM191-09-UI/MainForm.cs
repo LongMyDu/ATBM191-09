@@ -27,6 +27,8 @@ namespace ATBM191_09_UI
             main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Role_Details_Click;
+
+            User_Button_Click(user_button, new EventArgs());
         }
 
         private void Display_MainDataGridView(DataSet dataSet)

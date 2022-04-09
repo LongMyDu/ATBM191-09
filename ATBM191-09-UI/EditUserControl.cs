@@ -247,6 +247,7 @@ namespace ATBM191_09_UI
             //Lấy danh sách tables và views
             DataSet dataSet = DataProvider.Instance.ExecuteQuery(
                 "select distinct table_name from user_tab_columns");
+            List<String> tables = new List<string>();
             if (dataSet != null)
             {
                 // Thêm cột combox là các tables và views
@@ -255,7 +256,6 @@ namespace ATBM191_09_UI
                 tablesCombobox.Name = "Tables";
 
                 //Chuyển dataset thành list<string>
-                List<String> tables = new List<string>();
                 foreach (DataRow row in dataSet.Tables[0].Rows)
                 {
                     tables.Add(row[0].ToString());
@@ -271,17 +271,22 @@ namespace ATBM191_09_UI
 
             //// Lưu lại trạng thái before của các object privilege
             //userProperties.object_privs_before = userDetailsDataSet.Copy();
-
+            String tableName;
+            int cnt = 0;
             if (userDetailsDataSet != null)
             {
                 // Gán những thông tin này vô datagridview 
                 for (int i = 0; i < userDetailsDataSet.Tables[0].Rows.Count; i++)
                 {
-                    table_datagridview.Rows.Add();          //Tạo một dòng mới trong bảng
-                    table_datagridview.Rows[i].Cells["Tables"].Value
-                        = userDetailsDataSet.Tables[0].Rows[i]["TABLE_NAME"].ToString();
+                    tableName = userDetailsDataSet.Tables[0].Rows[i]["TABLE_NAME"].ToString();
+                    if (tables.IndexOf(tableName) != -1)
+                    {
+                        table_datagridview.Rows.Add();          //Tạo một dòng mới trong bảng
+                        table_datagridview.Rows[i].Cells["Tables"].Value
+                            = userDetailsDataSet.Tables[0].Rows[cnt++]["TABLE_NAME"].ToString();
 
-                    table_datagridview.Rows[i].ReadOnly = true;
+                        table_datagridview.Rows[i].ReadOnly = true;
+                    }
                 }
             }
         }

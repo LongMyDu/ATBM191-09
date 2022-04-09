@@ -21,22 +21,6 @@ namespace ATBM191_09_UI
             InitializeComponent();
         }
 
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string username = textUsername.Text;
@@ -72,6 +56,25 @@ namespace ATBM191_09_UI
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void textUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            textLogin_KeyDown(sender, e);
+        }
+
+        private void textPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            textLogin_KeyDown(sender, e);
+        }
+        
+        private void textLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(sender, e);
+            }
         }
     }
 }

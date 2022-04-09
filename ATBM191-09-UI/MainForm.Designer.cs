@@ -57,9 +57,9 @@
             this.main_panel.Controls.Add(this.main_datagridview);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.Location = new System.Drawing.Point(0, 0);
-            this.main_panel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.main_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(1200, 692);
+            this.main_panel.Size = new System.Drawing.Size(1067, 554);
             this.main_panel.TabIndex = 3;
             // 
             // panel1
@@ -72,9 +72,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 692);
+            this.panel1.Size = new System.Drawing.Size(267, 554);
             this.panel1.TabIndex = 3;
             // 
             // view_button
@@ -86,10 +86,10 @@
             this.view_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.view_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.view_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.view_button.Location = new System.Drawing.Point(0, 399);
-            this.view_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.view_button.Location = new System.Drawing.Point(0, 320);
+            this.view_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.view_button.Name = "view_button";
-            this.view_button.Size = new System.Drawing.Size(300, 92);
+            this.view_button.Size = new System.Drawing.Size(267, 74);
             this.view_button.TabIndex = 4;
             this.view_button.Text = "Views";
             this.view_button.UseVisualStyleBackColor = true;
@@ -104,10 +104,10 @@
             this.table_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.table_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.table_button.Location = new System.Drawing.Point(0, 307);
-            this.table_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.table_button.Location = new System.Drawing.Point(0, 246);
+            this.table_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.table_button.Name = "table_button";
-            this.table_button.Size = new System.Drawing.Size(300, 92);
+            this.table_button.Size = new System.Drawing.Size(267, 74);
             this.table_button.TabIndex = 3;
             this.table_button.Text = "Tables";
             this.table_button.UseVisualStyleBackColor = true;
@@ -122,10 +122,10 @@
             this.role_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.role_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.role_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.role_button.Location = new System.Drawing.Point(0, 215);
-            this.role_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.role_button.Location = new System.Drawing.Point(0, 172);
+            this.role_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.role_button.Name = "role_button";
-            this.role_button.Size = new System.Drawing.Size(300, 92);
+            this.role_button.Size = new System.Drawing.Size(267, 74);
             this.role_button.TabIndex = 2;
             this.role_button.Text = "Roles";
             this.role_button.UseVisualStyleBackColor = true;
@@ -140,10 +140,10 @@
             this.user_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.user_button.ForeColor = System.Drawing.Color.Gainsboro;
             this.user_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.user_button.Location = new System.Drawing.Point(0, 123);
-            this.user_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.user_button.Location = new System.Drawing.Point(0, 98);
+            this.user_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.user_button.Name = "user_button";
-            this.user_button.Size = new System.Drawing.Size(300, 92);
+            this.user_button.Size = new System.Drawing.Size(267, 74);
             this.user_button.TabIndex = 1;
             this.user_button.Text = "Users";
             this.user_button.UseVisualStyleBackColor = true;
@@ -155,9 +155,9 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 123);
+            this.panel2.Size = new System.Drawing.Size(267, 98);
             this.panel2.TabIndex = 0;
             // 
             // label1
@@ -168,7 +168,7 @@
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 123);
+            this.label1.Size = new System.Drawing.Size(267, 98);
             this.label1.TabIndex = 0;
             this.label1.Text = "ADMIN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,19 +181,19 @@
             this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
             this.header_panel.Controls.Add(this.new_button);
             this.header_panel.Controls.Add(this.header_label);
-            this.header_panel.Location = new System.Drawing.Point(298, 0);
-            this.header_panel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.header_panel.Location = new System.Drawing.Point(265, 0);
+            this.header_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(902, 123);
+            this.header_panel.Size = new System.Drawing.Size(802, 98);
             this.header_panel.TabIndex = 2;
             // 
             // new_button
             // 
             this.new_button.AutoEllipsis = true;
-            this.new_button.Location = new System.Drawing.Point(784, 78);
-            this.new_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.new_button.Location = new System.Drawing.Point(697, 62);
+            this.new_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.new_button.Name = "new_button";
-            this.new_button.Size = new System.Drawing.Size(112, 35);
+            this.new_button.Size = new System.Drawing.Size(100, 28);
             this.new_button.TabIndex = 1;
             this.new_button.Text = "New";
             this.new_button.UseVisualStyleBackColor = true;
@@ -204,10 +204,10 @@
             this.header_label.AutoSize = true;
             this.header_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_label.ForeColor = System.Drawing.Color.White;
-            this.header_label.Location = new System.Drawing.Point(24, 43);
-            this.header_label.Margin = new System.Windows.Forms.Padding(105, 0, 4, 0);
+            this.header_label.Location = new System.Drawing.Point(21, 34);
+            this.header_label.Margin = new System.Windows.Forms.Padding(93, 0, 4, 0);
             this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(116, 37);
+            this.header_label.Size = new System.Drawing.Size(99, 31);
             this.header_label.TabIndex = 0;
             this.header_label.Text = "HOME";
             this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,20 +222,21 @@
             this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.main_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_datagridview.Location = new System.Drawing.Point(298, 123);
-            this.main_datagridview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.main_datagridview.Location = new System.Drawing.Point(265, 98);
+            this.main_datagridview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.main_datagridview.Name = "main_datagridview";
+            this.main_datagridview.ReadOnly = true;
             this.main_datagridview.RowHeadersWidth = 51;
-            this.main_datagridview.Size = new System.Drawing.Size(906, 569);
+            this.main_datagridview.Size = new System.Drawing.Size(805, 455);
             this.main_datagridview.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.main_panel);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý cơ sở y tế";

@@ -37,9 +37,10 @@
             // 
             // create_button
             // 
-            this.create_button.Location = new System.Drawing.Point(316, 91);
+            this.create_button.Location = new System.Drawing.Point(421, 112);
+            this.create_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.create_button.Name = "create_button";
-            this.create_button.Size = new System.Drawing.Size(75, 23);
+            this.create_button.Size = new System.Drawing.Size(100, 28);
             this.create_button.TabIndex = 3;
             this.create_button.Text = "Create";
             this.create_button.UseVisualStyleBackColor = true;
@@ -47,46 +48,52 @@
             // 
             // username_textbox
             // 
-            this.username_textbox.Location = new System.Drawing.Point(84, 20);
+            this.username_textbox.Location = new System.Drawing.Point(112, 25);
+            this.username_textbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.username_textbox.Name = "username_textbox";
-            this.username_textbox.Size = new System.Drawing.Size(307, 20);
+            this.username_textbox.Size = new System.Drawing.Size(408, 22);
             this.username_textbox.TabIndex = 1;
             // 
             // username_label
             // 
             this.username_label.AutoSize = true;
-            this.username_label.Location = new System.Drawing.Point(12, 23);
+            this.username_label.Location = new System.Drawing.Point(16, 28);
+            this.username_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.username_label.Name = "username_label";
-            this.username_label.Size = new System.Drawing.Size(61, 13);
+            this.username_label.Size = new System.Drawing.Size(81, 17);
             this.username_label.TabIndex = 4;
             this.username_label.Text = "Username: ";
             // 
             // password_textbox
             // 
-            this.password_textbox.Location = new System.Drawing.Point(84, 56);
+            this.password_textbox.Location = new System.Drawing.Point(112, 69);
+            this.password_textbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.password_textbox.Name = "password_textbox";
-            this.password_textbox.Size = new System.Drawing.Size(307, 20);
+            this.password_textbox.Size = new System.Drawing.Size(408, 22);
             this.password_textbox.TabIndex = 2;
+            this.password_textbox.UseSystemPasswordChar = true;
             // 
             // password_label
             // 
             this.password_label.AutoSize = true;
-            this.password_label.Location = new System.Drawing.Point(12, 59);
+            this.password_label.Location = new System.Drawing.Point(16, 73);
+            this.password_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.password_label.Name = "password_label";
-            this.password_label.Size = new System.Drawing.Size(56, 13);
+            this.password_label.Size = new System.Drawing.Size(73, 17);
             this.password_label.TabIndex = 5;
             this.password_label.Text = "Password:";
             // 
             // CreateUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 126);
+            this.ClientSize = new System.Drawing.Size(545, 155);
             this.Controls.Add(this.password_textbox);
             this.Controls.Add(this.password_label);
             this.Controls.Add(this.create_button);
             this.Controls.Add(this.username_textbox);
             this.Controls.Add(this.username_label);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "CreateUserControl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo user";

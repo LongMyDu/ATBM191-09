@@ -54,12 +54,6 @@ namespace ATBM191_09_UI
             return true;
         }
 
-        
-        private void CreateRoleControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (getInput())

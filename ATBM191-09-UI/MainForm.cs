@@ -27,6 +27,7 @@ namespace ATBM191_09_UI
             main_datagridview.CellClick += User_Details_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Delete_User_Click;  //Thêm event handler cho các nút
             main_datagridview.CellClick += Role_Details_Click;
+            main_datagridview.CellClick += Delete_Role_Click;
 
             User_Button_Click(user_button, new EventArgs());
         }
@@ -265,7 +266,7 @@ namespace ATBM191_09_UI
         private void LoadRoles()
         {
             DataSet rolesDataSet = DataProvider.Instance.ExecuteQuery(
-            @" Select * from dba_roles");
+            @"select role, role_id, password_required from dba_roles");
             if (rolesDataSet != null)
             {
                 Display_MainDataGridView(rolesDataSet);
@@ -294,6 +295,7 @@ namespace ATBM191_09_UI
                     main_datagridview.Columns.Add(deleteRoleButtonCol);
                 }
             }
+            main_datagridview.Columns["role"].FillWeight = 200;
         }
 
         private void Delete_Role_Click(object sender, DataGridViewCellEventArgs e)
@@ -311,6 +313,7 @@ namespace ATBM191_09_UI
                     if (result != null)
                     {
                         MessageBox.Show("Xóa role thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadRoles();
                     }
                     else
                     {

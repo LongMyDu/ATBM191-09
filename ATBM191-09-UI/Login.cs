@@ -53,10 +53,10 @@ namespace ATBM191_09_UI
             }
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        //private void btnExit_Click(object sender, EventArgs e)
+        //{
+        //    Application.Exit();
+        //}
 
         private void textUsername_KeyDown(object sender, KeyEventArgs e)
         {

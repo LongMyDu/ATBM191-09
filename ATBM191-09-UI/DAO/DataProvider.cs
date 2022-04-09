@@ -54,7 +54,7 @@ namespace ATBM191_09_UI.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
                 return null;
             }
         }
@@ -77,7 +77,7 @@ namespace ATBM191_09_UI.DAO
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show(ex.ToString());
                 return null;
             }
         }

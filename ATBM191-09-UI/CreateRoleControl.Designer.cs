@@ -39,58 +39,63 @@ namespace ATBM191_09_UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 62);
+            this.label1.Location = new System.Drawing.Point(16, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Role name: ";
+            this.label1.Text = "Rolename: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 100);
+            this.label2.Location = new System.Drawing.Point(16, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 1;
             this.label2.Text = "Password:";
             // 
             // btnCreateRole
             // 
-            this.btnCreateRole.Location = new System.Drawing.Point(460, 154);
+            this.btnCreateRole.Location = new System.Drawing.Point(421, 112);
+            this.btnCreateRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateRole.Name = "btnCreateRole";
-            this.btnCreateRole.Size = new System.Drawing.Size(90, 35);
-            this.btnCreateRole.TabIndex = 2;
+            this.btnCreateRole.Size = new System.Drawing.Size(100, 28);
+            this.btnCreateRole.TabIndex = 4;
             this.btnCreateRole.Text = "Create";
             this.btnCreateRole.UseVisualStyleBackColor = true;
             this.btnCreateRole.Click += new System.EventHandler(this.button1_Click);
             // 
             // textRoleName
             // 
-            this.textRoleName.Location = new System.Drawing.Point(163, 59);
+            this.textRoleName.Location = new System.Drawing.Point(112, 25);
+            this.textRoleName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textRoleName.Name = "textRoleName";
-            this.textRoleName.Size = new System.Drawing.Size(387, 26);
-            this.textRoleName.TabIndex = 3;
+            this.textRoleName.Size = new System.Drawing.Size(408, 22);
+            this.textRoleName.TabIndex = 2;
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(163, 97);
+            this.textPassword.Location = new System.Drawing.Point(112, 69);
+            this.textPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(387, 26);
-            this.textPassword.TabIndex = 4;
+            this.textPassword.Size = new System.Drawing.Size(408, 22);
+            this.textPassword.TabIndex = 3;
+            this.textPassword.UseSystemPasswordChar = true;
             // 
             // CreateRoleControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(612, 219);
+            this.ClientSize = new System.Drawing.Size(545, 155);
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.textRoleName);
             this.Controls.Add(this.btnCreateRole);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CreateRoleControl";
-            this.Text = "Create Role ";
-            this.Load += new System.EventHandler(this.CreateRoleControl_Load);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tạo role";
             this.ResumeLayout(false);
             this.PerformLayout();
 

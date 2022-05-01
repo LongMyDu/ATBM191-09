@@ -9,6 +9,12 @@ MSSV        HỌ TÊN
 19127476    Trần Thị Huế Minh
 */
 
+-- Lưu ý: Để có thể sử dụng hàm mã hóa: cần chạy câu lệnh:
+-- Grant execute on SYS.DBMS_CRYPTO to QLCSYTE_ADMIN;
+-- Lưu ý: Để có thể sử dụng add policy cho VPD: cần chạy câu lệnh:
+--grant execute on dbms_rls to QLCSYTE_ADMIN;
+
+
 -- Xóa tất cả bảng
 DROP TABLE HSBA CASCADE CONSTRAINTS;
 DROP TABLE HSBA_DV CASCADE CONSTRAINTS;
@@ -44,7 +50,7 @@ CREATE TABLE BENHNHAN (
 	MABN CHAR(8),
 	MACSYT CHAR(6),
 	TENBN NVARCHAR2(50),
-	CMND CHAR(12),
+	CMND CHAR(64),
 	NGAYSINH DATE,
 	SONHA VARCHAR2(20),
 	TENDUONG NVARCHAR2(100),
@@ -70,7 +76,7 @@ CREATE TABLE NHANVIEN(
 	HOTEN NVARCHAR2(50),
 	PHAI NVARCHAR2(5),
 	NGAYSINH DATE,
-	CMND CHAR(12),
+	CMND CHAR(64),
 	QUEQUAN NVARCHAR2(50),
 	SODT CHAR(10),
 	CSYT CHAR(6),
@@ -109,6 +115,7 @@ ADD CONSTRAINT NHANVIEN_VAITRO_FK
 
 -- Tạo ROLE Y BÁC SĨ
 CREATE ROLE ROLE_YBACSI;
+SET ROLE ROLE_YBACSI;
 
 
 -- Procedure thêm nhân viên
@@ -125,49 +132,53 @@ CREATE OR REPLACE PROCEDURE  ThemNhanVien(
     chuyenkhoa  IN NHANVIEN.CHUYENKHOA%TYPE,
     pwd VARCHAR2)
 AS
+    key_string varchar2(30);
 BEGIN
+    key_string := manv || ngaysinh;
     INSERT INTO NHANVIEN ("MANV", "HOTEN", "PHAI", "SODT", "NGAYSINH", "QUEQUAN", "CMND", "CSYT", "VAITRO", "CHUYENKHOA") VALUES 
-    (manv, hoten, phai, sodt, TO_DATE(ngaysinh,'yyyy-mm-dd'), quequan, cmnd, csyt, vaitro, chuyenkhoa);
-    EXECUTE IMMEDIATE 'CREATE USER "' || cmnd || '" IDENTIFIED BY "' || pwd || '"';
-    EXECUTE IMMEDIATE 'GRANT ROLE_NHANVIEN TO "' || cmnd || '"';
+    (manv, hoten, phai, sodt, TO_DATE(ngaysinh,'yyyy-mm-dd'), quequan, ENCRYPT_STRING(cmnd, key_string), csyt, vaitro, chuyenkhoa);
+    EXECUTE IMMEDIATE 'CREATE USER "' || MANV || '" IDENTIFIED BY "' || pwd || '"';
+    EXECUTE IMMEDIATE 'GRANT ROLE_NHANVIEN TO "' || MANV || '"';
     
     IF (vaitro = N'Y sĩ/ bác sĩ') THEN
-        EXECUTE IMMEDIATE 'GRANT ROLE_YBACSI TO "' || cmnd || '"';
+        EXECUTE IMMEDIATE 'GRANT ROLE_YBACSI TO "' || MANV || '"';
     END IF;
 END;
 /
 
 CREATE OR REPLACE PROCEDURE ThemBenhNhan(
-mabn IN BENHNHAN.MABN%TYPE,
-macsyt IN BENHNHAN.MACSYT%TYPE,
-tenbn IN BENHNHAN.TENBN%TYPE,
-cmnd IN BENHNHAN.CMND%TYPE,
-ngaysinh  IN VARCHAR2,
-sonha IN BENHNHAN.SONHA%TYPE,
-tenduong IN BENHNHAN.TENDUONG%TYPE,
-quanhuyen IN BENHNHAN.QUANHUYEN%TYPE,
-tinhtp IN BENHNHAN.TINHTP%TYPE,
-tiensubenh IN BENHNHAN.TIENSUBENH%TYPE,
-tiensubenhgd IN BENHNHAN.TIENSUBENHGD%TYPE,
-diungthuoc IN BENHNHAN.DIUNGTHUOC%TYPE,
-pwd VARCHAR2)
+    mabn IN BENHNHAN.MABN%TYPE,
+    macsyt IN BENHNHAN.MACSYT%TYPE,
+    tenbn IN BENHNHAN.TENBN%TYPE,
+    cmnd IN BENHNHAN.CMND%TYPE,
+    ngaysinh  IN VARCHAR2,
+    sonha IN BENHNHAN.SONHA%TYPE,
+    tenduong IN BENHNHAN.TENDUONG%TYPE,
+    quanhuyen IN BENHNHAN.QUANHUYEN%TYPE,
+    tinhtp IN BENHNHAN.TINHTP%TYPE,
+    tiensubenh IN BENHNHAN.TIENSUBENH%TYPE,
+    tiensubenhgd IN BENHNHAN.TIENSUBENHGD%TYPE,
+    diungthuoc IN BENHNHAN.DIUNGTHUOC%TYPE,
+    pwd VARCHAR2)
 AS
+    key_string varchar2(30);
 BEGIN
+    key_string := mabn || ngaysinh;
     INSERT INTO BENHNHAN VALUES 
-    (mabn,macsyt,tenbn,cmnd,TO_DATE(ngaysinh,'yyyy-mm-dd'),sonha,tenduong,quanhuyen,tinhtp,tiensubenh,tiensubenhgd,diungthuoc);
-    EXECUTE IMMEDIATE 'CREATE USER "' || cmnd || '" IDENTIFIED BY "' || pwd || '"';
-    EXECUTE IMMEDIATE 'GRANT ROLE_BENHNHAN TO "' || cmnd || '"';
+    (mabn,macsyt,tenbn,ENCRYPT_STRING(cmnd, key_string),TO_DATE(ngaysinh,'yyyy-mm-dd'),sonha,ENCRYPT_STRING(tenduong, key_string),quanhuyen,tinhtp,tiensubenh,tiensubenhgd,diungthuoc);
+    EXECUTE IMMEDIATE 'CREATE USER "' || mabn || '" IDENTIFIED BY "' || pwd || '"';
+    EXECUTE IMMEDIATE 'GRANT ROLE_BENHNHAN TO "' || mabn || '"';
 END;
 
 /
 
---TC#4
+--TC#4: Sử dụng VPD
 --HSBA: Y bác sĩ được xem HSBA mà người này chữa trị 
 CREATE OR REPLACE FUNCTION YBS_SEL_HSBA(p_schema IN VARCHAR2, p_object IN VARCHAR2)
 RETURN VARCHAR2
 AS
 BEGIN
-    RETURN 'MABS = (SELECT MANV FROM NHANVIEN WHERE CMND = SYS_CONTEXT(''USERENV'', ''SESSION_USER''))';
+    RETURN 'MABS = (SELECT MANV FROM NHANVIEN WHERE MANV = SYS_CONTEXT(''USERENV'', ''SESSION_USER''))';
 END;
 /
 EXEC DBMS_RLS.ADD_POLICY('QLCSYTE_ADMIN','HSBA','ybs_sel_hsba','QLCSYTE_ADMIN','YBS_SEL_HSBA','select');
@@ -178,8 +189,11 @@ GRANT SELECT ON HSBA TO ROLE_YBACSI;
 CREATE OR REPLACE FUNCTION YBS_SEL_HSBA_DV(p_schema IN VARCHAR2, p_object IN VARCHAR2)
 RETURN VARCHAR2
 AS
+    manv NHANVIEN.MANV%TYPE;
+    ngaysinh VARCHAR2(20);
 BEGIN
-    RETURN 'MAHSBA IN (SELECT MAHSBA FROM HSBA WHERE MABS = (SELECT MANV FROM NHANVIEN WHERE CMND = SYS_CONTEXT(''USERENV'', ''SESSION_USER'')))';
+
+    RETURN 'MAHSBA IN (SELECT MAHSBA FROM HSBA WHERE MABS = (SELECT MANV FROM NHANVIEN WHERE MANV = SYS_CONTEXT(''USERENV'', ''SESSION_USER'')))';
 END;
 /
 EXEC DBMS_RLS.ADD_POLICY('QLCSYTE_ADMIN','HSBA_DV','ybs_sel_hsba_dv','QLCSYTE_ADMIN','YBS_SEL_HSBA_DV','select');
@@ -191,7 +205,7 @@ CREATE OR REPLACE FUNCTION YBS_SEL_BENHNHAN(p_schema IN VARCHAR2, p_object IN VA
 RETURN VARCHAR2
 AS
 BEGIN
-    RETURN '((SELECT VAITRO FROM NHANVIEN WHERE CMND = ''' || SYS_CONTEXT('USERENV', 'SESSION_USER') || ''') = N''Y sĩ/ bác sĩ'')';
+    RETURN '((SELECT VAITRO FROM NHANVIEN WHERE MANV = ''' || SYS_CONTEXT('USERENV', 'SESSION_USER') || ''') = N''Y sĩ/ bác sĩ'')';
 END;
 /
 EXEC DBMS_RLS.ADD_POLICY('QLCSYTE_ADMIN','BENHNHAN','YBS_SEL_BENHNHAN','QLCSYTE_ADMIN','YBS_SEL_BENHNHAN','select');

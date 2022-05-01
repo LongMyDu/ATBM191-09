@@ -8,3 +8,5 @@ set MaBN = 'BN000102';
 
 commit;
 rollback;
+
+select user from dual;

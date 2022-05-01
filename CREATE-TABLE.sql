@@ -158,6 +158,7 @@ BEGIN
     EXECUTE IMMEDIATE 'CREATE USER "' || cmnd || '" IDENTIFIED BY "' || pwd || '"';
     EXECUTE IMMEDIATE 'GRANT ROLE_BENHNHAN TO "' || cmnd || '"';
 END;
+
 /
 
 --TC#4

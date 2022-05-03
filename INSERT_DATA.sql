@@ -74,7 +74,7 @@ select * from nhanvien;
 EXEC THEMBENHNHAN('BN000001','CS0002', N'Trần Việt Đào Bình','916773394945', '1954-03-11', '148', N'3 tháng 2', N'Q.1', N'Cần Thơ', N'NULL', N'NULL', N'NULL','TyHFH6hOI2Hz97BX');
 EXEC THEMBENHNHAN('BN000002','CS0003', N'Hứa Trung Tường','477197069125', '1945-02-03', '421', N'Nguyễn Thị Lựu', N'Q.2', N'Tây Ninh', N'NULL', N'NULL', N'NULL','q1kFYXRdaZtHmyZwJRB');
 EXEC THEMBENHNHAN('BN000003','CS0004', N'Trịnh Khánh Huyền Tâm','644198063807', '1942-06-27', '101', N'Lý Chiến Thắng', N'Q.5', N'Tây Ninh', N'Động kinh', N'Hội chứng down', N'Aspirin','YZTdeDXt');
-EXEC THEMBENHNHAN('BN000004','CS0005', N'Hồ Bửu Dung','307780507980', '1984-03-25', '237', N'Nguyễn Thị Mình Khai', N'Q.1', N'Bắc Ninh', N'Hen suyễn mãn tính, Đái tháo đường', N'Ung thư phổi', N'Amoxicillin, Cephalosporin','GAyIN0Ey4');
+EXEC THEMBENHNHAN('BN000004','CS0005', N'Hồ Bửu Dung','307780507980', '1984-03-25', '237', N'Nguyễn Thị Minh Khai', N'Q.1', N'Bắc Ninh', N'Hen suyễn mãn tính, Đái tháo đường', N'Ung thư phổi', N'Amoxicillin, Cephalosporin','GAyIN0Ey4');
 EXEC THEMBENHNHAN('BN000005','CS0006', N'Hồ Mỹ Lan Dung','480148058972', '1970-08-06', '332', N'Đinh Công Tránh', N'Q.Gò Vấp', N'Tây Ninh', N'Ung thư phổi', N'Bệnh tim, Đái tháo đường', N'Thuốc gây tê','F3OBUHuTpJO');
 EXEC THEMBENHNHAN('BN000006','CS0007', N'Ung Huỳnh Ly','625421696262', '1942-05-14', '259', N'3 tháng 2', N'Huyện Nhà Bè', N'Tây Ninh', N'Viêm phế quản mãn tính', N'U xơ cổ tử cung, Ung thư buồng trứng', N'Insulin','k5hMEiLthuCzljgV3OH4');
 EXEC THEMBENHNHAN('BN000007','CS0008', N'Đặng Hà Tâm Thi','093142227246', '1958-03-11', '392', N'Nguyễn Thành Ý', N'Q.Thủ Đức', N'Cần Thơ', N'U xơ tử cung', N'Bệnh tim', N'Paracetamol','GZsMFvH9rSP');

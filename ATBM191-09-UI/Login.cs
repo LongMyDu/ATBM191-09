@@ -14,8 +14,7 @@ namespace ATBM191_09_UI
 {
     public partial class Login : Form
     {
-
-
+        
         public Login()
         {
             InitializeComponent();
@@ -25,37 +24,28 @@ namespace ATBM191_09_UI
         {
             string username = textUsername.Text;
             string password = textPassword.Text;
-
-            if (username != "QLCSYTE_ADMIN")
+            
+            DataProvider.ConString = $"Data Source=XEPDB1;User Id={username};Password={password};";
+            try
             {
-                MessageBox.Show("Username is invalid");
+                OracleConnection con = new OracleConnection(DataProvider.ConString);
+                {
+                    con.Open();
+                    MainForm mainFr = new MainForm();
+                    mainFr.Show();
+                    con.Close();
+                    this.Hide();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                DataProvider.ConString = "Data Source=XEPDB1;User Id=QLCSYTE_ADMIN;Password=" + password + ";";
-                try
-                {
-                    OracleConnection con = new OracleConnection(DataProvider.ConString);
-                    {
-                        con.Open();
-                        MainForm mainFr = new MainForm();
-                        mainFr.Show();
-                        this.Hide();
-
-                        con.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Login is failed");
-                }
-
+                MessageBox.Show("Login is failed");
             }
         }
 
-        //private void btnExit_Click(object sender, EventArgs e)
+        //private String getUserRole()
         //{
-        //    Application.Exit();
+        //    DataProvider.Instance.ExecuteScalar("")
         //}
 
         private void textUsername_KeyDown(object sender, KeyEventArgs e)

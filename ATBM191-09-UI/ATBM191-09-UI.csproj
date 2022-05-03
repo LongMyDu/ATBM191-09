@@ -52,23 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CreateRoleControl.cs">
+    <Compile Include="AdminFeatures\CreateRoleControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateRoleControl.Designer.cs">
+    <Compile Include="AdminFeatures\CreateRoleControl.Designer.cs">
       <DependentUpon>CreateRoleControl.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="EditRoleControl.cs">
+    <Compile Include="AdminFeatures\EditRoleControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditRoleControl.Designer.cs">
+    <Compile Include="AdminFeatures\EditRoleControl.Designer.cs">
       <DependentUpon>EditRoleControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditUserControl.cs">
+    <Compile Include="AdminFeatures\EditUserControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUserControl.Designer.cs">
+    <Compile Include="AdminFeatures\EditUserControl.Designer.cs">
       <DependentUpon>EditUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -77,60 +77,60 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="AdminFeatures\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="AdminFeatures\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ObjectPrivs.cs">
+    <Compile Include="AdminFeatures\ObjectPrivs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ObjectPrivs.Designer.cs">
+    <Compile Include="AdminFeatures\ObjectPrivs.Designer.cs">
       <DependentUpon>ObjectPrivs.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TableControl.cs">
+    <Compile Include="AdminFeatures\TableControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TableControl.Designer.cs">
+    <Compile Include="AdminFeatures\TableControl.Designer.cs">
       <DependentUpon>TableControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateUserControl.cs">
+    <Compile Include="AdminFeatures\CreateUserControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateUserControl.Designer.cs">
+    <Compile Include="AdminFeatures\CreateUserControl.Designer.cs">
       <DependentUpon>CreateUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl.cs">
+    <Compile Include="AdminFeatures\UserControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserControl.Designer.cs">
+    <Compile Include="AdminFeatures\UserControl.Designer.cs">
       <DependentUpon>UserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControl.cs">
+    <Compile Include="AdminFeatures\ViewControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewControl.Designer.cs">
+    <Compile Include="AdminFeatures\ViewControl.Designer.cs">
       <DependentUpon>ViewControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CreateRoleControl.resx">
+    <EmbeddedResource Include="AdminFeatures\CreateRoleControl.resx">
       <DependentUpon>CreateRoleControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditRoleControl.resx">
+    <EmbeddedResource Include="AdminFeatures\EditRoleControl.resx">
       <DependentUpon>EditRoleControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUserControl.resx">
+    <EmbeddedResource Include="AdminFeatures\EditUserControl.resx">
       <DependentUpon>EditUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="AdminFeatures\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ObjectPrivs.resx">
+    <EmbeddedResource Include="AdminFeatures\ObjectPrivs.resx">
       <DependentUpon>ObjectPrivs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -143,16 +143,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="TableControl.resx">
+    <EmbeddedResource Include="AdminFeatures\TableControl.resx">
       <DependentUpon>TableControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateUserControl.resx">
+    <EmbeddedResource Include="AdminFeatures\CreateUserControl.resx">
       <DependentUpon>CreateUserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl.resx">
+    <EmbeddedResource Include="AdminFeatures\UserControl.resx">
       <DependentUpon>UserControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewControl.resx">
+    <EmbeddedResource Include="AdminFeatures\ViewControl.resx">
       <DependentUpon>ViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

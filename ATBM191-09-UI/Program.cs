@@ -22,6 +22,7 @@ namespace ATBM191_09_UI
             Login log = new Login();
             if (!log.IsDisposed)
                 Application.Run(log);
+            
         }
     }
 }

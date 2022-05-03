@@ -31,6 +31,7 @@ namespace ATBM191_09_UI
                 OracleConnection con = new OracleConnection(DataProvider.ConString);
                 {
                     con.Open();
+                    MessageBox.Show(getUserRole(con), "ROLE");
                     MainForm mainFr = new MainForm();
                     mainFr.Show();
                     con.Close();
@@ -39,14 +40,18 @@ namespace ATBM191_09_UI
             }
             catch (Exception ex)
             {
+                //MessageBox.Show(ex.Message);
                 MessageBox.Show("Login is failed");
             }
         }
 
-        //private String getUserRole()
-        //{
-        //    DataProvider.Instance.ExecuteScalar("")
-        //}
+        private String getUserRole(OracleConnection con)
+        {
+            OracleCommand command;
+            command = new OracleCommand("select sys_context('USER_ROLE_CONTEXT', 'USER_ROLE') from dual", con);
+            Object data = command.ExecuteScalar();            
+            return data.ToString();
+        }
 
         private void textUsername_KeyDown(object sender, KeyEventArgs e)
         {

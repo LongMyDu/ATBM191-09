@@ -1,4 +1,6 @@
-select 'Drop user "'|| MABN ||'" cascade;' from BENHNHAN;
+select 'Exec XoaBenhNhan('''|| MABN ||''');' from BENHNHAN
+union
+select 'Exec XoaNhanVien('''|| MANV ||''');' from NHANVIEN;
 
 Drop user "BN000001" cascade;
 Drop user "BN000002" cascade;

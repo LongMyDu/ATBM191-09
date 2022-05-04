@@ -59,6 +59,36 @@ namespace ATBM191_09_UI.DAO
             }
         }
 
+        public DataSet ExecuteQuery(OracleCommand command)
+        {
+            try
+            {
+                using (OracleConnection con = new OracleConnection(ConString))
+                {
+                    con.Open();
+                    command.Connection = con;
+                    OracleDataAdapter oda = new OracleDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    oda.Fill(ds);
+                    con.Close();
+
+                    if (ds.Tables.Count > 0)
+                    {
+                        return ds;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
+        }
+
         public Object ExecuteScalar(string query)
         {
             try

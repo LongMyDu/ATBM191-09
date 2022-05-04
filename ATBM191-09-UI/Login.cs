@@ -31,9 +31,26 @@ namespace ATBM191_09_UI
                 OracleConnection con = new OracleConnection(DataProvider.ConString);
                 {
                     con.Open();
-                    MessageBox.Show(getUserRole(con), "ROLE");
-                    MainForm mainFr = new MainForm();
-                    mainFr.Show();
+                    String user_role = getUserRole(con);
+                    if (user_role == "DBA")
+                    {
+                        MainForm mainFr = new MainForm();
+                        mainFr.Show();
+                    } else if (user_role == "Thanh tra")
+                    {
+                        ThanhTraMenu menu = new ThanhTraMenu();
+                        menu.Show();
+                    }
+                    else if (user_role == "Y sĩ/ bác sĩ")
+                    {
+                        YBacSiMenu menu = new YBacSiMenu();
+                        menu.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Người dùng không hợp lệ");
+                    }
+                    
                     con.Close();
                     this.Hide();
                 }
@@ -65,7 +82,6 @@ namespace ATBM191_09_UI
         
         private void textLogin_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
             {
                 btnLogin_Click(sender, e);

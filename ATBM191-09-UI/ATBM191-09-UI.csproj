@@ -115,6 +115,18 @@
     <Compile Include="AdminFeatures\ViewControl.Designer.cs">
       <DependentUpon>ViewControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThanhTraMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThanhTraMenu.Designer.cs">
+      <DependentUpon>ThanhTraMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YBacSiMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YBacSiMenu.Designer.cs">
+      <DependentUpon>YBacSiMenu.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminFeatures\CreateRoleControl.resx">
       <DependentUpon>CreateRoleControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +166,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminFeatures\ViewControl.resx">
       <DependentUpon>ViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThanhTraMenu.resx">
+      <DependentUpon>ThanhTraMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YBacSiMenu.resx">
+      <DependentUpon>YBacSiMenu.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

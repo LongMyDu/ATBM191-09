@@ -1,6 +1,6 @@
 ﻿namespace ATBM191_09_UI
 {
-    partial class MainForm
+    partial class ThanhTraMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -33,13 +33,14 @@
             this.view_button = new System.Windows.Forms.Button();
             this.table_button = new System.Windows.Forms.Button();
             this.role_button = new System.Windows.Forms.Button();
-            this.user_button = new System.Windows.Forms.Button();
+            this.PersonalInfo_Button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.header_panel = new System.Windows.Forms.Panel();
-            this.new_button = new System.Windows.Forms.Button();
             this.header_label = new System.Windows.Forms.Label();
             this.main_datagridview = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.main_panel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,15 +60,17 @@
             this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Name = "main_panel";
             this.main_panel.Size = new System.Drawing.Size(800, 450);
-            this.main_panel.TabIndex = 3;
+            this.main_panel.TabIndex = 4;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.view_button);
             this.panel1.Controls.Add(this.table_button);
             this.panel1.Controls.Add(this.role_button);
-            this.panel1.Controls.Add(this.user_button);
+            this.panel1.Controls.Add(this.PersonalInfo_Button);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -88,9 +91,8 @@
             this.view_button.Name = "view_button";
             this.view_button.Size = new System.Drawing.Size(200, 60);
             this.view_button.TabIndex = 4;
-            this.view_button.Text = "Views";
+            this.view_button.Text = "Hồ sơ bệnh án";
             this.view_button.UseVisualStyleBackColor = true;
-            this.view_button.Click += new System.EventHandler(this.View_Button_Click);
             // 
             // table_button
             // 
@@ -105,9 +107,8 @@
             this.table_button.Name = "table_button";
             this.table_button.Size = new System.Drawing.Size(200, 60);
             this.table_button.TabIndex = 3;
-            this.table_button.Text = "Tables";
+            this.table_button.Text = "Bệnh nhân";
             this.table_button.UseVisualStyleBackColor = true;
-            this.table_button.Click += new System.EventHandler(this.Table_Button_Click);
             // 
             // role_button
             // 
@@ -122,26 +123,25 @@
             this.role_button.Name = "role_button";
             this.role_button.Size = new System.Drawing.Size(200, 60);
             this.role_button.TabIndex = 2;
-            this.role_button.Text = "Roles";
+            this.role_button.Text = "Cơ sở y tế";
             this.role_button.UseVisualStyleBackColor = true;
-            this.role_button.Click += new System.EventHandler(this.role_button_Click);
             // 
-            // user_button
+            // PersonalInfo_Button
             // 
-            this.user_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.user_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.user_button.FlatAppearance.BorderSize = 0;
-            this.user_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.user_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.user_button.ForeColor = System.Drawing.Color.Gainsboro;
-            this.user_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.user_button.Location = new System.Drawing.Point(0, 80);
-            this.user_button.Name = "user_button";
-            this.user_button.Size = new System.Drawing.Size(200, 60);
-            this.user_button.TabIndex = 1;
-            this.user_button.Text = "Users";
-            this.user_button.UseVisualStyleBackColor = true;
-            this.user_button.Click += new System.EventHandler(this.User_Button_Click);
+            this.PersonalInfo_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PersonalInfo_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PersonalInfo_Button.FlatAppearance.BorderSize = 0;
+            this.PersonalInfo_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PersonalInfo_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PersonalInfo_Button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.PersonalInfo_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PersonalInfo_Button.Location = new System.Drawing.Point(0, 80);
+            this.PersonalInfo_Button.Name = "PersonalInfo_Button";
+            this.PersonalInfo_Button.Size = new System.Drawing.Size(200, 60);
+            this.PersonalInfo_Button.TabIndex = 1;
+            this.PersonalInfo_Button.Text = "Thông tin cá nhân";
+            this.PersonalInfo_Button.UseVisualStyleBackColor = true;
+            this.PersonalInfo_Button.Click += new System.EventHandler(this.PersonalInfo_Button_Click);
             // 
             // panel2
             // 
@@ -162,7 +162,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 80);
             this.label1.TabIndex = 0;
-            this.label1.Text = "ADMIN";
+            this.label1.Text = "Thanh tra";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // header_panel
@@ -171,7 +171,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
-            this.header_panel.Controls.Add(this.new_button);
             this.header_panel.Controls.Add(this.header_label);
             this.header_panel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_panel.Location = new System.Drawing.Point(199, 0);
@@ -179,27 +178,15 @@
             this.header_panel.Size = new System.Drawing.Size(602, 80);
             this.header_panel.TabIndex = 2;
             // 
-            // new_button
-            // 
-            this.new_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.new_button.AutoEllipsis = true;
-            this.new_button.Location = new System.Drawing.Point(523, 50);
-            this.new_button.Name = "new_button";
-            this.new_button.Size = new System.Drawing.Size(75, 23);
-            this.new_button.TabIndex = 1;
-            this.new_button.Text = "New";
-            this.new_button.UseVisualStyleBackColor = true;
-            this.new_button.Click += new System.EventHandler(this.New_button_Click);
-            // 
             // header_label
             // 
             this.header_label.AutoSize = true;
-            this.header_label.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_label.ForeColor = System.Drawing.Color.White;
-            this.header_label.Location = new System.Drawing.Point(260, 24);
+            this.header_label.Location = new System.Drawing.Point(260, 28);
             this.header_label.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
             this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(76, 30);
+            this.header_label.Size = new System.Drawing.Size(79, 25);
             this.header_label.TabIndex = 0;
             this.header_label.Text = "HOME";
             this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -221,15 +208,47 @@
             this.main_datagridview.Size = new System.Drawing.Size(604, 370);
             this.main_datagridview.TabIndex = 0;
             // 
-            // MainForm
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 320);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 60);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Hồ sơ bệnh án - dịch vụ";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 380);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(200, 60);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Nhân viên";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // ThanhTraMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.main_panel);
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lý cơ sở y tế";
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "ThanhTraMenu";
+            this.Text = "Quản lý cơ sơ y tế";
             this.main_panel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -242,18 +261,19 @@
         }
 
         #endregion
+
         private System.Windows.Forms.Panel main_panel;
-        private System.Windows.Forms.Panel header_panel;
-        private System.Windows.Forms.DataGridView main_datagridview;
-        private System.Windows.Forms.Label header_label;
-        private System.Windows.Forms.Button new_button;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button user_button;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button view_button;
         private System.Windows.Forms.Button table_button;
         private System.Windows.Forms.Button role_button;
+        private System.Windows.Forms.Button PersonalInfo_Button;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel header_panel;
+        private System.Windows.Forms.Label header_label;
+        private System.Windows.Forms.DataGridView main_datagridview;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
-

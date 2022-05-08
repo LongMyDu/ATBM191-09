@@ -60,6 +60,19 @@ BEGIN
     IF (vaitro = N'Y sĩ/ bác sĩ') THEN
         EXECUTE IMMEDIATE 'GRANT ROLE_YBACSI TO "' || MANV || '"';
     END IF;
+    
+    IF (vaitro = N'Thanh tra') THEN
+        EXECUTE IMMEDIATE 'GRANT ROLE_THANHTRA TO "' || MANV || '"';     
+    END IF;
+    
+    IF (vaitro = N'Cơ sở y tế') THEN
+        EXECUTE IMMEDIATE 'GRANT ROLE_CSYT TO "' || MANV || '"';
+    END IF;
+    
+    IF (vaitro = N'Nghiên cứu') THEN
+        EXECUTE IMMEDIATE 'GRANT ROLE_NGHIENCUU TO "' || MANV || '"';
+    END IF;
+    
 END;
 /
 

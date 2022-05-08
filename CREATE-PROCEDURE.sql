@@ -11,7 +11,7 @@ BEGIN
     encrypted_dtb := DBMS_CRYPTO.Encrypt(src=> raw_input,
                                         typ => DBMS_CRYPTO.DES_CBC_PKCS5, 
                                         key => raw_key);
-    dbms_output.put_line(encrypted_dtb);
+    --dbms_output.put_line(encrypted_dtb);
     RETURN(encrypted_dtb);
 END;
 /
@@ -26,9 +26,9 @@ BEGIN
     decrypted_raw := dbms_crypto.Decrypt(src => encrypted_dtb, 
                                         typ => DBMS_CRYPTO.DES_CBC_PKCS5,
                                         key => raw_key);
-    dbms_output.put_line(decrypted_raw);
+    --dbms_output.put_line(decrypted_raw);
     decrypted_string := UTL_RAW.CAST_TO_NVARCHAR2(decrypted_raw);
-    dbms_output.put_line(decrypted_string);
+    --dbms_output.put_line(decrypted_string);
     
     RETURN(decrypted_string);
 END;
@@ -105,3 +105,87 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE TRIGGER BN_UPDATE
+BEFORE UPDATE ON BENHNHAN
+FOR EACH ROW
+DECLARE
+   v_cmnd CHAR(12);
+   v_tenDuong NVARCHAR2(100);
+   key_string VARCHAR(30);
+
+BEGIN
+    -- Nếu là update NGAYSINH
+    IF (:old.NGAYSINH != :new.NGAYSINH) THEN             
+        key_string := :old.mabn || TO_CHAR(:old.NGAYSINH, 'yyyy-mm-dd');        
+        -- Nếu không update cmnd --> giải mã để lấy cmnd cũ
+        IF (:old.CMND = :new.CMND) THEN            
+            v_cmnd := DECRYPT_STRING(:old.CMND, key_string);
+        -- Ngược lại: có update cmnd --> chỉ cần lấy cmnd mới đi mã hóa
+        ELSE
+            v_cmnd := TRIM(:new.CMND);
+        END IF;
+        
+         -- Nếu không update tenduong --> giải mã để lấy tenduong cũ
+        IF (:old.TENDUONG = :new.TENDUONG) THEN            
+            v_tenduong := DECRYPT_STRING(:old.TENDUONG, key_string);
+        -- Ngược lại: có update tenduong --> chỉ cần lấy tenduong mới đi mã hóa
+        ELSE
+            v_tenduong := TRIM(:new.TENDUONG);
+        END IF;
+        
+        -- Mã hóa lại 
+        key_string := :old.mabn || TO_CHAR(:new.NGAYSINH, 'yyyy-mm-dd');
+        :new.CMND := ENCRYPT_STRING(v_cmnd, key_string);
+        :new.TENDUONG := ENCRYPT_STRING(v_tenduong, key_string);
+    --Không update ngày sinh
+    ELSE
+        key_string := :old.mabn || TO_CHAR(:new.NGAYSINH, 'yyyy-mm-dd');
+        -- Nếu update cmnd --> Chỉ cần mã hóa lại cmnd mới
+        IF (:old.CMND != :new.CMND) THEN
+            dbms_output.put_line('No ngasinh, only cmnd');
+            :new.CMND := ENCRYPT_STRING(TRIM(:new.CMND), key_string);        
+        END IF;
+        -- Update tenduong --> Chỉ cần mã hóa lại tenduong mới
+        IF (:old.TENDUONG != :new.TENDUONG) THEN
+            dbms_output.put_line('No ngasinh, only cmnd');
+            :new.TENDUONG := ENCRYPT_STRING(TRIM(:new.TENDUONG), key_string);        
+        END IF;
+
+    END IF;
+END BN_UPDATE;
+/
+
+CREATE OR REPLACE TRIGGER NV_UPDATE
+BEFORE UPDATE ON NHANVIEN
+FOR EACH ROW
+DECLARE
+   v_cmnd CHAR(12);   
+   key_string VARCHAR(30);
+
+BEGIN
+    -- Nếu là update NGAYSINH
+    IF (:old.NGAYSINH != :new.NGAYSINH) THEN             
+        key_string := :old.MANV || TO_CHAR(:old.NGAYSINH, 'yyyy-mm-dd');        
+        -- Nếu không update cmnd --> giải mã để lấy cmnd cũ
+        IF (:old.CMND = :new.CMND) THEN            
+            v_cmnd := DECRYPT_STRING(:old.CMND, key_string);
+        -- Ngược lại: có update cmnd --> chỉ cần lấy cmnd mới đi mã hóa
+        ELSE
+            v_cmnd := TRIM(:new.CMND);
+        END IF;
+        
+        -- Mã hóa lại 
+        key_string := :old.MANV || TO_CHAR(:new.NGAYSINH, 'yyyy-mm-dd');
+        :new.CMND := ENCRYPT_STRING(v_cmnd, key_string);
+    --Không update ngày sinh
+    ELSE
+        key_string := :old.MANV || TO_CHAR(:new.NGAYSINH, 'yyyy-mm-dd');
+        -- Nếu update cmnd --> Chỉ cần mã hóa lại cmnd mới
+        IF (:old.CMND != :new.CMND) THEN
+            dbms_output.put_line('No ngasinh, only cmnd');
+            :new.CMND := ENCRYPT_STRING(TRIM(:new.CMND), key_string);        
+        END IF;
+      
+    END IF;
+END NV_UPDATE;
+/

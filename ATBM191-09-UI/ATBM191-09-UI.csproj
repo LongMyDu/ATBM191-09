@@ -58,6 +58,12 @@
     <Compile Include="AdminFeatures\CreateRoleControl.Designer.cs">
       <DependentUpon>CreateRoleControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="BenhNhanMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BenhNhanMenu.Designer.cs">
+      <DependentUpon>BenhNhanMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="AdminFeatures\EditRoleControl.cs">
       <SubType>Form</SubType>
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminFeatures\EditUserControl.resx">
       <DependentUpon>EditUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BenhNhanMenu.resx">
+      <DependentUpon>BenhNhanMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

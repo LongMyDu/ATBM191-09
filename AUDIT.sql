@@ -1,8 +1,12 @@
 -- Mở sqlplus, connect bằng sys cdb, chạy các câu lệnh sau
+--Chạy câu lệnh: show parameter audit_trail; --> Nếu Value là 'NONE' hoặc 'DB' thì chạy mấy câu dưới
 --alter system set AUDIT_TRAIL=db, extended scope=spfile;
 --shutdown immediate;
 --startup;
---NOAUDIT EXECUTE ON SYS.DBMS_UTILITY;
+
+--Connect bằng sys cdb, chạy câu này (trong sql dev cũng ok)
+--AUDIT EXECUTE ON SYS.DBMS_UTILITY;
+NOAUDIT EXECUTE ON SYS.DBMS_UTILITY;
 
 
 --Connect bằng user pdb. Khuyến cáo: thao tác này xóa hết tất cả những gì đã từng audit từ trước tới giờ!!!
@@ -11,7 +15,7 @@ commit;
 GRANT EXECUTE ON DBMS_FGA TO QLCSYTE_ADMIN;
 
 --Từ khúc này có thể connect bằng QLCSYTE_ADMIN
---Xem thông tin đã được standart AUDIT :
+--Xem thông tin đã được standard AUDIT:
 select
    os_username,
    username,
@@ -46,3 +50,4 @@ ANALYZE TABLE BENHNHAN COMPUTE STATISTICS;
 -- (FGA)Chính sách .4: Audit lại tất cả hành động select CMND trên bảng BENHNHAN của tất cả user mà không phải bệnh nhân đó
 EXEC DBMS_FGA.ADD_POLICY (object_schema => 'QLCSYTE_ADMIN', object_name => 'BENHNHAN', policy_name =>  'Select_CMND_BENHNHAN', audit_condition => 'MABN != USER', audit_column => 'CMND', statement_types => 'SELECT'); 
 
+EXEC DBMS_FGA.DROP_POLICY (object_schema   =>  'QLCSYTE_ADMIN', object_name =>  'BENHNHAN', policy_name =>  'Select_CMND_BENHNHAN');

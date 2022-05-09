@@ -344,5 +344,10 @@ namespace ATBM191_09_UI
                 (new EditRoleControl(rolename)).Show();
             }
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

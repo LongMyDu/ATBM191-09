@@ -1,0 +1,11 @@
+update ngaysinh,k up cmnd, k up tenduong:
+	giải mã cmnd va tenduong bang ngaysinh cu
+	ma hóa lại bằng ngày sinh mới
+update ngaysinh, up cmnd, k up tenduong:
+	giải mã tenduong bang ngaysinh cu
+	ma hóa :new.cmnd, tenduong bằng ngày sinh mới
+update ngaysinh, k up cmnd, up tenduong:
+	giải mã cmnd bang ngaysinh cu
+	ma hóa cmnd, :new.tenduong bằng ngày sinh mới
+k up ngaysinh, up cmnd, up tenduong
+	mahoa lại :new.cmnd, :new.tenduong 

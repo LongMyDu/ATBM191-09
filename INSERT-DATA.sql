@@ -81,7 +81,7 @@ EXEC THEMNHANVIEN('NV0053',N'Huỳnh Hồng Nhã', N'Nữ', '1990-10-11','486029
 EXEC THEMNHANVIEN('NV0054',N'Danh Ngọc Hương', N'Nam', '1982-06-25','434137157331', N'Trà Vinh', '0895427996', 'CS0010', N'Nghiên cứu', N'Thần kinh', 'aQP3HCwcDZgtbUiO');
 EXEC THEMNHANVIEN('NV0055',N'Ngô Ngọc Giang', N'Nữ', '1970-09-25','139101531202', N'Bắc Ninh', '0323650714', 'CS0001', N'Nghiên cứu', N'Ung thư', 'jU1thb5vhXgLLosp');
 
-select * from nhanvien;
+--select * from nhanvien;
 
 -- INSERT DATA INTO BENHNHAN
 EXEC THEMBENHNHAN('BN000001','CS0002', N'Trần Việt Đào Bình','916773394945', '1954-03-11', '148', N'3 tháng 2', N'Q.1', N'Cần Thơ', N'NULL', N'NULL', N'NULL','TyHFH6hOI2Hz97BX');
@@ -95,7 +95,7 @@ EXEC THEMBENHNHAN('BN000008','CS0009', N'Huỳnh Khánh Hiền Lam','90851973963
 EXEC THEMBENHNHAN('BN000009','CS0010', N'Huỳnh Bửu Bách Chi','611825513067', '1965-07-04', '312', N'Lê Thị Riêng', N'Q.8', N'TP.HCM', N'Cao huyết áp, Viêm phổi, Viêm gan', N'Bệnh động kinh', N'Streptomycin','BhZGqieQ');
 EXEC THEMBENHNHAN('BN000010','CS0001', N'Trần Việt Đức Hoa','828559055899', '1934-07-16', '228', N'Nguyễn Đình Chiểu', N'Huyện Nhà Bè', N'TP.HCM', N'Đột quỵ, bệnh tim', N'Hội chứng down', N'Sulfonamide','twUOVlLmUhJSpKfFrqhY');
 
-select * from benhnhan;
+--select * from benhnhan;
 
 --INSERT DATA TO HSBA
 INSERT INTO HSBA(MAHSBA,MABN,NGAY,CHANDOAN,MABS,MAKHOA,MACSYT,KETLUAN) 
@@ -120,7 +120,7 @@ INSERT INTO HSBA(MAHSBA,MABN,NGAY,CHANDOAN,MABS,MAKHOA,MACSYT,KETLUAN)
 VALUES ('HSBA0010', 'BN000010', TO_DATE('2022-05-01', 'yyyy-mm-dd'), 'Đa xơ cứng', 'NV0044', 'K00004', 'CS0010', 'Đa xơ cứng');
 
 
-select * from HSBA;
+--select * from HSBA;
 
 --INSERT DATA TO HSBA_DV
 INSERT INTO HSBA_DV(MAHSBA,MADV,NGAY,MAKTV,KETQUA)
@@ -159,5 +159,5 @@ INSERT INTO HSBA_DV(MAHSBA,MADV,NGAY,MAKTV,KETQUA)
 VALUES ('HSBA0010', 'DV0005',TO_DATE('2022-05-01', 'yyyy-mm-dd'), 'NV0043', 'ket qua dich vu 18');
 
 
-select * from HSBA_DV;
+--select * from HSBA_DV;
 

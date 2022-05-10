@@ -63,3 +63,7 @@ Exec XoaNhanVien('NV0052');
 Exec XoaNhanVien('NV0053');
 Exec XoaNhanVien('NV0054');
 Exec XoaNhanVien('NV0055');
+Exec XoaNhanVien('NV0056');
+Exec XoaNhanVien('NV0057');
+Exec XoaNhanVien('NV0058');
+Exec XoaNhanVien('NV0059');

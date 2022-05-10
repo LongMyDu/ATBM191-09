@@ -128,7 +128,7 @@ ADD CONSTRAINT NHANVIEN_CSYT_FK FOREIGN KEY ( CSYT )
 
 ALTER TABLE NHANVIEN
 ADD CONSTRAINT NHANVIEN_VAITRO_FK 
-	CHECK (VAITRO IN (N'Thanh tra', N'Cơ sở y tế', N'Y sĩ/ bác sĩ', N'Nghiên cứu'));
+	CHECK (VAITRO IN (N'Thanh tra', N'Cơ sở y tế', N'Y sĩ/ bác sĩ', N'Nghiên cứu',N'Giám đốc sở',N'Giám đốc CSYT TT',N'Giám đốc CSYT CTT',N'Giám đốc CSYT NT'));
 /
 
 -- Tạo ROLE BENHNHAN

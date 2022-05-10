@@ -92,7 +92,6 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Hồ sơ bệnh án - dịch vụ";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -108,7 +107,6 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Hồ sơ bệnh án";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // view_button
             // 
@@ -124,7 +122,6 @@
             this.view_button.TabIndex = 4;
             this.view_button.Text = "Cơ sở y tế";
             this.view_button.UseVisualStyleBackColor = true;
-            this.view_button.Click += new System.EventHandler(this.view_button_Click);
             // 
             // table_button
             // 
@@ -140,7 +137,6 @@
             this.table_button.TabIndex = 3;
             this.table_button.Text = "Bệnh nhân";
             this.table_button.UseVisualStyleBackColor = true;
-            this.table_button.Click += new System.EventHandler(this.table_button_Click);
             // 
             // role_button
             // 
@@ -156,7 +152,6 @@
             this.role_button.TabIndex = 2;
             this.role_button.Text = "Nhân viên";
             this.role_button.UseVisualStyleBackColor = true;
-            this.role_button.Click += new System.EventHandler(this.role_button_Click);
             // 
             // PersonalInfo_Button
             // 
@@ -194,7 +189,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "THANH TRA";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // header_panel
             // 
@@ -208,7 +202,6 @@
             this.header_panel.Name = "header_panel";
             this.header_panel.Size = new System.Drawing.Size(770, 111);
             this.header_panel.TabIndex = 2;
-            this.header_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.header_panel_Paint);
             // 
             // header_label
             // 
@@ -222,7 +215,6 @@
             this.header_label.TabIndex = 0;
             this.header_label.Text = "HOME";
             this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.header_label.Click += new System.EventHandler(this.header_label_Click);
             // 
             // main_datagridview
             // 
@@ -240,7 +232,6 @@
             this.main_datagridview.RowHeadersWidth = 51;
             this.main_datagridview.Size = new System.Drawing.Size(772, 479);
             this.main_datagridview.TabIndex = 0;
-            this.main_datagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.main_datagridview_CellContentClick);
             // 
             // ThanhTraMenu
             // 
@@ -251,7 +242,6 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ThanhTraMenu";
             this.Text = "Quản lý cơ sơ y tế";
-            this.Load += new System.EventHandler(this.ThanhTraMenu_Load);
             this.main_panel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

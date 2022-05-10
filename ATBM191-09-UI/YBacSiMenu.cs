@@ -17,10 +17,12 @@ namespace ATBM191_09_UI
         public YBacSiMenu()
         {
             InitializeComponent();
+            Set_BN_Control(false);
         }
 
         private void PersonalInfo_Button_Click(object sender, EventArgs e)
         {
+            Set_BN_Control(false);
             // Reset data grid view
             main_datagridview.Columns.Clear();
             DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_THONGTINCANHAN_NHANVIEN");
@@ -29,6 +31,7 @@ namespace ATBM191_09_UI
 
         private void HSBA_Button_Click(object sender, EventArgs e)
         {
+            Set_BN_Control(false);
             MaBN_Textbox.Enabled = false;
             CMNDBN_TextBox.Enabled = false;
 
@@ -39,6 +42,7 @@ namespace ATBM191_09_UI
 
         private void HSBADV_Button_Click(object sender, EventArgs e)
         {
+            Set_BN_Control(false);
             MaBN_Textbox.Enabled = false;
             CMNDBN_TextBox.Enabled = false;
 
@@ -47,9 +51,19 @@ namespace ATBM191_09_UI
             main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
 
+        private void Set_BN_Control(bool visibility)
+        {
+            MaBN_Label.Visible = visibility;
+            CmndBN_Label.Visible = visibility;
+            MaBN_Textbox.Visible = visibility;
+            CMNDBN_TextBox.Visible = visibility;
+            Loc_Button.Visible = visibility;
+        }
+
         private void BenhNhan_Button_Click(object sender, EventArgs e)
         {
-            
+            Set_BN_Control(true);
+            main_datagridview.Columns.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)

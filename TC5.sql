@@ -3,13 +3,17 @@ CREATE OR REPLACE FUNCTION NVNC_SEL_HSBA(p_schema IN VARCHAR2, p_object IN VARCH
 RETURN VARCHAR2
 AS
 BEGIN
-    RETURN 'MACSYT IN 
+    IF (sys_context('USER_ROLE_CONTEXT', 'USER_ROLE') = N'Nghiên cứu') THEN
+         RETURN 'MACSYT IN 
                     (SELECT CSYT FROM NHANVIEN WHERE MANV = SYS_CONTEXT(''USERENV'', ''SESSION_USER'')) 
             AND 
             MAKHOA IN 
                     (SELECT MAKHOA 
                     FROM CHUYENKHOA 
                     WHERE TENKHOA IN ( SELECT CHUYENKHOA FROM NHANVIEN WHERE MANV = SYS_CONTEXT(''USERENV'', ''SESSION_USER'')))';
+    ELSE
+        RETURN '';
+    END IF;
 END;
 /
 EXEC DBMS_RLS.ADD_POLICY('QLCSYTE_ADMIN','HSBA','nvnc_sel_hsba','QLCSYTE_ADMIN','NVNC_SEL_HSBA','select');
@@ -23,8 +27,8 @@ AS
     manv NHANVIEN.MANV%TYPE;
     ngaysinh VARCHAR2(20);
 BEGIN
-
-    RETURN 'MAHSBA IN 
+    IF (sys_context('USER_ROLE_CONTEXT', 'USER_ROLE') = N'Nghiên cứu') THEN
+        RETURN 'MAHSBA IN 
                     (SELECT MAHSBA 
                     FROM HSBA
                     WHERE MACSYT IN (SELECT CSYT FROM NHANVIEN WHERE MANV = SYS_CONTEXT(''USERENV'', ''SESSION_USER'')) 
@@ -32,6 +36,9 @@ BEGIN
                           MAKHOA IN (SELECT MAKHOA 
                                     FROM CHUYENKHOA 
                                     WHERE TENKHOA IN ( SELECT CHUYENKHOA FROM NHANVIEN WHERE MANV = SYS_CONTEXT(''USERENV'', ''SESSION_USER''))))';
+    ELSE
+        RETURN '';
+    END IF;
 END;
 /
 EXEC DBMS_RLS.ADD_POLICY('QLCSYTE_ADMIN','HSBA_DV','nvnc_sel_hsba_dv','QLCSYTE_ADMIN','NVNC_SEL_HSBA_DV','select');

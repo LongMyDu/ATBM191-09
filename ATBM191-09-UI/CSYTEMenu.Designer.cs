@@ -1,7 +1,7 @@
 ﻿
 namespace ATBM191_09_UI
 {
-    partial class BenhNhanMenu
+    partial class CSYTEMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,6 @@ namespace ATBM191_09_UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.header_panel = new System.Windows.Forms.Panel();
-            this.header_label = new System.Windows.Forms.Label();
-            this.main_datagridview = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.HSBADV_Button = new System.Windows.Forms.Button();
             this.HSBA_Button = new System.Windows.Forms.Button();
@@ -39,55 +36,14 @@ namespace ATBM191_09_UI
             this.PersonalInfo_Button = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.header_panel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).BeginInit();
+            this.header_panel = new System.Windows.Forms.Panel();
+            this.header_label = new System.Windows.Forms.Label();
+            this.main_datagridview = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.header_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).BeginInit();
             this.SuspendLayout();
-            // 
-            // header_panel
-            // 
-            this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
-            this.header_panel.Controls.Add(this.header_label);
-            this.header_panel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header_panel.Location = new System.Drawing.Point(289, 0);
-            this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(768, 123);
-            this.header_panel.TabIndex = 3;
-            // 
-            // header_label
-            // 
-            this.header_label.AutoSize = true;
-            this.header_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.header_label.ForeColor = System.Drawing.Color.White;
-            this.header_label.Location = new System.Drawing.Point(322, 46);
-            this.header_label.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
-            this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(116, 37);
-            this.header_label.TabIndex = 0;
-            this.header_label.Text = "HOME";
-            this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.header_label.Click += new System.EventHandler(this.header_label_Click);
-            // 
-            // main_datagridview
-            // 
-            this.main_datagridview.AllowUserToAddRows = false;
-            this.main_datagridview.AllowUserToDeleteRows = false;
-            this.main_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.main_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.main_datagridview.Location = new System.Drawing.Point(292, 123);
-            this.main_datagridview.Name = "main_datagridview";
-            this.main_datagridview.ReadOnly = true;
-            this.main_datagridview.RowHeadersWidth = 51;
-            this.main_datagridview.Size = new System.Drawing.Size(765, 454);
-            this.main_datagridview.TabIndex = 5;
             // 
             // panel2
             // 
@@ -101,8 +57,8 @@ namespace ATBM191_09_UI
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(296, 580);
-            this.panel2.TabIndex = 6;
+            this.panel2.Size = new System.Drawing.Size(296, 557);
+            this.panel2.TabIndex = 7;
             // 
             // HSBADV_Button
             // 
@@ -171,7 +127,6 @@ namespace ATBM191_09_UI
             this.PersonalInfo_Button.TabIndex = 1;
             this.PersonalInfo_Button.Text = "Thông tin cá nhân";
             this.PersonalInfo_Button.UseVisualStyleBackColor = true;
-            this.PersonalInfo_Button.Click += new System.EventHandler(this.PersonalInfo_Button_Click);
             // 
             // panel3
             // 
@@ -195,34 +150,73 @@ namespace ATBM191_09_UI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(299, 120);
             this.label1.TabIndex = 1;
-            this.label1.Text = "BỆNH NHÂN";
+            this.label1.Text = "CƠ SỞ Y TẾ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // BenhNhanMenu
+            // header_panel
+            // 
+            this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.header_panel.Controls.Add(this.header_label);
+            this.header_panel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header_panel.Location = new System.Drawing.Point(290, 0);
+            this.header_panel.Name = "header_panel";
+            this.header_panel.Size = new System.Drawing.Size(795, 123);
+            this.header_panel.TabIndex = 8;
+            // 
+            // header_label
+            // 
+            this.header_label.AutoSize = true;
+            this.header_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.header_label.ForeColor = System.Drawing.Color.White;
+            this.header_label.Location = new System.Drawing.Point(322, 46);
+            this.header_label.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
+            this.header_label.Name = "header_label";
+            this.header_label.Size = new System.Drawing.Size(116, 37);
+            this.header_label.TabIndex = 0;
+            this.header_label.Text = "HOME";
+            this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // main_datagridview
+            // 
+            this.main_datagridview.AllowUserToAddRows = false;
+            this.main_datagridview.AllowUserToDeleteRows = false;
+            this.main_datagridview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.main_datagridview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.main_datagridview.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.main_datagridview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.main_datagridview.Location = new System.Drawing.Point(290, 123);
+            this.main_datagridview.Name = "main_datagridview";
+            this.main_datagridview.ReadOnly = true;
+            this.main_datagridview.RowHeadersWidth = 51;
+            this.main_datagridview.Size = new System.Drawing.Size(792, 454);
+            this.main_datagridview.TabIndex = 9;
+            // 
+            // CSYTEMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 580);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1080, 557);
             this.Controls.Add(this.main_datagridview);
             this.Controls.Add(this.header_panel);
-            this.Name = "BenhNhanMenu";
-            this.Text = "BenhNhanMenu";
+            this.Controls.Add(this.panel2);
+            this.Name = "CSYTEMenu";
+            this.Text = "CSYTEMenu";
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.header_panel.ResumeLayout(false);
             this.header_panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.main_datagridview)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel header_panel;
-        private System.Windows.Forms.Label header_label;
-        private System.Windows.Forms.DataGridView main_datagridview;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button HSBADV_Button;
         private System.Windows.Forms.Button HSBA_Button;
@@ -230,5 +224,8 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.Button PersonalInfo_Button;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel header_panel;
+        private System.Windows.Forms.Label header_label;
+        private System.Windows.Forms.DataGridView main_datagridview;
     }
 }

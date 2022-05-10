@@ -41,6 +41,7 @@
     <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +64,12 @@
     </Compile>
     <Compile Include="BenhNhanMenu.Designer.cs">
       <DependentUpon>BenhNhanMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CSYTEMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CSYTEMenu.Designer.cs">
+      <DependentUpon>CSYTEMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="AdminFeatures\EditRoleControl.cs">
@@ -94,6 +101,12 @@
     </Compile>
     <Compile Include="AdminFeatures\ObjectPrivs.Designer.cs">
       <DependentUpon>ObjectPrivs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NghienCuuMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NghienCuuMenu.Designer.cs">
+      <DependentUpon>NghienCuuMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +158,9 @@
     <EmbeddedResource Include="BenhNhanMenu.resx">
       <DependentUpon>BenhNhanMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CSYTEMenu.resx">
+      <DependentUpon>CSYTEMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminFeatures\ObjectPrivs.resx">
       <DependentUpon>ObjectPrivs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NghienCuuMenu.resx">
+      <DependentUpon>NghienCuuMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

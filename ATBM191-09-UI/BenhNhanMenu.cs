@@ -21,5 +21,20 @@ namespace ATBM191_09_UI
         {
 
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PersonalInfo_Button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void header_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

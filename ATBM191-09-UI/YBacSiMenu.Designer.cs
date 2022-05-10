@@ -63,7 +63,7 @@
             this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(1200, 692);
+            this.main_panel.Size = new System.Drawing.Size(1184, 586);
             this.main_panel.TabIndex = 5;
             // 
             // panel1
@@ -78,7 +78,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 692);
+            this.panel1.Size = new System.Drawing.Size(303, 586);
             this.panel1.TabIndex = 3;
             // 
             // HSBADV_Button
@@ -93,7 +93,7 @@
             this.HSBADV_Button.Location = new System.Drawing.Point(0, 399);
             this.HSBADV_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HSBADV_Button.Name = "HSBADV_Button";
-            this.HSBADV_Button.Size = new System.Drawing.Size(300, 92);
+            this.HSBADV_Button.Size = new System.Drawing.Size(303, 92);
             this.HSBADV_Button.TabIndex = 5;
             this.HSBADV_Button.Text = "Hồ sơ bệnh án - dịch vụ";
             this.HSBADV_Button.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.HSBA_Button.Location = new System.Drawing.Point(0, 307);
             this.HSBA_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HSBA_Button.Name = "HSBA_Button";
-            this.HSBA_Button.Size = new System.Drawing.Size(300, 92);
+            this.HSBA_Button.Size = new System.Drawing.Size(303, 92);
             this.HSBA_Button.TabIndex = 4;
             this.HSBA_Button.Text = "Hồ sơ bệnh án";
             this.HSBA_Button.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
             this.BenhNhan_Button.Location = new System.Drawing.Point(0, 215);
             this.BenhNhan_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BenhNhan_Button.Name = "BenhNhan_Button";
-            this.BenhNhan_Button.Size = new System.Drawing.Size(300, 92);
+            this.BenhNhan_Button.Size = new System.Drawing.Size(303, 92);
             this.BenhNhan_Button.TabIndex = 3;
             this.BenhNhan_Button.Text = "Bệnh nhân";
             this.BenhNhan_Button.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             this.PersonalInfo_Button.Location = new System.Drawing.Point(0, 123);
             this.PersonalInfo_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PersonalInfo_Button.Name = "PersonalInfo_Button";
-            this.PersonalInfo_Button.Size = new System.Drawing.Size(300, 92);
+            this.PersonalInfo_Button.Size = new System.Drawing.Size(303, 92);
             this.PersonalInfo_Button.TabIndex = 1;
             this.PersonalInfo_Button.Text = "Thông tin cá nhân";
             this.PersonalInfo_Button.UseVisualStyleBackColor = true;
@@ -161,21 +161,22 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(300, 123);
+            this.panel2.Size = new System.Drawing.Size(303, 123);
             this.panel2.TabIndex = 0;
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.CausesValidation = false;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 123);
+            this.label1.Size = new System.Drawing.Size(300, 119);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Y bác sĩ";
+            this.label1.Text = "Y - BÁC SĨ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // header_panel
             // 
@@ -193,12 +194,12 @@
             this.header_panel.Location = new System.Drawing.Point(298, 0);
             this.header_panel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(903, 123);
+            this.header_panel.Size = new System.Drawing.Size(887, 123);
             this.header_panel.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(784, 82);
+            this.button1.Location = new System.Drawing.Point(761, 76);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 42);
@@ -234,6 +235,7 @@
             this.MaBN_Textbox.Name = "MaBN_Textbox";
             this.MaBN_Textbox.Size = new System.Drawing.Size(184, 33);
             this.MaBN_Textbox.TabIndex = 2;
+            this.MaBN_Textbox.TextChanged += new System.EventHandler(this.MaBN_Textbox_TextChanged);
             // 
             // label2
             // 
@@ -274,14 +276,14 @@
             this.main_datagridview.Name = "main_datagridview";
             this.main_datagridview.ReadOnly = true;
             this.main_datagridview.RowHeadersWidth = 51;
-            this.main_datagridview.Size = new System.Drawing.Size(906, 569);
+            this.main_datagridview.Size = new System.Drawing.Size(890, 463);
             this.main_datagridview.TabIndex = 0;
             // 
             // YBacSiMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1184, 586);
             this.Controls.Add(this.main_panel);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "YBacSiMenu";

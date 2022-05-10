@@ -12,7 +12,6 @@ NOAUDIT EXECUTE ON SYS.DBMS_UTILITY;
 --Connect bằng user pdb. Khuyến cáo: thao tác này xóa hết tất cả những gì đã từng audit từ trước tới giờ!!!
 delete from SYS.AUD$;
 commit; 
-GRANT EXECUTE ON DBMS_FGA TO QLCSYTE_ADMIN;
 
 --Từ khúc này có thể connect bằng QLCSYTE_ADMIN
 --Xem thông tin đã được standard AUDIT:
@@ -46,8 +45,10 @@ AUDIT UPDATE, DELETE, INSERT ON QLCSYTE_ADMIN.HSBA_DV BY ACCESS;
 
 -- Để FGA, cần chỉnh lại cái này, audit trên bảng nào thì chỉnh lại trên bảng đó
 ANALYZE TABLE BENHNHAN COMPUTE STATISTICS;
+ANALYZE TABLE NHANVIEN COMPUTE STATISTICS;
 
--- (FGA)Chính sách .4: Audit lại tất cả hành động select CMND trên bảng BENHNHAN của tất cả user mà không phải bệnh nhân đó
+-- (FGA)Chính sách .4: Audit lại tất cả hành động select CMND trên bảng BENHNHAN, NHANVIEN của tất cả user mà không phải bệnh nhân (nhân viên) đó
+--EXEC DBMS_FGA.DROP_POLICY (object_schema   =>  'QLCSYTE_ADMIN', object_name =>  'BENHNHAN', policy_name =>  'Select_CMND_BENHNHAN');
+--EXEC DBMS_FGA.DROP_POLICY (object_schema   =>  'QLCSYTE_ADMIN', object_name =>  'NHANVIEN', policy_name =>  'Select_CMND_NHANVIEN');
 EXEC DBMS_FGA.ADD_POLICY (object_schema => 'QLCSYTE_ADMIN', object_name => 'BENHNHAN', policy_name =>  'Select_CMND_BENHNHAN', audit_condition => 'MABN != USER', audit_column => 'CMND', statement_types => 'SELECT'); 
-
-EXEC DBMS_FGA.DROP_POLICY (object_schema   =>  'QLCSYTE_ADMIN', object_name =>  'BENHNHAN', policy_name =>  'Select_CMND_BENHNHAN');
+EXEC DBMS_FGA.ADD_POLICY (object_schema => 'QLCSYTE_ADMIN', object_name => 'NHANVIEN', policy_name =>  'Select_CMND_NHANVIEN', audit_condition => 'MANV != USER', audit_column => 'CMND', statement_types => 'SELECT'); 

@@ -160,4 +160,4 @@ VALUES ('HSBA0010', 'DV0005',TO_DATE('2022-05-01', 'yyyy-mm-dd'), 'NV0043', 'ket
 
 
 --select * from HSBA_DV;
-
+select * from nhanvien;

@@ -10,25 +10,29 @@ using System.Windows.Forms;
 
 namespace ATBM191_09_UI
 {
-    public partial class CSYTEMenu : Form
+    public partial class Control_HSBA_DV : Form
     {
-        public CSYTEMenu()
+        public Control_HSBA_DV()
         {
             InitializeComponent();
-            Them_Button.Visible = false;
         }
 
-        private void HSBA_Button_Click(object sender, EventArgs e)
-        {
-            Them_Button.Visible = true;
-        }
-
-        private void PersonalInfo_Button_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Them_Button_Click(object sender, EventArgs e)
+        private void Control_HSBA_DV_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
         }

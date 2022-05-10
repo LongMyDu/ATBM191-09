@@ -32,11 +32,11 @@ namespace ATBM191_09_UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.HSBADV_Button = new System.Windows.Forms.Button();
             this.HSBA_Button = new System.Windows.Forms.Button();
-            this.BenhNhan_Button = new System.Windows.Forms.Button();
             this.PersonalInfo_Button = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.header_panel = new System.Windows.Forms.Panel();
+            this.Them_Button = new System.Windows.Forms.Button();
             this.header_label = new System.Windows.Forms.Label();
             this.main_datagridview = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
@@ -50,7 +50,6 @@ namespace ATBM191_09_UI
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
             this.panel2.Controls.Add(this.HSBADV_Button);
             this.panel2.Controls.Add(this.HSBA_Button);
-            this.panel2.Controls.Add(this.BenhNhan_Button);
             this.panel2.Controls.Add(this.PersonalInfo_Button);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -69,7 +68,7 @@ namespace ATBM191_09_UI
             this.HSBADV_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HSBADV_Button.ForeColor = System.Drawing.Color.Gainsboro;
             this.HSBADV_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HSBADV_Button.Location = new System.Drawing.Point(0, 399);
+            this.HSBADV_Button.Location = new System.Drawing.Point(0, 307);
             this.HSBADV_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HSBADV_Button.Name = "HSBADV_Button";
             this.HSBADV_Button.Size = new System.Drawing.Size(296, 92);
@@ -86,30 +85,14 @@ namespace ATBM191_09_UI
             this.HSBA_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HSBA_Button.ForeColor = System.Drawing.Color.Gainsboro;
             this.HSBA_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HSBA_Button.Location = new System.Drawing.Point(0, 307);
+            this.HSBA_Button.Location = new System.Drawing.Point(0, 215);
             this.HSBA_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.HSBA_Button.Name = "HSBA_Button";
             this.HSBA_Button.Size = new System.Drawing.Size(296, 92);
             this.HSBA_Button.TabIndex = 4;
             this.HSBA_Button.Text = "Hồ sơ bệnh án";
             this.HSBA_Button.UseVisualStyleBackColor = true;
-            // 
-            // BenhNhan_Button
-            // 
-            this.BenhNhan_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BenhNhan_Button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BenhNhan_Button.FlatAppearance.BorderSize = 0;
-            this.BenhNhan_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BenhNhan_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BenhNhan_Button.ForeColor = System.Drawing.Color.Gainsboro;
-            this.BenhNhan_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BenhNhan_Button.Location = new System.Drawing.Point(0, 215);
-            this.BenhNhan_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BenhNhan_Button.Name = "BenhNhan_Button";
-            this.BenhNhan_Button.Size = new System.Drawing.Size(296, 92);
-            this.BenhNhan_Button.TabIndex = 3;
-            this.BenhNhan_Button.Text = "Bệnh nhân";
-            this.BenhNhan_Button.UseVisualStyleBackColor = true;
+            this.HSBA_Button.Click += new System.EventHandler(this.HSBA_Button_Click);
             // 
             // PersonalInfo_Button
             // 
@@ -127,6 +110,7 @@ namespace ATBM191_09_UI
             this.PersonalInfo_Button.TabIndex = 1;
             this.PersonalInfo_Button.Text = "Thông tin cá nhân";
             this.PersonalInfo_Button.UseVisualStyleBackColor = true;
+            this.PersonalInfo_Button.Click += new System.EventHandler(this.PersonalInfo_Button_Click);
             // 
             // panel3
             // 
@@ -159,6 +143,7 @@ namespace ATBM191_09_UI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.header_panel.Controls.Add(this.Them_Button);
             this.header_panel.Controls.Add(this.header_label);
             this.header_panel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_panel.Location = new System.Drawing.Point(290, 0);
@@ -166,12 +151,24 @@ namespace ATBM191_09_UI
             this.header_panel.Size = new System.Drawing.Size(795, 123);
             this.header_panel.TabIndex = 8;
             // 
+            // Them_Button
+            // 
+            this.Them_Button.Location = new System.Drawing.Point(665, 73);
+            this.Them_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Them_Button.Name = "Them_Button";
+            this.Them_Button.Size = new System.Drawing.Size(112, 42);
+            this.Them_Button.TabIndex = 6;
+            this.Them_Button.Text = "Thêm";
+            this.Them_Button.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Them_Button.UseVisualStyleBackColor = true;
+            this.Them_Button.Click += new System.EventHandler(this.Them_Button_Click);
+            // 
             // header_label
             // 
             this.header_label.AutoSize = true;
             this.header_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_label.ForeColor = System.Drawing.Color.White;
-            this.header_label.Location = new System.Drawing.Point(322, 46);
+            this.header_label.Location = new System.Drawing.Point(327, 24);
             this.header_label.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
             this.header_label.Name = "header_label";
             this.header_label.Size = new System.Drawing.Size(116, 37);
@@ -220,12 +217,12 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button HSBADV_Button;
         private System.Windows.Forms.Button HSBA_Button;
-        private System.Windows.Forms.Button BenhNhan_Button;
         private System.Windows.Forms.Button PersonalInfo_Button;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel header_panel;
         private System.Windows.Forms.Label header_label;
         private System.Windows.Forms.DataGridView main_datagridview;
+        private System.Windows.Forms.Button Them_Button;
     }
 }

@@ -87,5 +87,10 @@ namespace ATBM191_09_UI
                 btnLogin_Click(sender, e);
             }
         }
+
+        private void textPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -26,54 +26,44 @@ namespace ATBM191_09_UI
             main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
 
-        private void header_panel_Paint(object sender, PaintEventArgs e)
+        private void Csyt_Button_Click(object sender, EventArgs e)
         {
-
+            // Reset data grid view
+            main_datagridview.Columns.Clear();
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.CSYT");
+            main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
 
-        private void main_datagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void BN_Button_Click(object sender, EventArgs e)
         {
-
+            // Reset data grid view
+            main_datagridview.Columns.Clear();
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.BENHNHAN");
+            main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
 
-        private void header_label_Click(object sender, EventArgs e)
+        private void HSBA_Button_Click(object sender, EventArgs e)
         {
-
+            // Reset data grid view
+            main_datagridview.Columns.Clear();
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.HSBA");
+            main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void HSBADV_Button_Click(object sender, EventArgs e)
         {
-
+            // Reset data grid view
+            main_datagridview.Columns.Clear();
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.HSBA_DV");
+            main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
 
-        private void role_button_Click(object sender, EventArgs e)
+        private void NV_Button_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void table_button_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void view_button_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ThanhTraMenu_Load(object sender, EventArgs e)
-        {
-
+            // Reset data grid view
+            main_datagridview.Columns.Clear();
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.NHANVIEN");
+            main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
     }
 }

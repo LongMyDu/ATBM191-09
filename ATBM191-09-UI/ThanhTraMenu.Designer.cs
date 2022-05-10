@@ -30,11 +30,11 @@
         {
             this.main_panel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.view_button = new System.Windows.Forms.Button();
-            this.table_button = new System.Windows.Forms.Button();
-            this.role_button = new System.Windows.Forms.Button();
+            this.NV_Button = new System.Windows.Forms.Button();
+            this.HSBADV_Button = new System.Windows.Forms.Button();
+            this.HSBA_Button = new System.Windows.Forms.Button();
+            this.BN_Button = new System.Windows.Forms.Button();
+            this.Csyt_Button = new System.Windows.Forms.Button();
             this.PersonalInfo_Button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,11 +65,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.view_button);
-            this.panel1.Controls.Add(this.table_button);
-            this.panel1.Controls.Add(this.role_button);
+            this.panel1.Controls.Add(this.NV_Button);
+            this.panel1.Controls.Add(this.HSBADV_Button);
+            this.panel1.Controls.Add(this.HSBA_Button);
+            this.panel1.Controls.Add(this.BN_Button);
+            this.panel1.Controls.Add(this.Csyt_Button);
             this.panel1.Controls.Add(this.PersonalInfo_Button);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -78,90 +78,90 @@
             this.panel1.Size = new System.Drawing.Size(305, 525);
             this.panel1.TabIndex = 3;
             // 
-            // button2
+            // NV_Button
             // 
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 380);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(305, 60);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Nhân viên";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.NV_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NV_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.NV_Button.FlatAppearance.BorderSize = 0;
+            this.NV_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NV_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NV_Button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.NV_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NV_Button.Location = new System.Drawing.Point(0, 380);
+            this.NV_Button.Name = "NV_Button";
+            this.NV_Button.Size = new System.Drawing.Size(305, 60);
+            this.NV_Button.TabIndex = 6;
+            this.NV_Button.Text = "Nhân viên";
+            this.NV_Button.UseVisualStyleBackColor = true;
+            this.NV_Button.Click += new System.EventHandler(this.NV_Button_Click);
             // 
-            // button1
+            // HSBADV_Button
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 320);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(305, 60);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Hồ sơ bệnh án - dịch vụ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.HSBADV_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.HSBADV_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HSBADV_Button.FlatAppearance.BorderSize = 0;
+            this.HSBADV_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HSBADV_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSBADV_Button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.HSBADV_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HSBADV_Button.Location = new System.Drawing.Point(0, 320);
+            this.HSBADV_Button.Name = "HSBADV_Button";
+            this.HSBADV_Button.Size = new System.Drawing.Size(305, 60);
+            this.HSBADV_Button.TabIndex = 5;
+            this.HSBADV_Button.Text = "Hồ sơ bệnh án - dịch vụ";
+            this.HSBADV_Button.UseVisualStyleBackColor = true;
+            this.HSBADV_Button.Click += new System.EventHandler(this.HSBADV_Button_Click);
             // 
-            // view_button
+            // HSBA_Button
             // 
-            this.view_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.view_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.view_button.FlatAppearance.BorderSize = 0;
-            this.view_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.view_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.view_button.ForeColor = System.Drawing.Color.Gainsboro;
-            this.view_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.view_button.Location = new System.Drawing.Point(0, 260);
-            this.view_button.Name = "view_button";
-            this.view_button.Size = new System.Drawing.Size(305, 60);
-            this.view_button.TabIndex = 4;
-            this.view_button.Text = "Hồ sơ bệnh án";
-            this.view_button.UseVisualStyleBackColor = true;
-            this.view_button.Click += new System.EventHandler(this.view_button_Click);
+            this.HSBA_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.HSBA_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HSBA_Button.FlatAppearance.BorderSize = 0;
+            this.HSBA_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HSBA_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSBA_Button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.HSBA_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HSBA_Button.Location = new System.Drawing.Point(0, 260);
+            this.HSBA_Button.Name = "HSBA_Button";
+            this.HSBA_Button.Size = new System.Drawing.Size(305, 60);
+            this.HSBA_Button.TabIndex = 4;
+            this.HSBA_Button.Text = "Hồ sơ bệnh án";
+            this.HSBA_Button.UseVisualStyleBackColor = true;
+            this.HSBA_Button.Click += new System.EventHandler(this.HSBA_Button_Click);
             // 
-            // table_button
+            // BN_Button
             // 
-            this.table_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.table_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.table_button.FlatAppearance.BorderSize = 0;
-            this.table_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.table_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table_button.ForeColor = System.Drawing.Color.Gainsboro;
-            this.table_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.table_button.Location = new System.Drawing.Point(0, 200);
-            this.table_button.Name = "table_button";
-            this.table_button.Size = new System.Drawing.Size(305, 60);
-            this.table_button.TabIndex = 3;
-            this.table_button.Text = "Bệnh nhân";
-            this.table_button.UseVisualStyleBackColor = true;
-            this.table_button.Click += new System.EventHandler(this.table_button_Click);
+            this.BN_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BN_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BN_Button.FlatAppearance.BorderSize = 0;
+            this.BN_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BN_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BN_Button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.BN_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BN_Button.Location = new System.Drawing.Point(0, 200);
+            this.BN_Button.Name = "BN_Button";
+            this.BN_Button.Size = new System.Drawing.Size(305, 60);
+            this.BN_Button.TabIndex = 3;
+            this.BN_Button.Text = "Bệnh nhân";
+            this.BN_Button.UseVisualStyleBackColor = true;
+            this.BN_Button.Click += new System.EventHandler(this.BN_Button_Click);
             // 
-            // role_button
+            // Csyt_Button
             // 
-            this.role_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.role_button.Dock = System.Windows.Forms.DockStyle.Top;
-            this.role_button.FlatAppearance.BorderSize = 0;
-            this.role_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.role_button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.role_button.ForeColor = System.Drawing.Color.Gainsboro;
-            this.role_button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.role_button.Location = new System.Drawing.Point(0, 140);
-            this.role_button.Name = "role_button";
-            this.role_button.Size = new System.Drawing.Size(305, 60);
-            this.role_button.TabIndex = 2;
-            this.role_button.Text = "Cơ sở y tế";
-            this.role_button.UseVisualStyleBackColor = true;
-            this.role_button.Click += new System.EventHandler(this.role_button_Click);
+            this.Csyt_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Csyt_Button.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Csyt_Button.FlatAppearance.BorderSize = 0;
+            this.Csyt_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Csyt_Button.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Csyt_Button.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Csyt_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Csyt_Button.Location = new System.Drawing.Point(0, 140);
+            this.Csyt_Button.Name = "Csyt_Button";
+            this.Csyt_Button.Size = new System.Drawing.Size(305, 60);
+            this.Csyt_Button.TabIndex = 2;
+            this.Csyt_Button.Text = "Cơ sở y tế";
+            this.Csyt_Button.UseVisualStyleBackColor = true;
+            this.Csyt_Button.Click += new System.EventHandler(this.Csyt_Button_Click);
             // 
             // PersonalInfo_Button
             // 
@@ -201,7 +201,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Thanh tra";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // header_panel
             // 
@@ -215,21 +214,19 @@
             this.header_panel.Name = "header_panel";
             this.header_panel.Size = new System.Drawing.Size(674, 80);
             this.header_panel.TabIndex = 2;
-            this.header_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.header_panel_Paint);
             // 
             // header_label
             // 
             this.header_label.AutoSize = true;
             this.header_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_label.ForeColor = System.Drawing.Color.White;
-            this.header_label.Location = new System.Drawing.Point(260, 28);
+            this.header_label.Location = new System.Drawing.Point(284, 28);
             this.header_label.Margin = new System.Windows.Forms.Padding(70, 0, 3, 0);
             this.header_label.Name = "header_label";
-            this.header_label.Size = new System.Drawing.Size(116, 37);
+            this.header_label.Size = new System.Drawing.Size(79, 25);
             this.header_label.TabIndex = 0;
             this.header_label.Text = "HOME";
             this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.header_label.Click += new System.EventHandler(this.header_label_Click);
             // 
             // main_datagridview
             // 
@@ -247,18 +244,16 @@
             this.main_datagridview.RowHeadersWidth = 51;
             this.main_datagridview.Size = new System.Drawing.Size(676, 445);
             this.main_datagridview.TabIndex = 0;
-            this.main_datagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.main_datagridview_CellContentClick);
             // 
             // ThanhTraMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 525);
             this.Controls.Add(this.main_panel);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ThanhTraMenu";
             this.Text = "Quản lý cơ sơ y tế";
-            this.Load += new System.EventHandler(this.ThanhTraMenu_Load);
             this.main_panel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -274,16 +269,16 @@
 
         private System.Windows.Forms.Panel main_panel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button view_button;
-        private System.Windows.Forms.Button table_button;
-        private System.Windows.Forms.Button role_button;
+        private System.Windows.Forms.Button HSBA_Button;
+        private System.Windows.Forms.Button BN_Button;
+        private System.Windows.Forms.Button Csyt_Button;
         private System.Windows.Forms.Button PersonalInfo_Button;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel header_panel;
         private System.Windows.Forms.Label header_label;
         private System.Windows.Forms.DataGridView main_datagridview;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button NV_Button;
+        private System.Windows.Forms.Button HSBADV_Button;
     }
 }

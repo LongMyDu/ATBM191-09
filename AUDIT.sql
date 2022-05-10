@@ -12,7 +12,6 @@ NOAUDIT EXECUTE ON SYS.DBMS_UTILITY;
 --Connect bằng user pdb. Khuyến cáo: thao tác này xóa hết tất cả những gì đã từng audit từ trước tới giờ!!!
 delete from SYS.AUD$;
 commit; 
-GRANT EXECUTE ON DBMS_FGA TO QLCSYTE_ADMIN;
 
 --Từ khúc này có thể connect bằng QLCSYTE_ADMIN
 --Xem thông tin đã được standard AUDIT:

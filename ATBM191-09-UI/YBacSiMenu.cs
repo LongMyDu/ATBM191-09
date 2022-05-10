@@ -94,5 +94,15 @@ namespace ATBM191_09_UI
             DataSet dataSet = DataProvider.Instance.ExecuteQuery(command);
             main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
+
+        private void MaBN_Textbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

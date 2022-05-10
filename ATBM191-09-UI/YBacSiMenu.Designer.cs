@@ -62,7 +62,7 @@
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(800, 450);
+            this.main_panel.Size = new System.Drawing.Size(800, 450);      
             this.main_panel.TabIndex = 5;
             // 
             // panel1
@@ -159,15 +159,16 @@
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.CausesValidation = false;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 80);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Y bác sĩ";
+            this.label1.Text = "Y - BÁC SĨ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // header_panel
             // 
@@ -221,6 +222,7 @@
             this.MaBN_Textbox.Name = "MaBN_Textbox";
             this.MaBN_Textbox.Size = new System.Drawing.Size(124, 25);
             this.MaBN_Textbox.TabIndex = 2;
+            this.MaBN_Textbox.TextChanged += new System.EventHandler(this.MaBN_Textbox_TextChanged);
             // 
             // MaBN_Label
             // 

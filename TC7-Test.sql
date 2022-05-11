@@ -1,0 +1,1 @@
+select * from qlcsyte_admin.thongbao;

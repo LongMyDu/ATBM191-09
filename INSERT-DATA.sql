@@ -80,6 +80,10 @@ EXEC THEMNHANVIEN('NV0052',N'Đỗ Văn Linh Dũng', N'Nam', '1959-02-21','24666
 EXEC THEMNHANVIEN('NV0053',N'Huỳnh Hồng Nhã', N'Nữ', '1990-10-11','486029082553', N'Trà Vinh', '0366557995', 'CS0009', N'Nghiên cứu', N'Trẻ em', 'Alg7SCNqm36');
 EXEC THEMNHANVIEN('NV0054',N'Danh Ngọc Hương', N'Nam', '1982-06-25','434137157331', N'Trà Vinh', '0895427996', 'CS0010', N'Nghiên cứu', N'Thần kinh', 'aQP3HCwcDZgtbUiO');
 EXEC THEMNHANVIEN('NV0055',N'Ngô Ngọc Giang', N'Nữ', '1970-09-25','139101531202', N'Bắc Ninh', '0323650714', 'CS0001', N'Nghiên cứu', N'Ung thư', 'jU1thb5vhXgLLosp');
+EXEC THEMNHANVIEN('NV0056',N'Nguyễn Văn Á', N'Nam', '1950-01-12','131234531202', N'Trà Vinh', '0123650714', NULL, N'Giám đốc sở', NULL, 'jU1thb5vhXgLLosp');
+EXEC THEMNHANVIEN('NV0057',N'Nguyễn Thị Bề', N'Nữ', '1971-05-23','112345531202', N'Trà Vinh', '0323651234', NULL, N'Giám đốc CSYT TT', NULL, 'jU1thb5vhXgLLosp');
+EXEC THEMNHANVIEN('NV0058',N'Nguyễn Văn Sễ', N'Nam', '1972-02-10','139101512345', N'Trà Vinh', '0123450714', NULL, N'Giám đốc CSYT CTT', NULL, 'jU1thb5vhXgLLosp');
+EXEC THEMNHANVIEN('NV0059',N'Nguyễn Thị Đệ', N'Nữ', '1973-07-20','123451531202', N'Trà Vinh', '0312350714', NULL, N'Giám đốc CSYT NT', NULL, 'jU1thb5vhXgLLosp');
 
 --select * from nhanvien;
 
@@ -160,4 +164,4 @@ VALUES ('HSBA0010', 'DV0005',TO_DATE('2022-05-01', 'yyyy-mm-dd'), 'NV0043', 'ket
 
 
 --select * from HSBA_DV;
-select * from nhanvien;
+--select * from nhanvien;

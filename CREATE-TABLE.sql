@@ -120,8 +120,35 @@ ADD CONSTRAINT NHANVIEN_CSYT_FK FOREIGN KEY ( CSYT )
 
 ALTER TABLE NHANVIEN
 ADD CONSTRAINT NHANVIEN_VAITRO_FK 
+<<<<<<< Updated upstream
 	CHECK (VAITRO IN (N'Thanh tra', N'CÆ¡ sá»Ÿ y táº¿', N'Y sÄ©/ bÃ¡c sÄ©', N'NghiÃªn cá»©u',N'GiÃ¡m Ä‘á»‘c sá»Ÿ',N'GiÃ¡m Ä‘á»‘c CSYT TT',N'GiÃ¡m Ä‘á»‘c CSYT CTT',N'GiÃ¡m Ä‘á»‘c CSYT NT'));
 /
+=======
+	CHECK (VAITRO IN (N'Thanh tra', N'CÆ¡ sá»Ÿ y táº¿', N'Y sÄ©/bÃ¡c sÄ©', N'NghiÃªn cá»©u'));
+
+
+
+-- INSERT DATA TO NHANVIEN
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0001',N'B?nh vi?n ?a khoa V?n H?nh',N'700 S? V?n H?nh (n?i dài) - P 12 – Qu?n 10 - TP.HCM', '0986875637');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0002',N'B?nh vi?n Tân S?n Nh?t',N'2B Ph? Quang - P2 - Qu?n Tân Bình - TP.HCM', '0902318877');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0003',N'B?nh vi?n ?a khoa Tân H?ng ',N'871 Tr?n Xuân So?n - P. Tân H?ng - Qu?n 7 - TP.HCM', '0913777399');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0004',N'B?nh vi?n Th?ng Nh?t',N'01 Lý Th??ng Ki?t – Ph??ng 7 - Qu?n Tân Bình - TP.HCM', '0966821010');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0005',N'B?nh vi?n 175',N'786 Nguy?n Ki?m- P. 3- Qu?n Gò v?p - TP.HCM', '0984795351');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0006',N'B?nh vi?n Nguy?n Tri Ph??ng',N'468 Nguy?n Trãi – Ph??ng 8 – Qu?n 5 - TP.HCM', '0931427504');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0007',N'B?nh vi?n Nhân dân Gia ??nh',N'01 N? Trang Long – Ph??ng 7 – Qu?n Bình Th?nh - TP.HCM', '0902418869');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0008',N'B?nh vi?n nhân dân 115',N'527 S? V?n H?nh – Ph??ng 12 – Qu?n 10 - TP.HCM', '0907527643');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0009',N'B?nh vi?n ?a khoa Sài Gòn',N'125 Lê L?i – Ph??ng B?n Thành – Qu?n 1 - TP.HCM', '0902963115');
+INSERT INTO CSYT(MACSYT, TENCSYT, DCCSYT, SDTCSYT) VALUES ('CS0010',N'B?nh vi?n Quân Dân Mi?n ?ông ',N'50 Lê V?n Vi?t – Ph??ng Hi?p Phú - Qu?n 9 - TP.HCM', '0908376664');
+
+INSERT INTO NHANVIEN (MANV, HOTEN, PHAI, SODT, NGAYSINH, QUEQUAN, CMND, CSYT, VAITRO, CHUYENKHOA)
+VALUES('NV0001',N'Nguy?n Vi?t Duy', N'Nam', '0901525162', '1925-09-05', N'398 Nguy?n Th? L?u, Q.10, TP.HCM ', '721139552897', 'CS0002', N'Thanh tra', N'Ung th?');
+
+
+SELECT * FROM CSYT
+
+
+
+>>>>>>> Stashed changes
 
 -- Táº¡o ROLE BENHNHAN
 CREATE ROLE ROLE_BENHNHAN NOT IDENTIFIED;

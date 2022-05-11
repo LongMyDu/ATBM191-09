@@ -14,18 +14,46 @@ namespace ATBM191_09_UI
 {
     public partial class Control_HSBA : Form
     {
+        public bool Them = false;
         public Control_HSBA(string MaCSYT)
         {
             InitializeComponent();
             MaCSYT_comboBox.Text = MaCSYT;
+            Xoa_button.Visible = false;
+
+            HSBA_Button.Text = "Thêm";
+            Them = true;
         }
+
+        public Control_HSBA(DataSet HSBA)
+        {
+            InitializeComponent();
+
+            Ngay_dateTimePicker.Format = DateTimePickerFormat.Custom;
+            Ngay_dateTimePicker.CustomFormat = "dd/MM/yyyy";
+
+            MaHSBA_textBox.Text = HSBA.Tables[0].Rows[0]["MAHSBA"].ToString();
+            MaBN_comboBox.Text = HSBA.Tables[0].Rows[0]["MABN"].ToString();
+            Ngay_dateTimePicker.Text = HSBA.Tables[0].Rows[0]["NGAY"].ToString();
+            ChuanDoan_textBox.Text = HSBA.Tables[0].Rows[0]["CHANDOAN"].ToString();
+            MaBS_comboBox.Text = HSBA.Tables[0].Rows[0]["MABS"].ToString();
+            MaKhoa_comboBox.Text = HSBA.Tables[0].Rows[0]["MAKHOA"].ToString();
+            MaCSYT_comboBox.Text = HSBA.Tables[0].Rows[0]["MACSYT"].ToString();
+            KetLuan_textBox.Text = HSBA.Tables[0].Rows[0]["KETLUAN"].ToString();
+
+            Them = false;
+            Xoa_button.Visible = true;
+            HSBA_Button.Text = "Cập nhật";
+
+        }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void HSBA_Button_Click(object sender, EventArgs e)
         {
             string MaHSBA, MaBN, Ngay, ChuanDoan, MaBS, MaKhoa, MaCSYT, KetLuan;
 
@@ -38,7 +66,18 @@ namespace ATBM191_09_UI
             MaCSYT = MaCSYT_comboBox.Text;
             KetLuan = KetLuan_textBox.Text;
 
-            OracleCommand cmd = new OracleCommand("INSERT INTO QLCSYTE_ADMIN.VW_HSBA_QLCSYT(MAHSBA,MABN,NGAY,CHANDOAN,MABS,MAKHOA,MACSYT,KETLUAN) VALUES (:MaHSBA ,:MaBN ,TO_DATE(:Ngay,'dd/MM/yyyy') ,:ChuanDoan ,:MaBS , :MaKhoa, :MaCSYT, :KetLuan)");
+            OracleCommand cmd;
+
+            if (Them == true)
+            {
+                cmd = new OracleCommand("INSERT INTO QLCSYTE_ADMIN.VW_HSBA_QLCSYT(MAHSBA,MABN,NGAY,CHANDOAN,MABS,MAKHOA,MACSYT,KETLUAN) VALUES (:MaHSBA ,:MaBN ,TO_DATE(:Ngay,'dd/MM/yyyy') ,:ChuanDoan ,:MaBS , :MaKhoa, :MaCSYT, :KetLuan)");
+
+            }
+            else
+            {
+                cmd = new OracleCommand("UPDATE QLCSYTE_ADMIN.VW_HSBA_QLCSYT SET MABN = :MaBN ,NGAY = TO_DATE(:Ngay,'dd/MM/yyyy'), CHANDOAN = :ChuanDoan ,MABS = :MaBS ,MAKHOA = :MaKhoa ,MACSYT = :MaCSYT, KETLUAN = :KetLuan WHERE MAHSBA = :MaHSBA");
+
+            }
             cmd.Parameters.Add(new OracleParameter("MaHSBA", MaHSBA));
             cmd.Parameters.Add(new OracleParameter("MaBN", MaBN));
             cmd.Parameters.Add(new OracleParameter("Ngay", Ngay));
@@ -48,21 +87,61 @@ namespace ATBM191_09_UI
             cmd.Parameters.Add(new OracleParameter("KetLuan", KetLuan));
             cmd.Parameters.Add(new OracleParameter("ChuanDoan", ChuanDoan));
             
-            int insert = DataProvider.instance.ExecuteNonQuery(cmd);
-            if (insert > 0)
+            
+            int hsba = DataProvider.instance.ExecuteNonQuery(cmd);
+            if (hsba > 0)
             {
-                MessageBox.Show("Thêm HSBA thành công!");
+                if (Them == true)
+                {
+                    MessageBox.Show("Thêm HSBA thành công!");
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật HSBA thành công!");
+                    Xoa_button.Visible = false;
+                }    
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Thêm HSBA thất bại.");
+                if (Them == true)
+                {
+                    MessageBox.Show("Thêm HSBA thất bại.");
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật HSBA thất bại.");
+                }
             }
         }
 
         private void MaBN_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Xoa_button_Click(object sender, EventArgs e)
+        {
+            string MaHSBA;
+
+            MaHSBA = MaHSBA_textBox.Text;
+
+            OracleCommand cmd = new OracleCommand("DELETE FROM QLCSYTE_ADMIN.VW_HSBA_QLCSYT WHERE MAHSBA = :MaHSBA");
+            cmd.Parameters.Add(new OracleParameter("MaHSBA", MaHSBA));
+
+            int hsba = DataProvider.instance.ExecuteNonQuery(cmd);
+            if (hsba > 0)
+            {
+               MessageBox.Show("Xóa HSBA thành công!");
+               Xoa_button.Visible = false;
+               this.Close();
+            }
+            else
+            {
+                
+                MessageBox.Show("Xóa HSBA thất bại.");
+                
+            }
         }
     }
 }

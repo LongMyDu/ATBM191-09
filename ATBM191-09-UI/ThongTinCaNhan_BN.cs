@@ -78,5 +78,10 @@ namespace ATBM191_09_UI
                 MessageBox.Show("Chỉnh sửa thất bại.");
             }
         }
+
+        private void MaBN_TextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

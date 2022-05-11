@@ -42,12 +42,13 @@ namespace ATBM191_09_UI
             this.label1 = new System.Windows.Forms.Label();
             this.header_panel = new System.Windows.Forms.Panel();
             this.header_label = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.HSBA_Button = new System.Windows.Forms.Button();
             this.Ngay_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.MaBN_comboBox = new System.Windows.Forms.ComboBox();
             this.MaKhoa_comboBox = new System.Windows.Forms.ComboBox();
             this.MaBS_comboBox = new System.Windows.Forms.ComboBox();
             this.MaCSYT_comboBox = new System.Windows.Forms.ComboBox();
+            this.Xoa_button = new System.Windows.Forms.Button();
             this.header_panel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,7 +158,7 @@ namespace ATBM191_09_UI
             this.header_panel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_panel.Location = new System.Drawing.Point(-1, -2);
             this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(843, 99);
+            this.header_panel.Size = new System.Drawing.Size(855, 99);
             this.header_panel.TabIndex = 51;
             // 
             // header_label
@@ -173,19 +174,18 @@ namespace ATBM191_09_UI
             this.header_label.Text = "HỒ SƠ BỆNH ÁN";
             this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // HSBA_Button
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Azure;
-            this.button1.Location = new System.Drawing.Point(347, 381);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 42);
-            this.button1.TabIndex = 74;
-            this.button1.Text = "Cập nhật";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.HSBA_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.HSBA_Button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.HSBA_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSBA_Button.ForeColor = System.Drawing.Color.Azure;
+            this.HSBA_Button.Location = new System.Drawing.Point(361, 368);
+            this.HSBA_Button.Name = "HSBA_Button";
+            this.HSBA_Button.Size = new System.Drawing.Size(137, 42);
+            this.HSBA_Button.TabIndex = 74;
+            this.HSBA_Button.UseVisualStyleBackColor = false;
+            this.HSBA_Button.Click += new System.EventHandler(this.HSBA_Button_Click);
             // 
             // Ngay_dateTimePicker
             // 
@@ -278,17 +278,32 @@ namespace ATBM191_09_UI
             this.MaCSYT_comboBox.Size = new System.Drawing.Size(234, 28);
             this.MaCSYT_comboBox.TabIndex = 79;
             // 
+            // Xoa_button
+            // 
+            this.Xoa_button.BackColor = System.Drawing.SystemColors.Info;
+            this.Xoa_button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Xoa_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Xoa_button.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.Xoa_button.Location = new System.Drawing.Point(361, 422);
+            this.Xoa_button.Name = "Xoa_button";
+            this.Xoa_button.Size = new System.Drawing.Size(137, 42);
+            this.Xoa_button.TabIndex = 80;
+            this.Xoa_button.Text = "Xóa";
+            this.Xoa_button.UseVisualStyleBackColor = false;
+            this.Xoa_button.Click += new System.EventHandler(this.Xoa_button_Click);
+            // 
             // Control_HSBA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 435);
+            this.ClientSize = new System.Drawing.Size(852, 476);
+            this.Controls.Add(this.Xoa_button);
             this.Controls.Add(this.MaCSYT_comboBox);
             this.Controls.Add(this.MaBS_comboBox);
             this.Controls.Add(this.MaKhoa_comboBox);
             this.Controls.Add(this.MaBN_comboBox);
             this.Controls.Add(this.Ngay_dateTimePicker);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.HSBA_Button);
             this.Controls.Add(this.KetLuan_textBox);
             this.Controls.Add(this.ChuanDoan_textBox);
             this.Controls.Add(this.MaHSBA_textBox);
@@ -324,11 +339,12 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel header_panel;
         private System.Windows.Forms.Label header_label;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button HSBA_Button;
         private System.Windows.Forms.DateTimePicker Ngay_dateTimePicker;
         private System.Windows.Forms.ComboBox MaBN_comboBox;
         private System.Windows.Forms.ComboBox MaKhoa_comboBox;
         private System.Windows.Forms.ComboBox MaBS_comboBox;
         private System.Windows.Forms.ComboBox MaCSYT_comboBox;
+        private System.Windows.Forms.Button Xoa_button;
     }
 }

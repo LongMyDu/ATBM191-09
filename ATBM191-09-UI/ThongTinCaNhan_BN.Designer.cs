@@ -138,6 +138,7 @@ namespace ATBM191_09_UI
             this.MaBN_TextBox.Name = "MaBN_TextBox";
             this.MaBN_TextBox.Size = new System.Drawing.Size(217, 26);
             this.MaBN_TextBox.TabIndex = 40;
+            this.MaBN_TextBox.TextChanged += new System.EventHandler(this.MaBN_TextBox_TextChanged);
             // 
             // button1
             // 

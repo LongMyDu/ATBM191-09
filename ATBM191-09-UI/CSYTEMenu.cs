@@ -23,9 +23,20 @@ namespace ATBM191_09_UI
 
             DataSet TTCN = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_THONGTINCANHAN_NHANVIEN");
             MaCSYT = TTCN.Tables[0].Rows[0]["CSYT"].ToString();
+
+            main_datagridview.CellClick += Xoa_Sua_HSBA;
         }
 
-        private void HSBA_Button_Click(object sender, EventArgs e)
+        public void Xoa_Sua_HSBA(Object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_HSBA_QLCSYT");
+                Control_HSBA hsba = new Control_HSBA(dataSet);
+                hsba.Show();
+            }
+        }
+            private void HSBA_Button_Click(object sender, EventArgs e)
         {
             Them_Button.Visible = true;
             HSBA = true;

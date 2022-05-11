@@ -54,19 +54,22 @@ namespace ATBM191_09_UI
             // 
             // KetLuan_textBox
             // 
-            this.KetLuan_textBox.AllowDrop = true;
+            this.KetLuan_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.KetLuan_textBox.Location = new System.Drawing.Point(534, 317);
+            this.KetLuan_textBox.Multiline = true;
             this.KetLuan_textBox.Name = "KetLuan_textBox";
             this.KetLuan_textBox.Size = new System.Drawing.Size(234, 26);
             this.KetLuan_textBox.TabIndex = 71;
             // 
             // ChuanDoan_textBox
             // 
-            this.ChuanDoan_textBox.AllowDrop = true;
+            this.ChuanDoan_textBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ChuanDoan_textBox.Location = new System.Drawing.Point(166, 317);
+            this.ChuanDoan_textBox.Multiline = true;
             this.ChuanDoan_textBox.Name = "ChuanDoan_textBox";
             this.ChuanDoan_textBox.Size = new System.Drawing.Size(227, 26);
             this.ChuanDoan_textBox.TabIndex = 65;
+            this.ChuanDoan_textBox.TextChanged += new System.EventHandler(this.ChuanDoan_textBox_TextChanged);
             // 
             // MaHSBA_textBox
             // 
@@ -160,6 +163,7 @@ namespace ATBM191_09_UI
             this.header_panel.Name = "header_panel";
             this.header_panel.Size = new System.Drawing.Size(855, 99);
             this.header_panel.TabIndex = 51;
+            this.header_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.header_panel_Paint);
             // 
             // header_label
             // 
@@ -191,7 +195,7 @@ namespace ATBM191_09_UI
             // 
             this.Ngay_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Ngay_dateTimePicker.Location = new System.Drawing.Point(534, 128);
-            this.Ngay_dateTimePicker.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
+            this.Ngay_dateTimePicker.MaxDate = new System.DateTime(2022, 9, 1, 0, 0, 0, 0);
             this.Ngay_dateTimePicker.Name = "Ngay_dateTimePicker";
             this.Ngay_dateTimePicker.Size = new System.Drawing.Size(234, 26);
             this.Ngay_dateTimePicker.TabIndex = 75;
@@ -283,7 +287,7 @@ namespace ATBM191_09_UI
             this.Xoa_button.BackColor = System.Drawing.SystemColors.Info;
             this.Xoa_button.Cursor = System.Windows.Forms.Cursors.Default;
             this.Xoa_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Xoa_button.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.Xoa_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
             this.Xoa_button.Location = new System.Drawing.Point(361, 422);
             this.Xoa_button.Name = "Xoa_button";
             this.Xoa_button.Size = new System.Drawing.Size(137, 42);

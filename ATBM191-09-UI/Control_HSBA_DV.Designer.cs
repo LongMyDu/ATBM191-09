@@ -29,12 +29,10 @@ namespace ATBM191_09_UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Ngay_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.HSBA_DV_Button = new System.Windows.Forms.Button();
+            this.Ketqua_textBox = new System.Windows.Forms.TextBox();
+            this.MaHSBA_textBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,60 +40,50 @@ namespace ATBM191_09_UI
             this.label1 = new System.Windows.Forms.Label();
             this.header_panel = new System.Windows.Forms.Panel();
             this.header_label = new System.Windows.Forms.Label();
+            this.Xoa_button = new System.Windows.Forms.Button();
+            this.MaDV_comboBox = new System.Windows.Forms.ComboBox();
+            this.MaKTV_comboBox = new System.Windows.Forms.ComboBox();
             this.header_panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // Ngay_dateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(224, 315);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(227, 26);
-            this.dateTimePicker1.TabIndex = 93;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.Ngay_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Ngay_dateTimePicker.Location = new System.Drawing.Point(224, 315);
+            this.Ngay_dateTimePicker.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
+            this.Ngay_dateTimePicker.Name = "Ngay_dateTimePicker";
+            this.Ngay_dateTimePicker.Size = new System.Drawing.Size(227, 26);
+            this.Ngay_dateTimePicker.TabIndex = 93;
+            this.Ngay_dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // button1
+            // HSBA_DV_Button
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Azure;
-            this.button1.Location = new System.Drawing.Point(206, 455);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(137, 42);
-            this.button1.TabIndex = 92;
-            this.button1.Text = "Cập nhật";
-            this.button1.UseVisualStyleBackColor = false;
+            this.HSBA_DV_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.HSBA_DV_Button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.HSBA_DV_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HSBA_DV_Button.ForeColor = System.Drawing.Color.Azure;
+            this.HSBA_DV_Button.Location = new System.Drawing.Point(206, 436);
+            this.HSBA_DV_Button.Name = "HSBA_DV_Button";
+            this.HSBA_DV_Button.Size = new System.Drawing.Size(137, 42);
+            this.HSBA_DV_Button.TabIndex = 92;
+            this.HSBA_DV_Button.UseVisualStyleBackColor = false;
+            this.HSBA_DV_Button.Click += new System.EventHandler(this.HSBA_DV_Button_Click);
             // 
-            // textBox6
+            // Ketqua_textBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(224, 258);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(227, 26);
-            this.textBox6.TabIndex = 88;
+            this.Ketqua_textBox.AllowDrop = true;
+            this.Ketqua_textBox.Location = new System.Drawing.Point(224, 376);
+            this.Ketqua_textBox.Name = "Ketqua_textBox";
+            this.Ketqua_textBox.Size = new System.Drawing.Size(227, 26);
+            this.Ketqua_textBox.TabIndex = 87;
             // 
-            // textBox3
+            // MaHSBA_textBox
             // 
-            this.textBox3.AllowDrop = true;
-            this.textBox3.Location = new System.Drawing.Point(224, 376);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 26);
-            this.textBox3.TabIndex = 87;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(224, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 26);
-            this.textBox2.TabIndex = 86;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(224, 140);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 26);
-            this.textBox1.TabIndex = 85;
+            this.MaHSBA_textBox.Location = new System.Drawing.Point(224, 140);
+            this.MaHSBA_textBox.Name = "MaHSBA_textBox";
+            this.MaHSBA_textBox.Size = new System.Drawing.Size(227, 26);
+            this.MaHSBA_textBox.TabIndex = 85;
+            this.MaHSBA_textBox.TextChanged += new System.EventHandler(this.MaHSBA_textBox_TextChanged);
             // 
             // label6
             // 
@@ -170,17 +158,107 @@ namespace ATBM191_09_UI
             this.header_label.Text = "HỒ SƠ BỆNH ÁN _ DỊCH VỤ";
             this.header_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Xoa_button
+            // 
+            this.Xoa_button.BackColor = System.Drawing.SystemColors.Info;
+            this.Xoa_button.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Xoa_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Xoa_button.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
+            this.Xoa_button.Location = new System.Drawing.Point(206, 493);
+            this.Xoa_button.Name = "Xoa_button";
+            this.Xoa_button.Size = new System.Drawing.Size(137, 42);
+            this.Xoa_button.TabIndex = 94;
+            this.Xoa_button.Text = "Xóa";
+            this.Xoa_button.UseVisualStyleBackColor = false;
+            this.Xoa_button.Click += new System.EventHandler(this.Xoa_button_Click);
+            // 
+            // MaDV_comboBox
+            // 
+            this.MaDV_comboBox.FormattingEnabled = true;
+            this.MaDV_comboBox.Items.AddRange(new object[] {
+            "DV0001",
+            "DV0002",
+            "DV0003",
+            "DV0004",
+            "DV0005"});
+            this.MaDV_comboBox.Location = new System.Drawing.Point(224, 199);
+            this.MaDV_comboBox.Name = "MaDV_comboBox";
+            this.MaDV_comboBox.Size = new System.Drawing.Size(227, 28);
+            this.MaDV_comboBox.TabIndex = 95;
+            // 
+            // MaKTV_comboBox
+            // 
+            this.MaKTV_comboBox.FormattingEnabled = true;
+            this.MaKTV_comboBox.Items.AddRange(new object[] {
+            "NV0004",
+            "NV0005",
+            "NV0006",
+            "NV0007",
+            "NV0008",
+            "NV0009",
+            "NV0010",
+            "NV0011",
+            "NV0012",
+            "NV0013",
+            "NV0014",
+            "NV0015",
+            "NV0016",
+            "NV0017",
+            "NV0018",
+            "NV0019",
+            "NV0020",
+            "NV0021",
+            "NV0022",
+            "NV0023",
+            "NV0024",
+            "NV0025",
+            "NV0026",
+            "NV0027",
+            "NV0028",
+            "NV0029",
+            "NV0030",
+            "NV0031",
+            "NV0032",
+            "NV0033",
+            "NV0034",
+            "NV0035",
+            "NV0036",
+            "NV0037",
+            "NV0038",
+            "NV0039",
+            "NV0040",
+            "NV0041",
+            "NV0042",
+            "NV0043",
+            "NV0044",
+            "NV0045",
+            "NV0046",
+            "NV0047",
+            "NV0048",
+            "NV0049",
+            "NV0050",
+            "NV0051",
+            "NV0052",
+            "NV0053",
+            "NV0054",
+            "NV0055"});
+            this.MaKTV_comboBox.Location = new System.Drawing.Point(224, 258);
+            this.MaKTV_comboBox.Name = "MaKTV_comboBox";
+            this.MaKTV_comboBox.Size = new System.Drawing.Size(227, 28);
+            this.MaKTV_comboBox.TabIndex = 96;
+            // 
             // Control_HSBA_DV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 547);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MaKTV_comboBox);
+            this.Controls.Add(this.MaDV_comboBox);
+            this.Controls.Add(this.Xoa_button);
+            this.Controls.Add(this.Ngay_dateTimePicker);
+            this.Controls.Add(this.HSBA_DV_Button);
+            this.Controls.Add(this.Ketqua_textBox);
+            this.Controls.Add(this.MaHSBA_textBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -199,12 +277,10 @@ namespace ATBM191_09_UI
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker Ngay_dateTimePicker;
+        private System.Windows.Forms.Button HSBA_DV_Button;
+        private System.Windows.Forms.TextBox Ketqua_textBox;
+        private System.Windows.Forms.TextBox MaHSBA_textBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -212,5 +288,8 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel header_panel;
         private System.Windows.Forms.Label header_label;
+        private System.Windows.Forms.Button Xoa_button;
+        private System.Windows.Forms.ComboBox MaDV_comboBox;
+        private System.Windows.Forms.ComboBox MaKTV_comboBox;
     }
 }

@@ -59,7 +59,7 @@
             this.main_panel.Location = new System.Drawing.Point(0, 0);
             this.main_panel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(1200, 578);
+            this.main_panel.Size = new System.Drawing.Size(1170, 578);
             this.main_panel.TabIndex = 3;
             // 
             // panel1
@@ -185,14 +185,14 @@
             this.header_panel.Location = new System.Drawing.Point(298, 0);
             this.header_panel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.header_panel.Name = "header_panel";
-            this.header_panel.Size = new System.Drawing.Size(903, 123);
+            this.header_panel.Size = new System.Drawing.Size(873, 123);
             this.header_panel.TabIndex = 2;
             // 
             // new_button
             // 
             this.new_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.new_button.AutoEllipsis = true;
-            this.new_button.Location = new System.Drawing.Point(784, 77);
+            this.new_button.Location = new System.Drawing.Point(754, 77);
             this.new_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.new_button.Name = "new_button";
             this.new_button.Size = new System.Drawing.Size(112, 35);
@@ -206,7 +206,7 @@
             this.header_label.AutoSize = true;
             this.header_label.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.header_label.ForeColor = System.Drawing.Color.White;
-            this.header_label.Location = new System.Drawing.Point(390, 37);
+            this.header_label.Location = new System.Drawing.Point(378, 37);
             this.header_label.Margin = new System.Windows.Forms.Padding(105, 0, 4, 0);
             this.header_label.Name = "header_label";
             this.header_label.Size = new System.Drawing.Size(117, 45);
@@ -229,14 +229,14 @@
             this.main_datagridview.Name = "main_datagridview";
             this.main_datagridview.ReadOnly = true;
             this.main_datagridview.RowHeadersWidth = 51;
-            this.main_datagridview.Size = new System.Drawing.Size(906, 455);
+            this.main_datagridview.Size = new System.Drawing.Size(876, 455);
             this.main_datagridview.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 578);
+            this.ClientSize = new System.Drawing.Size(1170, 578);
             this.Controls.Add(this.main_panel);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "MainForm";

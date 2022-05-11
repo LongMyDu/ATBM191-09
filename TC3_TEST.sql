@@ -9,7 +9,7 @@ DELETE FROM QLCSYTE_ADMIN.vw_hsba_qlcsyt WHERE mahsba = 'HSBA0002';
 
 --Insert
 INSERT INTO  QLCSYTE_ADMIN.vw_hsba_qlcsyt
-VALUES ('HSBA0011', 'BN000010', TO_DATE('2020-05-23', 'yyyy-mm-dd'), 'Viêm xoang', 'NV0030', 'K00001', 'CS0002', 'Viêm xoang');
+VALUES ('HSBA0013', 'BN000010', TO_DATE('2020-05-23', 'yyyy-mm-dd'), 'Viêm xoang', 'NV0030', 'K00001', 'CS0002', 'Viêm xoang');
 
 ------------------------------------------------------
 -- Test QLCSYTE_ADMIN.vw_hsba_dv_qlcsyt

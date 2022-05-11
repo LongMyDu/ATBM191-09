@@ -14,7 +14,7 @@ namespace ATBM191_09_UI
 {
     public partial class CSYTEMenu : Form
     {
-        public bool HSBA = false;
+        public bool HSBA = true;
         public string MaCSYT;
         public CSYTEMenu()
         {
@@ -31,9 +31,19 @@ namespace ATBM191_09_UI
         {
             if (e.RowIndex >= 0)
             {
-                DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_HSBA_QLCSYT");
-                Control_HSBA hsba = new Control_HSBA(dataSet);
-                hsba.Show();
+                if (HSBA == true)
+                {
+                    DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_HSBA_QLCSYT");
+                    Control_HSBA hsba = new Control_HSBA(dataSet);
+                    hsba.Show();
+                }
+                else
+                {
+                    DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_HSBA_DV_QLCSYT");
+                    Control_HSBA_DV dv = new Control_HSBA_DV(dataSet);
+                    dv.Show();
+                }
+                HSBA = true;
             }
         }
             private void HSBA_Button_Click(object sender, EventArgs e)
@@ -62,7 +72,7 @@ namespace ATBM191_09_UI
             }    
             else
             {
-                Control_HSBA_DV dv = new Control_HSBA_DV();
+                Control_HSBA_DV dv = new Control_HSBA_DV(MaCSYT);
                 dv.Show();
             }
 
@@ -71,6 +81,8 @@ namespace ATBM191_09_UI
 
         private void HSBADV_Button_Click(object sender, EventArgs e)
         {
+            HSBA = false;
+
             Them_Button.Visible = true;
 
             main_datagridview.Columns.Clear();

@@ -57,6 +57,20 @@ namespace ATBM191_09_UI
         {
             string MaHSBA, MaBN, Ngay, ChuanDoan, MaBS, MaKhoa, MaCSYT, KetLuan;
 
+            OracleCommand cmd;
+
+            if (Them == true)
+            {
+                MaHSBA_textBox.Enabled = true;
+                cmd = new OracleCommand("INSERT INTO QLCSYTE_ADMIN.VW_HSBA_QLCSYT (MAHSBA,MABN,NGAY,CHANDOAN,MABS,MAKHOA,MACSYT,KETLUAN) " +
+                    "                   VALUES (:MaHSBA ,:MaBN ,TO_DATE(:Ngay,'dd/MM/yyyy') ,:ChuanDoan, :MaBS , :MaKhoa, :MaCSYT, :KetLuan)");
+            }
+            else
+            {
+                MaHSBA_textBox.Enabled = false;
+                cmd = new OracleCommand("UPDATE QLCSYTE_ADMIN.VW_HSBA_QLCSYT SET MABN = :MaBN ,NGAY = TO_DATE(:Ngay,'dd/MM/yyyy'), CHANDOAN = :ChuanDoan ,MABS = :MaBS ,MAKHOA = :MaKhoa ,MACSYT = :MaCSYT, KETLUAN = :KetLuan WHERE MAHSBA = :MaHSBA");
+
+            }
             MaHSBA = MaHSBA_textBox.Text;
             MaBN = MaBN_comboBox.Text;
             Ngay = Ngay_dateTimePicker.Text;
@@ -66,18 +80,6 @@ namespace ATBM191_09_UI
             MaCSYT = MaCSYT_comboBox.Text;
             KetLuan = KetLuan_textBox.Text;
 
-            OracleCommand cmd;
-
-            if (Them == true)
-            {
-                cmd = new OracleCommand("INSERT INTO QLCSYTE_ADMIN.VW_HSBA_QLCSYT(MAHSBA,MABN,NGAY,CHANDOAN,MABS,MAKHOA,MACSYT,KETLUAN) VALUES (:MaHSBA ,:MaBN ,TO_DATE(:Ngay,'dd/MM/yyyy') ,:ChuanDoan ,:MaBS , :MaKhoa, :MaCSYT, :KetLuan)");
-
-            }
-            else
-            {
-                cmd = new OracleCommand("UPDATE QLCSYTE_ADMIN.VW_HSBA_QLCSYT SET MABN = :MaBN ,NGAY = TO_DATE(:Ngay,'dd/MM/yyyy'), CHANDOAN = :ChuanDoan ,MABS = :MaBS ,MAKHOA = :MaKhoa ,MACSYT = :MaCSYT, KETLUAN = :KetLuan WHERE MAHSBA = :MaHSBA");
-
-            }
             cmd.Parameters.Add(new OracleParameter("MaHSBA", MaHSBA));
             cmd.Parameters.Add(new OracleParameter("MaBN", MaBN));
             cmd.Parameters.Add(new OracleParameter("Ngay", Ngay));
@@ -86,8 +88,9 @@ namespace ATBM191_09_UI
             cmd.Parameters.Add(new OracleParameter("MaCSYT", MaCSYT));
             cmd.Parameters.Add(new OracleParameter("KetLuan", KetLuan));
             cmd.Parameters.Add(new OracleParameter("ChuanDoan", ChuanDoan));
-            
-            
+
+            MessageBox.Show(cmd.ToString());
+
             int hsba = DataProvider.instance.ExecuteNonQuery(cmd);
             if (hsba > 0)
             {
@@ -142,6 +145,16 @@ namespace ATBM191_09_UI
                 MessageBox.Show("Xóa HSBA thất bại.");
                 
             }
+        }
+
+        private void ChuanDoan_textBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void header_panel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

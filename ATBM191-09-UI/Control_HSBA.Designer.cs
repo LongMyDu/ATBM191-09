@@ -29,13 +29,9 @@ namespace ATBM191_09_UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.KetLuan_textBox = new System.Windows.Forms.TextBox();
+            this.ChuanDoan_textBox = new System.Windows.Forms.TextBox();
+            this.MaHSBA_textBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,60 +43,37 @@ namespace ATBM191_09_UI
             this.header_panel = new System.Windows.Forms.Panel();
             this.header_label = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Ngay_dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.MaBN_comboBox = new System.Windows.Forms.ComboBox();
+            this.MaKhoa_comboBox = new System.Windows.Forms.ComboBox();
+            this.MaBS_comboBox = new System.Windows.Forms.ComboBox();
+            this.MaCSYT_comboBox = new System.Windows.Forms.ComboBox();
             this.header_panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox7
+            // KetLuan_textBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(534, 253);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(234, 26);
-            this.textBox7.TabIndex = 73;
+            this.KetLuan_textBox.AllowDrop = true;
+            this.KetLuan_textBox.Location = new System.Drawing.Point(534, 317);
+            this.KetLuan_textBox.Name = "KetLuan_textBox";
+            this.KetLuan_textBox.Size = new System.Drawing.Size(234, 26);
+            this.KetLuan_textBox.TabIndex = 71;
             // 
-            // textBox9
+            // ChuanDoan_textBox
             // 
-            this.textBox9.AllowDrop = true;
-            this.textBox9.Location = new System.Drawing.Point(534, 317);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(234, 26);
-            this.textBox9.TabIndex = 71;
+            this.ChuanDoan_textBox.AllowDrop = true;
+            this.ChuanDoan_textBox.Location = new System.Drawing.Point(166, 317);
+            this.ChuanDoan_textBox.Name = "ChuanDoan_textBox";
+            this.ChuanDoan_textBox.Size = new System.Drawing.Size(227, 26);
+            this.ChuanDoan_textBox.TabIndex = 65;
             // 
-            // textBox10
+            // MaHSBA_textBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(534, 189);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(234, 26);
-            this.textBox10.TabIndex = 70;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(166, 253);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(227, 26);
-            this.textBox6.TabIndex = 68;
-            // 
-            // textBox3
-            // 
-            this.textBox3.AllowDrop = true;
-            this.textBox3.Location = new System.Drawing.Point(166, 317);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 26);
-            this.textBox3.TabIndex = 65;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(166, 189);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 26);
-            this.textBox2.TabIndex = 64;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(166, 125);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 26);
-            this.textBox1.TabIndex = 63;
+            this.MaHSBA_textBox.Location = new System.Drawing.Point(166, 125);
+            this.MaHSBA_textBox.Name = "MaHSBA_textBox";
+            this.MaHSBA_textBox.Size = new System.Drawing.Size(227, 26);
+            this.MaHSBA_textBox.TabIndex = 63;
+            this.MaHSBA_textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label11
             // 
@@ -212,30 +185,113 @@ namespace ATBM191_09_UI
             this.button1.TabIndex = 74;
             this.button1.Text = "Cập nhật";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // Ngay_dateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(534, 128);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(234, 26);
-            this.dateTimePicker1.TabIndex = 75;
+            this.Ngay_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Ngay_dateTimePicker.Location = new System.Drawing.Point(534, 128);
+            this.Ngay_dateTimePicker.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
+            this.Ngay_dateTimePicker.Name = "Ngay_dateTimePicker";
+            this.Ngay_dateTimePicker.Size = new System.Drawing.Size(234, 26);
+            this.Ngay_dateTimePicker.TabIndex = 75;
+            // 
+            // MaBN_comboBox
+            // 
+            this.MaBN_comboBox.FormattingEnabled = true;
+            this.MaBN_comboBox.Items.AddRange(new object[] {
+            "BN000001",
+            "BN000002",
+            "BN000003",
+            "BN000004",
+            "BN000005",
+            "BN000006",
+            "BN000007",
+            "BN000008",
+            "BN000009",
+            "BN000010"});
+            this.MaBN_comboBox.Location = new System.Drawing.Point(166, 187);
+            this.MaBN_comboBox.Name = "MaBN_comboBox";
+            this.MaBN_comboBox.Size = new System.Drawing.Size(227, 28);
+            this.MaBN_comboBox.TabIndex = 76;
+            this.MaBN_comboBox.SelectedIndexChanged += new System.EventHandler(this.MaBN_comboBox_SelectedIndexChanged);
+            // 
+            // MaKhoa_comboBox
+            // 
+            this.MaKhoa_comboBox.FormattingEnabled = true;
+            this.MaKhoa_comboBox.Items.AddRange(new object[] {
+            "K00001",
+            "K00002",
+            "K00003",
+            "K00004"});
+            this.MaKhoa_comboBox.Location = new System.Drawing.Point(166, 251);
+            this.MaKhoa_comboBox.Name = "MaKhoa_comboBox";
+            this.MaKhoa_comboBox.Size = new System.Drawing.Size(227, 28);
+            this.MaKhoa_comboBox.TabIndex = 77;
+            // 
+            // MaBS_comboBox
+            // 
+            this.MaBS_comboBox.FormattingEnabled = true;
+            this.MaBS_comboBox.Items.AddRange(new object[] {
+            "NV0026",
+            "NV0027",
+            "NV0028",
+            "NV0029",
+            "NV0030",
+            "NV0031",
+            "NV0032",
+            "NV0033",
+            "NV0034",
+            "NV0035",
+            "NV0036",
+            "NV0037",
+            "NV0038",
+            "NV0039",
+            "NV0040",
+            "NV0041",
+            "NV0042",
+            "NV0043",
+            "NV0044",
+            "NV0045"});
+            this.MaBS_comboBox.Location = new System.Drawing.Point(534, 189);
+            this.MaBS_comboBox.Name = "MaBS_comboBox";
+            this.MaBS_comboBox.Size = new System.Drawing.Size(234, 28);
+            this.MaBS_comboBox.TabIndex = 78;
+            // 
+            // MaCSYT_comboBox
+            // 
+            this.MaCSYT_comboBox.Enabled = false;
+            this.MaCSYT_comboBox.FormattingEnabled = true;
+            this.MaCSYT_comboBox.Items.AddRange(new object[] {
+            "CS0001",
+            "CS0002",
+            "CS0003",
+            "CS0004",
+            "CS0005",
+            "CS0006",
+            "CS0007",
+            "CS0008",
+            "CS0009",
+            "CS0010"});
+            this.MaCSYT_comboBox.Location = new System.Drawing.Point(536, 251);
+            this.MaCSYT_comboBox.Name = "MaCSYT_comboBox";
+            this.MaCSYT_comboBox.Size = new System.Drawing.Size(234, 28);
+            this.MaCSYT_comboBox.TabIndex = 79;
             // 
             // Control_HSBA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 435);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.MaCSYT_comboBox);
+            this.Controls.Add(this.MaBS_comboBox);
+            this.Controls.Add(this.MaKhoa_comboBox);
+            this.Controls.Add(this.MaBN_comboBox);
+            this.Controls.Add(this.Ngay_dateTimePicker);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.KetLuan_textBox);
+            this.Controls.Add(this.ChuanDoan_textBox);
+            this.Controls.Add(this.MaHSBA_textBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -255,14 +311,9 @@ namespace ATBM191_09_UI
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox KetLuan_textBox;
+        private System.Windows.Forms.TextBox ChuanDoan_textBox;
+        private System.Windows.Forms.TextBox MaHSBA_textBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -274,6 +325,10 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.Panel header_panel;
         private System.Windows.Forms.Label header_label;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker Ngay_dateTimePicker;
+        private System.Windows.Forms.ComboBox MaBN_comboBox;
+        private System.Windows.Forms.ComboBox MaKhoa_comboBox;
+        private System.Windows.Forms.ComboBox MaBS_comboBox;
+        private System.Windows.Forms.ComboBox MaCSYT_comboBox;
     }
 }

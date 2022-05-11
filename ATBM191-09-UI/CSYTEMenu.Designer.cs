@@ -75,6 +75,7 @@ namespace ATBM191_09_UI
             this.HSBADV_Button.TabIndex = 5;
             this.HSBADV_Button.Text = "Hồ sơ bệnh án - dịch vụ";
             this.HSBADV_Button.UseVisualStyleBackColor = true;
+            this.HSBADV_Button.Click += new System.EventHandler(this.HSBADV_Button_Click);
             // 
             // HSBA_Button
             // 

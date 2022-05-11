@@ -23,12 +23,8 @@ namespace ATBM191_09_UI
         private void PersonalInfo_Button_Click(object sender, EventArgs e)
         {
             Set_BN_Control(false);
-            // Reset data grid view
-            // main_datagridview.Columns.Clear();
-             DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_THONGTINCANHAN_NHANVIEN");
-             //main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
-            
-
+         
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_THONGTINCANHAN_NHANVIEN");
             ThongTinCaNhan_NV TTCN = new ThongTinCaNhan_NV(dataSet);
             TTCN.Show();
         }

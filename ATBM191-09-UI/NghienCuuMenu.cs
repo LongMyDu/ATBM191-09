@@ -33,5 +33,12 @@ namespace ATBM191_09_UI
             DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.HSBA_DV");
             main_datagridview.DataSource = dataSet.Tables[0].DefaultView;
         }
+
+        private void PersonalInfo_Button_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_THONGTINCANHAN_NHANVIEN");
+            ThongTinCaNhan_NV TTCN = new ThongTinCaNhan_NV(dataSet);
+            TTCN.Show();
+        }
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ATBM191_09_UI.DAO;
+using Oracle.DataAccess.Client;
 
 namespace ATBM191_09_UI
 {
@@ -17,10 +19,6 @@ namespace ATBM191_09_UI
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void label1_Click_1(object sender, EventArgs e)
         {
@@ -29,7 +27,9 @@ namespace ATBM191_09_UI
 
         private void PersonalInfo_Button_Click(object sender, EventArgs e)
         {
-
+            DataSet dataSet = DataProvider.Instance.ExecuteQuery("Select * from QLCSYTE_ADMIN.VW_THONGTINCANHAN_BENHNHAN");
+            ThongTinCaNhan_BN TTCN = new ThongTinCaNhan_BN(dataSet);
+            TTCN.Show();
         }
 
         private void header_label_Click(object sender, EventArgs e)

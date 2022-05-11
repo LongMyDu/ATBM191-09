@@ -111,5 +111,24 @@ namespace ATBM191_09_UI.DAO
                 return null;
             }
         }
+
+        public int ExecuteNonQuery(OracleCommand command)
+        {
+            int result = 0;
+            OracleConnection conn = new OracleConnection(ConString);
+            try
+            {
+                conn.Open();
+                command.Connection = conn;
+                result = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return result;
+        }
+
+
     }
 }

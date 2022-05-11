@@ -110,6 +110,7 @@ namespace ATBM191_09_UI
             this.PersonalInfo_Button.TabIndex = 1;
             this.PersonalInfo_Button.Text = "Thông tin cá nhân";
             this.PersonalInfo_Button.UseVisualStyleBackColor = true;
+            this.PersonalInfo_Button.Click += new System.EventHandler(this.PersonalInfo_Button_Click);
             // 
             // panel3
             // 

@@ -29,17 +29,17 @@ namespace ATBM191_09_UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TenDuong_TextBox = new System.Windows.Forms.TextBox();
+            this.TieuSuGD_TextBox = new System.Windows.Forms.TextBox();
+            this.TinhTP_TextBox = new System.Windows.Forms.TextBox();
+            this.CMND_TextBox = new System.Windows.Forms.TextBox();
+            this.MaCSYT_TextBox = new System.Windows.Forms.TextBox();
+            this.SoNha_TextBox = new System.Windows.Forms.TextBox();
+            this.ThuocDiUng_textBox = new System.Windows.Forms.TextBox();
+            this.TieuSuBenh_TextBox = new System.Windows.Forms.TextBox();
+            this.QuanHuyen_TextBox = new System.Windows.Forms.TextBox();
+            this.TenBN_TextBox = new System.Windows.Forms.TextBox();
+            this.MaBN_TextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,88 +55,89 @@ namespace ATBM191_09_UI
             this.header_panel = new System.Windows.Forms.Panel();
             this.header_label = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.NgaySinh_dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.header_panel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox7
+            // TenDuong_TextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(561, 275);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(217, 26);
-            this.textBox7.TabIndex = 50;
+            this.TenDuong_TextBox.Location = new System.Drawing.Point(561, 275);
+            this.TenDuong_TextBox.Name = "TenDuong_TextBox";
+            this.TenDuong_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.TenDuong_TextBox.TabIndex = 50;
             // 
-            // textBox8
+            // TieuSuGD_TextBox
             // 
-            this.textBox8.AllowDrop = true;
-            this.textBox8.Location = new System.Drawing.Point(561, 473);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(217, 26);
-            this.textBox8.TabIndex = 49;
+            this.TieuSuGD_TextBox.AllowDrop = true;
+            this.TieuSuGD_TextBox.Location = new System.Drawing.Point(561, 473);
+            this.TieuSuGD_TextBox.Name = "TieuSuGD_TextBox";
+            this.TieuSuGD_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.TieuSuGD_TextBox.TabIndex = 49;
             // 
-            // textBox9
+            // TinhTP_TextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(561, 341);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(217, 26);
-            this.textBox9.TabIndex = 48;
+            this.TinhTP_TextBox.Location = new System.Drawing.Point(561, 341);
+            this.TinhTP_TextBox.Name = "TinhTP_TextBox";
+            this.TinhTP_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.TinhTP_TextBox.TabIndex = 48;
             // 
-            // textBox10
+            // CMND_TextBox
             // 
-            this.textBox10.Location = new System.Drawing.Point(561, 209);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(217, 26);
-            this.textBox10.TabIndex = 47;
+            this.CMND_TextBox.Location = new System.Drawing.Point(561, 209);
+            this.CMND_TextBox.Name = "CMND_TextBox";
+            this.CMND_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.CMND_TextBox.TabIndex = 47;
             // 
-            // textBox11
+            // MaCSYT_TextBox
             // 
-            this.textBox11.Location = new System.Drawing.Point(561, 140);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(217, 26);
-            this.textBox11.TabIndex = 46;
+            this.MaCSYT_TextBox.Location = new System.Drawing.Point(561, 140);
+            this.MaCSYT_TextBox.Name = "MaCSYT_TextBox";
+            this.MaCSYT_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.MaCSYT_TextBox.TabIndex = 46;
             // 
-            // textBox6
+            // SoNha_TextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(184, 275);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(217, 26);
-            this.textBox6.TabIndex = 45;
+            this.SoNha_TextBox.Location = new System.Drawing.Point(184, 275);
+            this.SoNha_TextBox.Name = "SoNha_TextBox";
+            this.SoNha_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.SoNha_TextBox.TabIndex = 45;
             // 
-            // textBox5
+            // ThuocDiUng_textBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(561, 407);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(217, 26);
-            this.textBox5.TabIndex = 44;
+            this.ThuocDiUng_textBox.Location = new System.Drawing.Point(561, 407);
+            this.ThuocDiUng_textBox.Name = "ThuocDiUng_textBox";
+            this.ThuocDiUng_textBox.Size = new System.Drawing.Size(217, 26);
+            this.ThuocDiUng_textBox.TabIndex = 44;
             // 
-            // textBox4
+            // TieuSuBenh_TextBox
             // 
-            this.textBox4.AllowDrop = true;
-            this.textBox4.Location = new System.Drawing.Point(184, 473);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(217, 26);
-            this.textBox4.TabIndex = 43;
+            this.TieuSuBenh_TextBox.AllowDrop = true;
+            this.TieuSuBenh_TextBox.Location = new System.Drawing.Point(184, 473);
+            this.TieuSuBenh_TextBox.Name = "TieuSuBenh_TextBox";
+            this.TieuSuBenh_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.TieuSuBenh_TextBox.TabIndex = 43;
             // 
-            // textBox3
+            // QuanHuyen_TextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(184, 335);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(217, 26);
-            this.textBox3.TabIndex = 42;
+            this.QuanHuyen_TextBox.Location = new System.Drawing.Point(184, 335);
+            this.QuanHuyen_TextBox.Name = "QuanHuyen_TextBox";
+            this.QuanHuyen_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.QuanHuyen_TextBox.TabIndex = 42;
             // 
-            // textBox2
+            // TenBN_TextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(184, 207);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 26);
-            this.textBox2.TabIndex = 41;
+            this.TenBN_TextBox.Location = new System.Drawing.Point(184, 207);
+            this.TenBN_TextBox.Name = "TenBN_TextBox";
+            this.TenBN_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.TenBN_TextBox.TabIndex = 41;
             // 
-            // textBox1
+            // MaBN_TextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(184, 143);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 26);
-            this.textBox1.TabIndex = 40;
+            this.MaBN_TextBox.Enabled = false;
+            this.MaBN_TextBox.Location = new System.Drawing.Point(184, 143);
+            this.MaBN_TextBox.Name = "MaBN_TextBox";
+            this.MaBN_TextBox.Size = new System.Drawing.Size(217, 26);
+            this.MaBN_TextBox.TabIndex = 40;
             // 
             // button1
             // 
@@ -150,6 +151,7 @@ namespace ATBM191_09_UI
             this.button1.TabIndex = 39;
             this.button1.Text = "Lưu";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label11
             // 
@@ -163,7 +165,7 @@ namespace ATBM191_09_UI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(441, 410);
+            this.label10.Location = new System.Drawing.Point(430, 410);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 20);
             this.label10.TabIndex = 37;
@@ -192,9 +194,9 @@ namespace ATBM191_09_UI
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(430, 344);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 20);
+            this.label7.Size = new System.Drawing.Size(74, 20);
             this.label7.TabIndex = 34;
-            this.label7.Text = "Tỉnh TP: ";
+            this.label7.Text = "Tỉnh/ TP: ";
             // 
             // label6
             // 
@@ -262,7 +264,6 @@ namespace ATBM191_09_UI
             this.header_panel.Name = "header_panel";
             this.header_panel.Size = new System.Drawing.Size(845, 104);
             this.header_panel.TabIndex = 27;
-            this.header_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.header_panel_Paint);
             // 
             // header_label
             // 
@@ -286,33 +287,33 @@ namespace ATBM191_09_UI
             this.label12.TabIndex = 51;
             this.label12.Text = "Ngày sinh : ";
             // 
-            // dateTimePicker1
+            // NgaySinh_dateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(184, 405);
-            this.dateTimePicker1.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(217, 26);
-            this.dateTimePicker1.TabIndex = 52;
+            this.NgaySinh_dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.NgaySinh_dateTimePicker.Location = new System.Drawing.Point(184, 405);
+            this.NgaySinh_dateTimePicker.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
+            this.NgaySinh_dateTimePicker.Name = "NgaySinh_dateTimePicker";
+            this.NgaySinh_dateTimePicker.Size = new System.Drawing.Size(217, 26);
+            this.NgaySinh_dateTimePicker.TabIndex = 52;
             // 
             // ThongTinCaNhan_BN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 615);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.NgaySinh_dateTimePicker);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TenDuong_TextBox);
+            this.Controls.Add(this.TieuSuGD_TextBox);
+            this.Controls.Add(this.TinhTP_TextBox);
+            this.Controls.Add(this.CMND_TextBox);
+            this.Controls.Add(this.MaCSYT_TextBox);
+            this.Controls.Add(this.SoNha_TextBox);
+            this.Controls.Add(this.ThuocDiUng_textBox);
+            this.Controls.Add(this.TieuSuBenh_TextBox);
+            this.Controls.Add(this.QuanHuyen_TextBox);
+            this.Controls.Add(this.TenBN_TextBox);
+            this.Controls.Add(this.MaBN_TextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -337,17 +338,17 @@ namespace ATBM191_09_UI
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TenDuong_TextBox;
+        private System.Windows.Forms.TextBox TieuSuGD_TextBox;
+        private System.Windows.Forms.TextBox TinhTP_TextBox;
+        private System.Windows.Forms.TextBox CMND_TextBox;
+        private System.Windows.Forms.TextBox MaCSYT_TextBox;
+        private System.Windows.Forms.TextBox SoNha_TextBox;
+        private System.Windows.Forms.TextBox ThuocDiUng_textBox;
+        private System.Windows.Forms.TextBox TieuSuBenh_TextBox;
+        private System.Windows.Forms.TextBox QuanHuyen_TextBox;
+        private System.Windows.Forms.TextBox TenBN_TextBox;
+        private System.Windows.Forms.TextBox MaBN_TextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -363,6 +364,6 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.Panel header_panel;
         private System.Windows.Forms.Label header_label;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker NgaySinh_dateTimePicker;
     }
 }

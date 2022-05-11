@@ -45,19 +45,19 @@ namespace ATBM191_09_UI
             this.TenNV_TextBox = new System.Windows.Forms.TextBox();
             this.QueQuanNV_TextBox = new System.Windows.Forms.TextBox();
             this.VaiTroNV_TextBox = new System.Windows.Forms.TextBox();
-            this.NgaySinhNV_TextBox = new System.Windows.Forms.TextBox();
-            this.GiơiTinhNV_TextBox = new System.Windows.Forms.TextBox();
             this.ChuyenKhoaNV_TextBox = new System.Windows.Forms.TextBox();
             this.SĐT_NV_TextBox = new System.Windows.Forms.TextBox();
             this.CMND_NV_TextBox = new System.Windows.Forms.TextBox();
             this.MaCSYT_NV_TextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.Phai_ComboBox = new System.Windows.Forms.ComboBox();
+            this.NgaySinh_Picker = new System.Windows.Forms.DateTimePicker();
             this.header_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // header_panel
             // 
-            this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.header_panel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.header_panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.header_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(75)))));
@@ -89,7 +89,6 @@ namespace ATBM191_09_UI
             this.label1.Size = new System.Drawing.Size(123, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Mã nhân viên :   ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -99,7 +98,6 @@ namespace ATBM191_09_UI
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Họ tên :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -127,7 +125,6 @@ namespace ATBM191_09_UI
             this.label6.Size = new System.Drawing.Size(91, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Quê quán : ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -146,7 +143,6 @@ namespace ATBM191_09_UI
             this.label8.Size = new System.Drawing.Size(67, 20);
             this.label8.TabIndex = 11;
             this.label8.Text = "Vai Trò :";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -178,6 +174,7 @@ namespace ATBM191_09_UI
             this.button1.TabIndex = 15;
             this.button1.Text = "Lưu";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MaNV_TextBox
             // 
@@ -209,20 +206,7 @@ namespace ATBM191_09_UI
             this.VaiTroNV_TextBox.Name = "VaiTroNV_TextBox";
             this.VaiTroNV_TextBox.Size = new System.Drawing.Size(217, 26);
             this.VaiTroNV_TextBox.TabIndex = 19;
-            // 
-            // NgaySinhNV_TextBox
-            // 
-            this.NgaySinhNV_TextBox.Location = new System.Drawing.Point(174, 278);
-            this.NgaySinhNV_TextBox.Name = "NgaySinhNV_TextBox";
-            this.NgaySinhNV_TextBox.Size = new System.Drawing.Size(217, 26);
-            this.NgaySinhNV_TextBox.TabIndex = 21;
-            // 
-            // GiơiTinhNV_TextBox
-            // 
-            this.GiơiTinhNV_TextBox.Location = new System.Drawing.Point(570, 278);
-            this.GiơiTinhNV_TextBox.Name = "GiơiTinhNV_TextBox";
-            this.GiơiTinhNV_TextBox.Size = new System.Drawing.Size(217, 26);
-            this.GiơiTinhNV_TextBox.TabIndex = 26;
+            this.VaiTroNV_TextBox.TextChanged += new System.EventHandler(this.VaiTroNV_TextBox_TextChanged);
             // 
             // ChuyenKhoaNV_TextBox
             // 
@@ -252,6 +236,7 @@ namespace ATBM191_09_UI
             this.MaCSYT_NV_TextBox.Name = "MaCSYT_NV_TextBox";
             this.MaCSYT_NV_TextBox.Size = new System.Drawing.Size(217, 26);
             this.MaCSYT_NV_TextBox.TabIndex = 22;
+            this.MaCSYT_NV_TextBox.TextChanged += new System.EventHandler(this.MaCSYT_NV_TextBox_TextChanged);
             // 
             // label4
             // 
@@ -261,19 +246,39 @@ namespace ATBM191_09_UI
             this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Ngày sinh :";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // Phai_ComboBox
+            // 
+            this.Phai_ComboBox.FormattingEnabled = true;
+            this.Phai_ComboBox.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ"});
+            this.Phai_ComboBox.Location = new System.Drawing.Point(570, 281);
+            this.Phai_ComboBox.Name = "Phai_ComboBox";
+            this.Phai_ComboBox.Size = new System.Drawing.Size(217, 28);
+            this.Phai_ComboBox.TabIndex = 27;
+            // 
+            // NgaySinh_Picker
+            // 
+            this.NgaySinh_Picker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.NgaySinh_Picker.Location = new System.Drawing.Point(174, 279);
+            this.NgaySinh_Picker.MaxDate = new System.DateTime(2022, 5, 12, 0, 0, 0, 0);
+            this.NgaySinh_Picker.Name = "NgaySinh_Picker";
+            this.NgaySinh_Picker.Size = new System.Drawing.Size(217, 26);
+            this.NgaySinh_Picker.TabIndex = 53;
+            this.NgaySinh_Picker.ValueChanged += new System.EventHandler(this.NgaySinh_Picker_ValueChanged);
             // 
             // ThongTinCaNhan_NV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(839, 556);
-            this.Controls.Add(this.GiơiTinhNV_TextBox);
+            this.Controls.Add(this.NgaySinh_Picker);
+            this.Controls.Add(this.Phai_ComboBox);
             this.Controls.Add(this.ChuyenKhoaNV_TextBox);
             this.Controls.Add(this.SĐT_NV_TextBox);
             this.Controls.Add(this.CMND_NV_TextBox);
             this.Controls.Add(this.MaCSYT_NV_TextBox);
-            this.Controls.Add(this.NgaySinhNV_TextBox);
             this.Controls.Add(this.VaiTroNV_TextBox);
             this.Controls.Add(this.QueQuanNV_TextBox);
             this.Controls.Add(this.TenNV_TextBox);
@@ -292,7 +297,6 @@ namespace ATBM191_09_UI
             this.Controls.Add(this.header_panel);
             this.Name = "ThongTinCaNhan_NV";
             this.Text = "ThongTinCaNhan";
-            this.Load += new System.EventHandler(this.ThongTinCaNhan_Load);
             this.header_panel.ResumeLayout(false);
             this.header_panel.PerformLayout();
             this.ResumeLayout(false);
@@ -318,12 +322,12 @@ namespace ATBM191_09_UI
         private System.Windows.Forms.TextBox TenNV_TextBox;
         private System.Windows.Forms.TextBox QueQuanNV_TextBox;
         private System.Windows.Forms.TextBox VaiTroNV_TextBox;
-        private System.Windows.Forms.TextBox NgaySinhNV_TextBox;
-        private System.Windows.Forms.TextBox GiơiTinhNV_TextBox;
         private System.Windows.Forms.TextBox ChuyenKhoaNV_TextBox;
         private System.Windows.Forms.TextBox SĐT_NV_TextBox;
         private System.Windows.Forms.TextBox CMND_NV_TextBox;
         private System.Windows.Forms.TextBox MaCSYT_NV_TextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox Phai_ComboBox;
+        private System.Windows.Forms.DateTimePicker NgaySinh_Picker;
     }
 }

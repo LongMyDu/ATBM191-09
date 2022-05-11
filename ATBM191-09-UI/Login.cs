@@ -46,9 +46,27 @@ namespace ATBM191_09_UI
                         YBacSiMenu menu = new YBacSiMenu();
                         menu.Show();
                     }
+                    else if (user_role == "Bệnh nhân")
+                    {
+                        BenhNhanMenu menu = new BenhNhanMenu();
+                        menu.Show();
+                    }
+                    else if (user_role == "Nghiên cứu")
+                    {
+                        NghienCuuMenu menu = new NghienCuuMenu();
+                        menu.Show();
+                    }
+                    else if (user_role == "Cơ sở y tế")
+                    {
+                        CSYTEMenu menu = new CSYTEMenu();
+                        menu.Show();
+                    }
+
                     else
                     {
                         MessageBox.Show("Người dùng không hợp lệ");
+                        con.Close();
+                        return;
                     }
                     
                     con.Close();
